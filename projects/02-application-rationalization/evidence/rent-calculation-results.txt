@@ -1,0 +1,14 @@
+PASS: RENT-001: EUR 2500.00
+PASS: RENT-002: EUR 0.00
+PASS: RENT-003: EUR 3000.00
+PASS: RENT-004: EUR 4800.00
+PASS: RENT-005: EUR 3000.00
+PASS: RENT-006: EUR 3000.00
+PASS: RENT-007: EUR 50.01
+PASS: RENT-008: EUR 4200.00
+PASS: RENT-009: rejected input (eligible_turnover: required)
+PASS: RENT-010: rejected input (eligible_turnover: must be nonnegative)
+PASS: RENT-011: rejected input (turnover_rate: must not exceed 1)
+PASS: RENT-012: rejected input (monthly_fixed_rent: must be nonnegative)
+
+Results: 12 passed; 0 failed

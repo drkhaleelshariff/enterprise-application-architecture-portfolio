@@ -19,7 +19,7 @@ This is a portfolio demonstration, not a client engagement or production system.
 | Project | Status | Evidence |
 |---|---|---|
 | 1. Business capabilities and application inventory | Initial baseline implemented | Nine CSV files, validator, five test scenarios, diagram and decision record |
-| 2. Rationalization and target-state roadmap | Planned | Not yet implemented |
+| 2. Rationalization and target-state roadmap | Assessment and calculation demonstration implemented; roadmap pending | [Options, requirements and 12 calculation cases](projects/02-application-rationalization/README.md) |
 | 3. Lease-to-billing integration | Planned | Not yet implemented |
 | 4. Multi-entity identity and access | Planned | Not yet implemented |
 | 5. Permission-aware property operations RAG | Planned | Not yet implemented |
