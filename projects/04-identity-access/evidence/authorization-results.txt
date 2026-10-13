@@ -1,0 +1,15 @@
+PASS: North reads North
+PASS: North denied South
+PASS: South reads South
+PASS: South denied North
+PASS: Group reads North
+PASS: Group reads South
+PASS: Disabled denied North
+PASS: Disabled denied South
+PASS: Unknown identity denied
+PASS: Unknown record denied
+PASS: Write denied
+PASS: Unknown action denied
+PASS: disabling identity denies its next access check
+
+Results: 13 passed; 0 failed

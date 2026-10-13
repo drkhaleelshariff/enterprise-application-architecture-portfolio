@@ -2,7 +2,11 @@
 
 ## Status
 
-Scope defined. Implementation pending.
+Entity-scoped read authorization implemented.
+Thirteen checks cover allowed reads, denied access and identity disabling.
+
+Authentication remains simulated. Service identities, separation of
+duties and access review remain pending.
 
 All identities, roles, records and access decisions are synthetic.
 
@@ -80,4 +84,30 @@ the initial threat model.
 
 ## Next step
 
-Create the synthetic identity register and protected lease records.
+Verify that malformed or unavailable configuration fails closed.
+Then extend the demonstration with scoped service identities.
+
+## Run the demonstration
+
+From the repository root:
+
+```bat
+python scripts\authorize_lease.py USR-001 LEASE-001
+python scripts\test_authorize_lease.py
+```
+
+The first command returns the authorized North lease.
+The test script should report 13 passed and 0 failed.
+
+CLI exit codes:
+
+- 0: access allowed.
+- 1: access denied.
+- 2: invalid invocation or unavailable/invalid configuration.
+
+Tests modify temporary copies; the committed identity register remains
+unchanged.
+
+## Evidence
+
+See the [authorization results](evidence/authorization-results.txt).
