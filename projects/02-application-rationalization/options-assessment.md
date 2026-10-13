@@ -60,13 +60,22 @@ Passing a gate requires recorded evidence. An unknown is not a pass.
   INT-003 and INT-004.
 - Application replacement may require interface changes and identifier
   mapping across these dependencies.
-- Full dependency discovery is
+- Full dependency discovery is still required. The six registered
+  integrations are a limited scenario baseline, not a complete inventory.
 
-Commit **`6ce230a`** is published. All 14 evidence records passed validation, and your working tree is clean.
+## Retirement conditions
 
-Next, write the **options assessment**. The current recommendation is to retain the four applications temporarily while investigating consolidation. We lack evidence to select a surviving system.
+A displaced application may be retired only after:
 
-**1. Create the assessment**
+- Required functions operate in the selected solution.
+- Required data has been migrated or retained under an agreed policy.
+- Critical records and business values have been reconciled.
+- Dependent interfaces have been transferred or removed.
+- Business and technical owners have accepted the transition.
+- Recovery arrangements have been tested for the migration approach.
 
-```bat
-notepad projects\02-application-rationalization\options-assessment.md
+## Next step
+
+Create a requirements comparison for both application pairs.
+Use it to assess consolidation feasibility without treating unknown
+capabilities as supported.
