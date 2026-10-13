@@ -120,3 +120,7 @@ Exit codes:
 Reconciliation reports issues without repairing records.
 Run it while no other process is writing: reads from the two databases
 do not form a synchronized snapshot.
+
+## Architecture decision
+
+See [ADR-002: Repeat-safe accounting handoff](../../docs/decisions/ADR-002-repeat-safe-accounting-handoff.md).
