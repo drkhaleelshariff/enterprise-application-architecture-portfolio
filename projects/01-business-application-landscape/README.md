@@ -25,6 +25,8 @@ All business details, applications, roles and records are synthetic.
 
 See the [current-state integration diagram](current-state.md).
 
+See [ADR-001: Separate application ownership and usage](../../docs/decisions/ADR-001-separate-ownership-and-usage.md).
+
 - Entities identify the fictional operating businesses.
 - Capabilities describe what the business can do.
 - Processes identify selected workflows and their primary capabilities.
