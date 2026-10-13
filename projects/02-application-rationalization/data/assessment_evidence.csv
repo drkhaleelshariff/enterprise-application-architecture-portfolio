@@ -1,0 +1,15 @@
+evidence_id,application_id,criterion,evidence_status,statement,source
+EVD-001,APP-001,business_fit,synthetic_assumption,Supports office property records but retail-specific requirements have not been assessed,Portfolio scenario assumption
+EVD-002,APP-002,business_fit,synthetic_assumption,Supports retail property records including unit classification,Portfolio scenario assumption
+EVD-003,APP-001,entity_coverage,unknown,Ability to support South requirements is not established,Pending requirements comparison
+EVD-004,APP-002,entity_coverage,unknown,Ability to support North requirements is not established,Pending requirements comparison
+EVD-005,APP-001,integration_suitability,inventory_record,Sends property identifiers and attributes to APP-003 through INT-001,Project 1 integrations.csv
+EVD-006,APP-002,integration_suitability,inventory_record,Sends property identifiers and attributes to APP-004 through INT-002,Project 1 integrations.csv
+EVD-007,APP-003,integration_suitability,inventory_record,Sends approved lease terms and billing schedules to APP-007 through INT-003,Project 1 integrations.csv
+EVD-008,APP-004,integration_suitability,inventory_record,Sends approved lease terms and billing schedules to APP-007 through INT-004,Project 1 integrations.csv
+EVD-009,APP-003,business_fit,synthetic_assumption,Supports office lease approvals and scheduled rent charges,Portfolio scenario assumption
+EVD-010,APP-004,business_fit,synthetic_assumption,Tracks retail leases with turnover-based rent requiring spreadsheet calculations,Portfolio scenario assumption
+EVD-011,APP-003,business_fit,unknown,Support for turnover-based retail rent is not established,Pending functional assessment
+EVD-012,APP-004,data_suitability,unknown,Completeness of historical lease amendments is not established,Pending data profiling
+EVD-013,APP-003,security_suitability,unknown,Record-level separation between North and South has not been tested,Pending access-control assessment
+EVD-014,APP-004,lifecycle_viability,unknown,Long-term support and upgrade arrangements are not established,Pending support assessment
