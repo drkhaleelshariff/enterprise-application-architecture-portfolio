@@ -1,0 +1,11 @@
+application_id,name,owning_entity_id,purpose,business_owner,technical_owner,lifecycle_status
+APP-001,North Property Register,ENT-001,Maintain North property records,Head of Property Operations,Property Systems Lead,active
+APP-002,South Property Register,ENT-002,Maintain South property records,Head of Property Operations,Property Systems Lead,active
+APP-003,North Lease Manager,ENT-001,Manage North lease terms and approvals,Head of Leasing,Leasing Systems Lead,active
+APP-004,South Lease Tracker,ENT-002,Manage South lease terms and approvals,Head of Leasing,Leasing Systems Lead,active
+APP-005,Meridian Tenant Service Desk,ENT-001,Manage tenant communications and service requests,Head of Tenant Services,Service Desk Systems Lead,active
+APP-006,Meridian Maintenance Planner,ENT-002,Manage property maintenance work orders,Head of Facilities,Facilities Systems Lead,active
+APP-007,Meridian Billing Service,ENT-001,Generate lease charges and track collections,Head of Finance,Finance Systems Lead,active
+APP-008,Meridian Procurement Portal,ENT-001,Manage purchase requests and supplier approvals,Head of Procurement,Procurement Systems Lead,active
+APP-009,Meridian Accounting Platform,ENT-001,Maintain accounting records and financial reports,Financial Controller,Finance Systems Lead,active
+APP-010,Meridian Workforce Hub,ENT-001,Manage employee records onboarding and offboarding,Head of Human Resources,Workforce Systems Lead,active
