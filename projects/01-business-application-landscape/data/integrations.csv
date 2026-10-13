@@ -1,0 +1,7 @@
+integration_id,source_application_id,target_application_id,data_exchanged,mechanism,owner
+INT-001,APP-001,APP-003,North property identifiers and attributes,nightly_csv_import,Property Systems Lead
+INT-002,APP-002,APP-004,South property identifiers and attributes,manual_csv_import,Property Systems Lead
+INT-003,APP-003,APP-007,North approved lease terms and billing schedules,rest_api,Leasing Systems Lead
+INT-004,APP-004,APP-007,South approved lease terms and billing schedules,manual_csv_import,Leasing Systems Lead
+INT-005,APP-007,APP-009,Invoice and receivable posting records,nightly_csv_import,Finance Systems Lead
+INT-006,APP-008,APP-009,Approved supplier invoice records,nightly_csv_import,Procurement Systems Lead
