@@ -1,0 +1,13 @@
+PASS: health endpoint responds
+PASS: first submission returns HTTP 201
+PASS: repeat submission returns HTTP 200
+PASS: conflicting content returns HTTP 409
+PASS: malformed JSON returns HTTP 400
+PASS: duplicate JSON keys return HTTP 400
+PASS: invalid invoice returns HTTP 422
+PASS: unsupported media type returns HTTP 415
+PASS: incorrect method returns HTTP 405
+PASS: unknown path returns HTTP 404
+PASS: one unchanged posting remains
+
+Results: 11 passed; 0 failed

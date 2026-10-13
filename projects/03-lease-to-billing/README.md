@@ -10,7 +10,9 @@ Accounting acknowledgement and locally simulated outage and
 lost-confirmation recovery are implemented and tested.
 
 Read-only reconciliation is implemented and tested.
-Network service boundaries remain pending.
+
+The accounting HTTP server and eleven interface checks are implemented.
+Billing still uses the local handoff; an HTTP billing client remains pending.
 
 All leases, transactions and accounting records are synthetic.
 
@@ -95,11 +97,14 @@ The local database is stored under runtime/ and excluded from Git.
 - [Accounting receiver results](evidence/accounting-receiver-results.txt)
 - [Accounting handoff results](evidence/accounting-handoff-results.txt)
 - [Reconciliation results](evidence/reconciliation-results.txt)
+- [Accounting HTTP results](evidence/accounting-http-results.txt)
+- [HTTP contract](http-contract.md)
 
 ## Next implementation step
 
-Introduce an HTTP contract and a separately running accounting service.
-Preserve repeat-safe posting and confirmation handling across that boundary.
+Connect billing to accounting through an HTTP client with a finite timeout.
+Verify acknowledgements before updating billing, and retain repeat-safe
+recovery when a response is lost.
 
 ## Reconcile the working databases
 
