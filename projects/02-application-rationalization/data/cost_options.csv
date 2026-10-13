@@ -1,0 +1,4 @@
+option_id,name,current_monthly_cost,target_monthly_cost,implementation,data_migration,integration_change,training,parallel_operation,retirement,contingency_rate
+OPT-001,Retain and improve,6000.00,6000.00,12000.00,0.00,10000.00,2000.00,0.00,0.00,0.20
+OPT-002,Consolidate existing applications,6000.00,4000.00,25000.00,15000.00,18000.00,5000.00,6000.00,3000.00,0.20
+OPT-003,Replace with combined solution,6000.00,4500.00,50000.00,20000.00,25000.00,8000.00,12000.00,4000.00,0.20
