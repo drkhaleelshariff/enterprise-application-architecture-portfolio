@@ -1,0 +1,9 @@
+capability_id,name,description,business_owner
+CAP-001,Property Portfolio Management,Maintain property records and portfolio structure,Head of Property Operations
+CAP-002,Lease Management,Manage lease terms approvals renewals and termination,Head of Leasing
+CAP-003,Tenant Relationship Management,Manage tenant records communications and service requests,Head of Tenant Services
+CAP-004,Property Maintenance,Plan and manage preventive and corrective maintenance,Head of Facilities
+CAP-005,Billing and Collections,Generate charges and manage receivables and collections,Head of Finance
+CAP-006,Procurement and Supplier Management,Manage suppliers purchasing and procurement approvals,Head of Procurement
+CAP-007,Financial Accounting and Reporting,Maintain accounting records and produce financial reports,Financial Controller
+CAP-008,Workforce Administration,Manage employee records onboarding and offboarding,Head of Human Resources
