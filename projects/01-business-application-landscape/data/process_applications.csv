@@ -1,0 +1,11 @@
+process_id,application_id,participation
+PROC-001,APP-001,Supply North property records
+PROC-001,APP-002,Supply South property records
+PROC-001,APP-003,Manage North lease approvals and terms
+PROC-001,APP-004,Manage South lease approvals and terms
+PROC-001,APP-005,Support tenant billing queries
+PROC-001,APP-007,Generate charges and track collections
+PROC-001,APP-009,Record receivables and reconcile payments
+PROC-002,APP-008,Manage purchase and supplier invoice approvals
+PROC-002,APP-009,Record supplier liabilities and payments
+PROC-003,APP-010,Create employee records and coordinate onboarding

@@ -20,6 +20,7 @@ All business details, applications, roles and records are synthetic.
 | Process-to-capability mappings | 8 |
 | Application-to-entity mappings | 16 |
 | Directional integrations | 6 |
+| Process-to-application mappings | 10 |
 
 ## Model
 
@@ -37,9 +38,9 @@ See [ADR-001: Separate application ownership and usage](../../docs/decisions/ADR
 Application ownership and application usage are modeled separately.
 Shared usage does not imply permission to access another entity's records.
 
-Process-to-capability mappings do not establish which applications
-participate in individual process steps. That detail requires explicit
-process/application mapping and workflow analysis.
+Process-to-application mappings explicitly record application participation.
+They do not establish execution order or prove that every process step
+has been implemented.
 
 ## Run the checks
 
@@ -69,6 +70,7 @@ The validator checks:
 - Inclusion of each process's primary capability in its mappings.
 - Accepted lifecycle statuses and integration mechanisms.
 - Self-integrations, which are excluded from this scenario.
+- Process/application references and application participation for each process.
 
 The test runner uses temporary inventory copies to exercise:
 
@@ -117,5 +119,5 @@ that consolidation or replacement is justified.
 
 ## Next steps
 
-Add explicit process/application participation, document the current-state
-diagram and modeling decisions, then assess rationalization options.
+Assess application rationalization options and identify missing process
+handoffs before designing the target integration workflow.

@@ -31,6 +31,9 @@ SCHEMAS = {
     "application_entities.csv": [
         "application_id", "entity_id"
     ],
+    "process_applications.csv": [
+        "process_id", "application_id", "participation"
+    ],
     "integrations.csv": [
         "integration_id", "source_application_id",
         "target_application_id", "data_exchanged", "mechanism", "owner"
@@ -50,6 +53,7 @@ KEYS = {
     for filename, columns in SCHEMAS.items()
 }
 
+KEYS["process_applications.csv"] = ["process_id", "application_id"]
 
 def validate():
     errors = []
@@ -129,6 +133,8 @@ def validate():
         ("process_capabilities.csv", "capability_id", capabilities),
         ("application_entities.csv", "application_id", applications),
         ("application_entities.csv", "entity_id", entities),
+        ("process_applications.csv", "process_id", processes),
+        ("process_applications.csv", "application_id", applications),
         ("integrations.csv", "source_application_id", applications),
         ("integrations.csv", "target_application_id", applications),
     ]
@@ -172,6 +178,12 @@ def validate():
             "entity_id",
             entities,
             "Entity has no application coverage",
+        ),
+        (
+            "process_applications.csv",
+            "process_id",
+            processes,
+            "Process has no participating application",
         ),
     ]
 
