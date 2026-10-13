@@ -7,6 +7,8 @@ conditional target state and gated roadmap documented.
 
 Candidate assessments, migration and stakeholder approval remain pending.
 
+All business details and assessment evidence are synthetic.
+
 ## Business question
 
 Should Meridian retain, consolidate or replace its overlapping property
