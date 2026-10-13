@@ -20,7 +20,7 @@ This is a portfolio demonstration, not a client engagement or production system.
 |---|---|---|
 | 1. Business capabilities and application inventory | Initial baseline implemented | Nine CSV files, validator, five test scenarios, diagram and decision record |
 | 2. Rationalization and target-state roadmap | Initial assessment baseline documented | [Requirements, calculation evidence, cost sensitivities, conditional roadmap and executive brief](projects/02-application-rationalization/README.md) |
-| 3. Lease-to-billing integration | Lease validation and persistent invoice handling implemented | [Runnable checks and storage evidence](projects/03-lease-to-billing/README.md); accounting integration pending |
+| 3. Lease-to-billing integration | Demonstration baseline implemented and verified in a separate clone | [HTTP handoff, repeat-safe posting, failure recovery, reconciliation and runbook](projects/03-lease-to-billing/README.md); 49 scenario checks across nine scripts |
 | 4. Multi-entity identity and access | Planned | Not yet implemented |
 | 5. Permission-aware property operations RAG | Planned | Not yet implemented |
 | 6. Architecture governance and investment proposal | Planned | One modeling decision recorded; review process and proposal pending |
@@ -64,5 +64,5 @@ question; they do not by themselves justify consolidation.
 
 ## Next milestone
 
-Build the lease-to-billing reference integration with explicit contracts,
-duplicate prevention, simulated failures and reconciliation.
+Build multi-entity identity and access controls, with tests proving
+authorized access and prohibited cross-entity access.
