@@ -1,0 +1,7 @@
+PASS: first delivery creates an accepted posting
+PASS: repeat delivery returns the existing posting
+PASS: conflicting invoice content is rejected
+PASS: status change does not create a new posting
+PASS: one unchanged accounting posting remains
+
+Results: 5 passed; 0 failed
