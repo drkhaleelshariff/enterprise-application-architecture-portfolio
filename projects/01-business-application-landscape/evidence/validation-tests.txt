@@ -1,0 +1,7 @@
+PASS: valid baseline
+PASS: missing technical owner detected
+PASS: unknown integration target detected
+PASS: unsupported capability detected
+PASS: duplicate entity mapping detected
+
+PASS: all 5 validation scenarios behaved as expected

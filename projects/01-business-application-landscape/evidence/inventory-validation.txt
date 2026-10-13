@@ -1,0 +1,10 @@
+entities.csv: 2 records
+capabilities.csv: 8 records
+processes.csv: 3 records
+applications.csv: 10 records
+application_capabilities.csv: 10 records
+process_capabilities.csv: 8 records
+application_entities.csv: 16 records
+integrations.csv: 6 records
+
+PASS: inventory structure and references are valid
