@@ -1,0 +1,6 @@
+PASS: client detects lost HTTP confirmation
+PASS: posting exists while billing remains pending
+PASS: HTTP retry acknowledges the existing posting
+PASS: recovery reconciles one unchanged posting
+
+Results: 4 passed; 0 failed
