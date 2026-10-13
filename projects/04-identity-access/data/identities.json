@@ -1,0 +1,37 @@
+{
+  "schema_version": "1",
+  "identities": [
+    {
+      "identity_id": "USR-001",
+      "display_name": "North Reader",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_reader",
+      "entity_ids": ["ENT-001"]
+    },
+    {
+      "identity_id": "USR-002",
+      "display_name": "South Reader",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_reader",
+      "entity_ids": ["ENT-002"]
+    },
+    {
+      "identity_id": "USR-003",
+      "display_name": "Group Reader",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_reader",
+      "entity_ids": ["ENT-001", "ENT-002"]
+    },
+    {
+      "identity_id": "USR-004",
+      "display_name": "Disabled Reader",
+      "identity_type": "human",
+      "status": "disabled",
+      "role": "lease_reader",
+      "entity_ids": ["ENT-001"]
+    }
+  ]
+}
