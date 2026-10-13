@@ -1,0 +1,6 @@
+PASS: service reads its permitted North lease
+PASS: service is denied South lease content
+PASS: service write attempt is denied
+PASS: disabling service denies its next access check
+
+Results: 4 passed; 0 failed

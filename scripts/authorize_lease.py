@@ -88,7 +88,7 @@ def load_data(folder):
     for identity in identities.values():
         memberships = identity["entity_ids"]
         if (
-            identity["identity_type"] != "human"
+            identity["identity_type"] not in {"human", "service"}
             or identity["status"] not in {"active", "disabled"}
             or identity["role"] not in roles
             or not isinstance(memberships, list)

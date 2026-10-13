@@ -5,8 +5,11 @@
 Entity-scoped read authorization implemented.
 Thirteen checks cover allowed reads, denied access and identity disabling.
 
-Authentication remains simulated. Service identities, separation of
-duties and access review remain pending.
+A North-scoped service identity is implemented with four access and
+disabling checks.
+
+Authentication remains simulated. Separation of duties and access
+review remain pending.
 
 All identities, roles, records and access decisions are synthetic.
 
@@ -48,6 +51,8 @@ not from caller-supplied claims.
 
 ## First demonstration
 
+- North reporting service: can read North leases only; cannot write.
+
 Use two lease records:
 
 - LEASE-001 belongs to ENT-001.
@@ -84,7 +89,7 @@ the initial threat model.
 
 ## Next step
 
-Extend the demonstration with scoped service identities.
+Demonstrate separation of duties through a request-and-approval workflow.
 Authentication remains simulated.
 
 ## Run the demonstration
@@ -95,11 +100,13 @@ From the repository root:
 python scripts\authorize_lease.py USR-001 LEASE-001
 python scripts\test_authorize_lease.py
 python scripts\test_authorization_config.py
+python scripts\test_service_authorization.py
 ```
 
 The first command returns the authorized North lease.
 test_authorize_lease.py should report 13 passed and 0 failed.
 test_authorization_config.py should report 9 passed and 0 failed.
+test_service_authorization.py should report 4 passed and 0 failed.
 
 The configuration tests verify rejection of missing or malformed registers,
 duplicate keys and identities, unknown references and invalid permissions.
@@ -117,3 +124,5 @@ unchanged.
 
 - [Authorization results](evidence/authorization-results.txt)
 - [Configuration validation results](evidence/configuration-validation-results.txt)
+- [Service authorization results](evidence/service-authorization-results.txt)
+

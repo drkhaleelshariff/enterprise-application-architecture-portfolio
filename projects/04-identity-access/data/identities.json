@@ -32,6 +32,14 @@
       "status": "disabled",
       "role": "lease_reader",
       "entity_ids": ["ENT-001"]
+    },
+    {
+      "identity_id": "SVC-001",
+      "display_name": "North Lease Reporting Service",
+      "identity_type": "service",
+      "status": "active",
+      "role": "lease_reader",
+      "entity_ids": ["ENT-001"]
     }
   ]
 }
