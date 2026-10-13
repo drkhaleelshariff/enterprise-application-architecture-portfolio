@@ -1,0 +1,4 @@
+PASS: approved lease produces the expected instruction
+PASS: unapproved lease is rejected without an instruction
+
+Results: 2 passed; 0 failed
