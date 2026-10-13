@@ -1,0 +1,8 @@
+PASS: acknowledged invoice and posting match
+PASS: missing accounting posting is detected
+PASS: unrecorded confirmation is detected
+PASS: different posting content is detected
+PASS: incorrect posting identifier is detected
+PASS: posting without a billing invoice is detected
+
+Results: 6 passed; 0 failed

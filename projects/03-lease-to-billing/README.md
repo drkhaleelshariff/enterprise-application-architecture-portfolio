@@ -9,7 +9,8 @@ is rejected.
 Accounting acknowledgement and locally simulated outage and
 lost-confirmation recovery are implemented and tested.
 
-Reconciliation and network service boundaries remain pending.
+Read-only reconciliation is implemented and tested.
+Network service boundaries remain pending.
 
 All leases, transactions and accounting records are synthetic.
 
@@ -93,10 +94,25 @@ The local database is stored under runtime/ and excluded from Git.
 - [Invoice storage results](evidence/invoice-storage-results.txt)
 - [Accounting receiver results](evidence/accounting-receiver-results.txt)
 - [Accounting handoff results](evidence/accounting-handoff-results.txt)
+- [Reconciliation results](evidence/reconciliation-results.txt)
 
 ## Next implementation step
 
-Reconcile billing invoices against accounting postings.
+Introduce an HTTP contract and a separately running accounting service.
+Preserve repeat-safe posting and confirmation handling across that boundary.
 
-Detect missing postings, content differences and postings whose
-confirmation has not yet been recorded in billing.
+## Reconcile the working databases
+
+```bat
+python scripts\reconcile_invoices.py
+```
+
+Exit codes:
+
+- 0: comparison completed with no issues.
+- 1: comparison completed and found inconsistencies.
+- 2: comparison could not complete.
+
+Reconciliation reports issues without repairing records.
+Run it while no other process is writing: reads from the two databases
+do not form a synchronized snapshot.
