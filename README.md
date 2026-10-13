@@ -19,7 +19,7 @@ This is a portfolio demonstration, not a client engagement or production system.
 | Project | Status | Evidence |
 |---|---|---|
 | 1. Business capabilities and application inventory | Initial baseline implemented | Nine CSV files, validator, five test scenarios, diagram and decision record |
-| 2. Rationalization and target-state roadmap | Assessment and calculation demonstration implemented; roadmap pending | [Options, requirements and 12 calculation cases](projects/02-application-rationalization/README.md) |
+| 2. Rationalization and target-state roadmap | Initial assessment baseline documented | [Requirements, calculation evidence, cost sensitivities, conditional roadmap and executive brief](projects/02-application-rationalization/README.md) |
 | 3. Lease-to-billing integration | Planned | Not yet implemented |
 | 4. Multi-entity identity and access | Planned | Not yet implemented |
 | 5. Permission-aware property operations RAG | Planned | Not yet implemented |
@@ -64,5 +64,5 @@ question; they do not by themselves justify consolidation.
 
 ## Next milestone
 
-Assess application rationalization options using explicit criteria,
-supporting evidence, dependencies and migration constraints.
+Build the lease-to-billing reference integration with explicit contracts,
+duplicate prevention, simulated failures and reconciliation.

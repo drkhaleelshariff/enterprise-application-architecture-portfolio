@@ -2,10 +2,10 @@
 
 ## Status
 
-Initial assessment and reference calculation demonstration implemented.
-Cost comparison, target-state selection and migration roadmap remain pending.
+Initial assessment, reference calculation demonstration, cost model,
+conditional target state and gated roadmap documented.
 
-All business details and assessment evidence are synthetic.
+Candidate assessments, migration and stakeholder approval remain pending.
 
 ## Business question
 
@@ -24,6 +24,10 @@ requirements, migration feasibility and operating costs are assessed.
 5. Inspect the [rent rules](rent-calculation-rules.md) and
    [worked examples](data/rent_cases.csv).
 6. Run the reference calculator checks.
+7. Review the [cost assumptions](cost-assumptions.md) and
+   [calculated scenarios](evidence/cost-comparison.txt).
+8. Read the [conditional target and roadmap](target-state-roadmap.md).
+9. Read the [executive brief](executive-brief.md).
 
 ## Run the demonstration
 
@@ -78,7 +82,8 @@ The cases do not exhaustively test every input rule.
 
 ## Remaining work
 
-- Compare recurring and transition costs using explicit assumptions.
-- Propose a conditional target state.
-- Define transition stages and acceptance gates.
-- Produce an executive recommendation.
+- Demonstrate candidate-specific requirement acceptance.
+- Profile source data and perform a trial migration.
+- Refine costs using candidate-specific evidence.
+- Implement integration and recovery demonstrations.
+- Record simulated review decisions and their rationale.
