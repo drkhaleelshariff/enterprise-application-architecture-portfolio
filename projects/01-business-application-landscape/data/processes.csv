@@ -1,0 +1,4 @@
+process_id,name,primary_capability_id,trigger,outcome,process_owner
+PROC-001,Lease-to-Cash,CAP-002,Lease proposal submitted,Approved lease billed and payment reconciled,Head of Leasing
+PROC-002,Procure-to-Pay,CAP-006,Purchase requisition submitted,Approved purchase received and supplier payment recorded,Head of Procurement
+PROC-003,Employee Onboarding,CAP-008,Approved hire ready for onboarding,Employee record created and authorized access provisioned,Head of Human Resources
