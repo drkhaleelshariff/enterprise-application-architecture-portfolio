@@ -69,16 +69,8 @@ the fictional applications in the current-state inventory.
 
 ## Run the current demonstration
 
-From the repository root:
-
-```bat
-python scripts\test_lease_to_billing.py
-python scripts\test_store_invoice.py
-python scripts\test_http_lost_confirmation.py
-python scripts\test_http_contract_edges.py
-```
-
-Expected: two lease-validation checks and five invoice-storage checks pass.
+See the [operating runbook](runbook.md) for all nine test commands,
+expected results, startup, recovery and shutdown instructions.
 
 The storage tests use a temporary database and leave the working database
 unchanged.
