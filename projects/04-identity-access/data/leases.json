@@ -1,0 +1,21 @@
+{
+  "schema_version": "1",
+  "leases": [
+    {
+      "lease_id": "LEASE-001",
+      "entity_id": "ENT-001",
+      "property_id": "PROP-N-001",
+      "tenant_name": "Synthetic North Tenant",
+      "currency": "EUR",
+      "monthly_fixed_rent": "2500.00"
+    },
+    {
+      "lease_id": "LEASE-002",
+      "entity_id": "ENT-002",
+      "property_id": "PROP-S-001",
+      "tenant_name": "Synthetic South Tenant",
+      "currency": "EUR",
+      "monthly_fixed_rent": "3000.00"
+    }
+  ]
+}
