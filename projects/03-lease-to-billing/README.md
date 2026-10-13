@@ -2,7 +2,11 @@
 
 ## Status
 
-Implementation pending.
+Lease validation, invoice generation and SQLite persistence implemented.
+Repeat instructions return the existing invoice; conflicting content
+is rejected.
+
+Accounting acknowledgement, outage handling and reconciliation remain pending.
 
 All leases, transactions and accounting records are synthetic.
 
@@ -54,3 +58,42 @@ Taxes, service charges, partial periods and real accounting are excluded.
 
 This is a reference implementation, not a verified implementation of
 the fictional applications in the current-state inventory.
+
+## Run the current demonstration
+
+From the repository root:
+
+```bat
+python scripts\test_lease_to_billing.py
+python scripts\test_store_invoice.py
+```
+
+Expected: two lease-validation checks and five invoice-storage checks pass.
+
+The storage tests use a temporary database and leave the working database
+unchanged.
+
+To store the example invoice:
+
+```bat
+python scripts\store_invoice.py
+```
+
+The first delivery returns `created`. Subsequent identical deliveries
+return `existing`.
+
+The local database is stored under runtime/ and excluded from Git.
+
+## Evidence
+
+- [Lease validation results](evidence/lease-validation-results.txt)
+- [Invoice storage results](evidence/invoice-storage-results.txt)
+
+## Next implementation step
+
+Send the stored invoice to a separate simulated accounting database.
+
+Mark the billing invoice acknowledged only after accounting confirms
+the matching posting. If confirmation is lost, retry using the same
+invoice identifier so accounting can return the existing posting.
+
