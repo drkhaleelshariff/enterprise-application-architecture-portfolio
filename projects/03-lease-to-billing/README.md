@@ -6,7 +6,10 @@ Lease validation, invoice generation and SQLite persistence implemented.
 Repeat instructions return the existing invoice; conflicting content
 is rejected.
 
-Accounting acknowledgement, outage handling and reconciliation remain pending.
+Accounting acknowledgement and locally simulated outage and
+lost-confirmation recovery are implemented and tested.
+
+Reconciliation and network service boundaries remain pending.
 
 All leases, transactions and accounting records are synthetic.
 
@@ -88,12 +91,12 @@ The local database is stored under runtime/ and excluded from Git.
 
 - [Lease validation results](evidence/lease-validation-results.txt)
 - [Invoice storage results](evidence/invoice-storage-results.txt)
+- [Accounting receiver results](evidence/accounting-receiver-results.txt)
+- [Accounting handoff results](evidence/accounting-handoff-results.txt)
 
 ## Next implementation step
 
-Send the stored invoice to a separate simulated accounting database.
+Reconcile billing invoices against accounting postings.
 
-Mark the billing invoice acknowledged only after accounting confirms
-the matching posting. If confirmation is lost, retry using the same
-invoice identifier so accounting can return the existing posting.
-
+Detect missing postings, content differences and postings whose
+confirmation has not yet been recorded in billing.

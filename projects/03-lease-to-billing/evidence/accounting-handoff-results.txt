@@ -1,0 +1,8 @@
+PASS: successful handoff acknowledges billing
+PASS: repeat submission retains one posting
+PASS: outage leaves billing pending without a posting
+PASS: retry after outage completes the handoff
+PASS: lost confirmation leaves a posting and pending billing
+PASS: retry recovers confirmation without duplicate posting
+
+Results: 6 passed; 0 failed
