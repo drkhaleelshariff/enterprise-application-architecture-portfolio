@@ -1,0 +1,7 @@
+PASS: first delivery creates the expected invoice
+PASS: repeat delivery returns the stored invoice
+PASS: conflicting content is rejected
+PASS: unapproved lease is rejected
+PASS: database retains one unchanged pending invoice
+
+Results: 5 passed; 0 failed

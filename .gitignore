@@ -5,3 +5,4 @@ __pycache__/
 .env.*
 !.env.example
 *.log
+projects/03-lease-to-billing/runtime/
