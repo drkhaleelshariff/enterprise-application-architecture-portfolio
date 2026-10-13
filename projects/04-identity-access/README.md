@@ -84,8 +84,8 @@ the initial threat model.
 
 ## Next step
 
-Verify that malformed or unavailable configuration fails closed.
-Then extend the demonstration with scoped service identities.
+Extend the demonstration with scoped service identities.
+Authentication remains simulated.
 
 ## Run the demonstration
 
@@ -94,10 +94,15 @@ From the repository root:
 ```bat
 python scripts\authorize_lease.py USR-001 LEASE-001
 python scripts\test_authorize_lease.py
+python scripts\test_authorization_config.py
 ```
 
 The first command returns the authorized North lease.
-The test script should report 13 passed and 0 failed.
+test_authorize_lease.py should report 13 passed and 0 failed.
+test_authorization_config.py should report 9 passed and 0 failed.
+
+The configuration tests verify rejection of missing or malformed registers,
+duplicate keys and identities, unknown references and invalid permissions.
 
 CLI exit codes:
 
@@ -110,4 +115,5 @@ unchanged.
 
 ## Evidence
 
-See the [authorization results](evidence/authorization-results.txt).
+- [Authorization results](evidence/authorization-results.txt)
+- [Configuration validation results](evidence/configuration-validation-results.txt)

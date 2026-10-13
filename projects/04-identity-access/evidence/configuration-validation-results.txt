@@ -1,0 +1,11 @@
+PASS: missing register rejected
+PASS: malformed JSON rejected
+PASS: duplicate JSON key rejected
+PASS: duplicate identity rejected
+PASS: unknown role rejected
+PASS: unknown entity membership rejected
+PASS: incorrect membership type rejected
+PASS: unsupported role action rejected
+PASS: unknown lease entity rejected
+
+Results: 9 passed; 0 failed
