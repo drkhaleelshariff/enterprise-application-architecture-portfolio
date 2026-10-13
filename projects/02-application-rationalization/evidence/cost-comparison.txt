@@ -1,0 +1,25 @@
+Synthetic cost comparison: EUR; 36-month horizon
+Scenarios vary one assumption at a time.
+Delay holds one-time allowances constant.
+
+Base
+  OPT-001: EUR 244,800.00
+  OPT-002: EUR 242,400.00
+  OPT-003: EUR 313,800.00
+
+One-time costs +25%
+  OPT-001: EUR 252,000.00
+  OPT-002: EUR 264,000.00
+  OPT-003: EUR 349,500.00
+
+Target recurring +20%
+  OPT-001: EUR 280,800.00
+  OPT-002: EUR 266,400.00
+  OPT-003: EUR 340,800.00
+
+Transition 12 months
+  OPT-001: EUR 244,800.00
+  OPT-002: EUR 254,400.00
+  OPT-003: EUR 322,800.00
+
+Modeled costs do not establish functional feasibility or savings.
