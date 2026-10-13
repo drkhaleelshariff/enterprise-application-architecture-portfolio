@@ -75,6 +75,7 @@ From the repository root:
 python scripts\test_lease_to_billing.py
 python scripts\test_store_invoice.py
 python scripts\test_http_lost_confirmation.py
+python scripts\test_http_contract_edges.py
 ```
 
 Expected: two lease-validation checks and five invoice-storage checks pass.
@@ -104,15 +105,13 @@ The local database is stored under runtime/ and excluded from Git.
 - [HTTP contract](http-contract.md)
 - [HTTP handoff results](evidence/http-handoff-results.txt)
 - [HTTP lost-confirmation recovery](evidence/http-lost-confirmation-results.txt)
+- [HTTP contract edge cases](evidence/http-contract-edge-results.txt)
 
 ## Next implementation step
 
-Verify remaining HTTP contract cases and document the operating procedure
-and architecture tradeoffs.
-
-Lost-confirmation recovery is tested over HTTP: accounting commits,
-the response is deliberately dropped, and retry retrieves the existing
-posting before billing records acknowledgement.
+Document the operating procedure and architecture tradeoffs.
+Request limits and sanitized storage/server error responses are tested.
+Some contract cases, including missing Content-Length, remain untested.
 
 ## Reconcile the working databases
 

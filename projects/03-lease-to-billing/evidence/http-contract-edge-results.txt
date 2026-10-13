@@ -1,0 +1,7 @@
+PASS: oversized declared body returns HTTP 413
+PASS: malformed length returns HTTP 400
+PASS: unsupported transfer encoding returns HTTP 400
+PASS: storage failure returns sanitized HTTP 503
+PASS: unexpected failure returns sanitized HTTP 500
+
+Results: 5 passed; 0 failed
