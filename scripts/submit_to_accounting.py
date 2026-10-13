@@ -17,6 +17,7 @@ def submit_invoice(
     instruction_id,
     billing_database=BILLING_DATABASE,
     accounting_database=ACCOUNTING_DATABASE,
+    receiver=None,
 ):
     billing_database = Path(billing_database).resolve()
 
@@ -39,8 +40,9 @@ def submit_invoice(
     invoice = json.loads(original_payload)
     invoice["accounting_status"] = status
 
-    acknowledgement = accept_invoice(invoice, accounting_database)
-
+    selected_receiver = accept_invoice if receiver is None else receiver
+    acknowledgement = selected_receiver(invoice, accounting_database)
+    
     if (
         acknowledgement.get("status") != "accepted"
         or acknowledgement.get("invoice_id") != invoice["invoice_id"]

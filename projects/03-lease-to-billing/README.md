@@ -12,7 +12,9 @@ lost-confirmation recovery are implemented and tested.
 Read-only reconciliation is implemented and tested.
 
 The accounting HTTP server and eleven interface checks are implemented.
-Billing still uses the local handoff; an HTTP billing client remains pending.
+Billing can submit through HTTP with a finite timeout and acknowledgement
+validation. Five isolated HTTP handoff checks verify connection refusal,
+recovery, repeat delivery and conflict rejection.
 
 All leases, transactions and accounting records are synthetic.
 
@@ -99,12 +101,12 @@ The local database is stored under runtime/ and excluded from Git.
 - [Reconciliation results](evidence/reconciliation-results.txt)
 - [Accounting HTTP results](evidence/accounting-http-results.txt)
 - [HTTP contract](http-contract.md)
+- [HTTP handoff results](evidence/http-handoff-results.txt)
 
 ## Next implementation step
 
-Connect billing to accounting through an HTTP client with a finite timeout.
-Verify acknowledgements before updating billing, and retain repeat-safe
-recovery when a response is lost.
+Verify lost-confirmation recovery over HTTP and remaining contract cases.
+Document the operating procedure and architecture tradeoffs.
 
 ## Reconcile the working databases
 

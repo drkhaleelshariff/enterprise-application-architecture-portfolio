@@ -1,0 +1,7 @@
+PASS: refused connection leaves fresh invoice pending
+PASS: HTTP recovery posts and acknowledges invoice
+PASS: repeated HTTP handoff reuses posting
+PASS: HTTP client reports content conflict
+PASS: one unchanged posting remains
+
+Results: 5 passed; 0 failed
