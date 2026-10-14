@@ -1,0 +1,11 @@
+PASS: USR-001 retrieves only its entity document
+PASS: USR-002 retrieves only its entity document
+PASS: explicit group membership permits both documents
+PASS: USR-004 denied before ranking
+PASS: USR-005 denied before ranking
+PASS: USR-999 denied before ranking
+PASS: unauthorized document excluded from ranking inputs
+PASS: unmatched authorized query returns no evidence
+PASS: deleted document is excluded
+
+Results: 9 passed; 0 failed

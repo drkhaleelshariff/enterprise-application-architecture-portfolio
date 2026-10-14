@@ -2,7 +2,11 @@
 
 ## Status
 
-Scope defined. Implementation pending.
+Permission-aware keyword retrieval implemented.
+Nine checks verify entity filtering, permission denial, exclusion before
+ranking, no-match behavior and deleted-document exclusion.
+
+Answer generation and provider integration remain pending.
 
 All identities, documents and business details are synthetic.
 
@@ -79,3 +83,29 @@ No real identity provider, external model, vector database or production
 deployment is included in the first stage.
 
 The local file model does not establish atomic access-policy updates.
+
+## Run the retrieval demonstration
+
+From the repository root:
+
+```bat
+python scripts\retrieve_documents.py USR-001 "maintenance acknowledgement"
+python scripts\test_retrieve_documents.py
+```
+
+Expected: only the North document is returned for USR-001.
+The test script should report 9 passed and 0 failed.
+
+A permitted query with no matching evidence returns no_evidence.
+That retrieval status does not establish whether a natural-language
+question is answerable.
+
+## Evidence
+
+- [Retrieval verification results](evidence/retrieval-results.txt)
+
+## Next step
+
+Assemble authorized context with document-version citations.
+Verify that denied and no-evidence results do not invoke generation.
+
