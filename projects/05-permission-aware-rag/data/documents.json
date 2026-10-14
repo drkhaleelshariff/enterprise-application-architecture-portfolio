@@ -1,0 +1,21 @@
+{
+  "schema_version": "1",
+  "documents": [
+    {
+      "document_id": "DOC-N-001",
+      "version": "1",
+      "entity_id": "ENT-001",
+      "title": "North Office Maintenance Policy",
+      "status": "active",
+      "text": "Meridian North office maintenance requests must be submitted through the North service portal. Urgent water leaks must be reported to the North facilities desk immediately. Routine maintenance requests have a target acknowledgement time of two business days."
+    },
+    {
+      "document_id": "DOC-S-001",
+      "version": "1",
+      "entity_id": "ENT-002",
+      "title": "South Retail Maintenance Policy",
+      "status": "active",
+      "text": "Meridian South retail maintenance requests must be submitted through the South tenant portal. Urgent water leaks must be reported to the South duty manager immediately. Routine maintenance requests have a target acknowledgement time of one business day."
+    }
+  ]
+}
