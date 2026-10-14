@@ -6,6 +6,9 @@ Permission-aware keyword retrieval implemented.
 Nine checks verify entity filtering, permission denial, exclusion before
 ranking, no-match behavior and deleted-document exclusion.
 
+Authorized context assembly with document-version citations is implemented
+and passes seven checks.
+
 Answer generation and provider integration remain pending.
 
 All identities, documents and business details are synthetic.
@@ -91,6 +94,7 @@ From the repository root:
 ```bat
 python scripts\retrieve_documents.py USR-001 "maintenance acknowledgement"
 python scripts\test_retrieve_documents.py
+python scripts\test_document_context.py
 ```
 
 Expected: only the North document is returned for USR-001.
@@ -100,12 +104,16 @@ A permitted query with no matching evidence returns no_evidence.
 That retrieval status does not establish whether a natural-language
 question is answerable.
 
+The context test script should report 7 passed and 0 failed.
+Denied and no-evidence results contain no context or citations.
+
 ## Evidence
 
 - [Retrieval verification results](evidence/retrieval-results.txt)
+- [Document context results](evidence/document-context-results.txt)
 
 ## Next step
 
-Assemble authorized context with document-version citations.
-Verify that denied and no-evidence results do not invoke generation.
-
+Add an answer-component interface. Verify that denied and no-evidence
+results do not invoke generation, and that provider failures return an
+explicit unavailable response.

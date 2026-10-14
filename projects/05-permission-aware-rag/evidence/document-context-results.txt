@@ -1,0 +1,9 @@
+PASS: North context contains only its versioned source
+PASS: South context excludes North information
+PASS: group context contains both authorized citations
+PASS: no evidence produces empty context
+PASS: USR-004 receives no context or citations
+PASS: USR-005 receives no context or citations
+PASS: USR-999 receives no context or citations
+
+Results: 7 passed; 0 failed
