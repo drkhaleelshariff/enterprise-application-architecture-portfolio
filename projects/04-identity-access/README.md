@@ -150,3 +150,7 @@ unchanged.
 ## Access review procedure
 
 See the [review responsibilities, decisions and remediation procedure](access-review-procedure.md).
+
+## Architecture decision
+
+See [ADR-003: Entity-scoped authorization and independent approval](../../docs/decisions/ADR-003-entity-scoped-authorization.md).
