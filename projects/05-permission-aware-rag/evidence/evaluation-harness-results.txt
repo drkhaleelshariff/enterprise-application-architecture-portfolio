@@ -1,0 +1,8 @@
+PASS: eight cases recorded without quality pass claims
+PASS: provider, prompt and repository metadata recorded
+PASS: both denial cases skip the provider
+PASS: North cases record only authorized North evidence
+PASS: South and group cases retain correct source versions
+PASS: responses and timing recorded without changing expectations
+
+Results: 6 passed; 0 failed

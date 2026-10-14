@@ -17,6 +17,10 @@ Explicit provider abstention is supported. Five mock-provider checks verify
 the application abstention message and rejection of malformed responses.
 These checks do not establish whether a model abstains appropriately.
 
+An evaluation harness records the eight defined cases, provider calls,
+authorized source versions, responses and timing. Six mock-provider
+checks verify recording behavior; semantic judgments remain unassessed.
+
 A real model adapter and answer-quality evaluation remain pending.
 
 All identities, documents and business details are synthetic.
@@ -109,6 +113,7 @@ python scripts\test_document_context.py
 python scripts\test_answer_boundary.py
 python scripts\test_document_lifecycle.py
 python scripts\test_provider_abstention.py
+python scripts\test_evaluate_property_answers.py
 ```
 
 Expected: only the North document is returned for USR-001.
@@ -128,6 +133,8 @@ The lifecycle test script should report 6 passed and 0 failed.
 
 The provider-abstention test script should report 5 passed and 0 failed.
 
+The evaluation-harness test script should report 6 passed and 0 failed.
+
 ## Evidence
 
 - [Retrieval verification results](evidence/retrieval-results.txt)
@@ -135,11 +142,12 @@ The provider-abstention test script should report 5 passed and 0 failed.
 - [Answer-boundary results](evidence/answer-boundary-results.txt)
 - [Document lifecycle results](evidence/document-lifecycle-results.txt)
 - [Provider abstention results](evidence/provider-abstention-results.txt)
+- [Evaluation harness results](evidence/evaluation-harness-results.txt)
 
 ## Next step
 
-Build an evaluation harness for the eight defined cases, then connect
-a real model adapter and review its answers and abstentions.
+Connect a real model adapter, preserve evaluation runs and review
+the eight cases for answer support, attribution and appropriate abstention.
 
 Lifecycle checks cover fresh file reads between requests. They do not
 demonstrate deletion from vector indexes, caches or previous conversations.
