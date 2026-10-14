@@ -6,7 +6,7 @@
       "display_name": "North Reader",
       "identity_type": "human",
       "status": "active",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "entity_ids": ["ENT-001"]
     },
     {
@@ -14,7 +14,7 @@
       "display_name": "South Reader",
       "identity_type": "human",
       "status": "active",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "entity_ids": ["ENT-002"]
     },
     {
@@ -22,7 +22,7 @@
       "display_name": "Group Reader",
       "identity_type": "human",
       "status": "active",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "entity_ids": ["ENT-001", "ENT-002"]
     },
     {
@@ -30,7 +30,7 @@
       "display_name": "Disabled Reader",
       "identity_type": "human",
       "status": "disabled",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "entity_ids": ["ENT-001"]
     },
     {

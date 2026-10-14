@@ -84,6 +84,7 @@ def load_data(folder):
                 not isinstance(action, str)
                 or action not in {
                     "lease:read",
+                    "document:read",
                     "lease_change:request",
                     "lease_change:approve",
                 }

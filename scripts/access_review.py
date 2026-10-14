@@ -21,7 +21,7 @@ def build_review(folder=DATA):
             for action in assigned:
                 # Change requests and approvals require human identities.
                 if (
-                    action != "lease:read"
+                    action in {"lease_change:request", "lease_change:approve"}
                     and identity["identity_type"] != "human"
                 ):
                     continue
@@ -51,7 +51,10 @@ def build_review(folder=DATA):
 
         if (
             identity["identity_type"] == "service"
-            and any(action != "lease:read" for action in assigned)
+            and any(
+                action in {"lease_change:request", "lease_change:approve"}
+                for action in assigned
+            )
         ):
             flags.append("service_assigned_human_only_permissions")
 

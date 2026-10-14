@@ -30,14 +30,19 @@
       "display_name": "North Reader",
       "identity_type": "human",
       "status": "active",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "assigned_entities": [
         "ENT-001"
       ],
       "assigned_actions": [
+        "document:read",
         "lease:read"
       ],
       "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "document:read"
+        },
         {
           "entity_id": "ENT-001",
           "action": "lease:read"
@@ -53,14 +58,19 @@
       "display_name": "South Reader",
       "identity_type": "human",
       "status": "active",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "assigned_entities": [
         "ENT-002"
       ],
       "assigned_actions": [
+        "document:read",
         "lease:read"
       ],
       "effective_action_scope": [
+        {
+          "entity_id": "ENT-002",
+          "action": "document:read"
+        },
         {
           "entity_id": "ENT-002",
           "action": "lease:read"
@@ -76,15 +86,24 @@
       "display_name": "Group Reader",
       "identity_type": "human",
       "status": "active",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "assigned_entities": [
         "ENT-001",
         "ENT-002"
       ],
       "assigned_actions": [
+        "document:read",
         "lease:read"
       ],
       "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "document:read"
+        },
+        {
+          "entity_id": "ENT-002",
+          "action": "document:read"
+        },
         {
           "entity_id": "ENT-001",
           "action": "lease:read"
@@ -107,11 +126,12 @@
       "display_name": "Disabled Reader",
       "identity_type": "human",
       "status": "disabled",
-      "role": "lease_reader",
+      "role": "lease_document_reader",
       "assigned_entities": [
         "ENT-001"
       ],
       "assigned_actions": [
+        "document:read",
         "lease:read"
       ],
       "effective_action_scope": [],

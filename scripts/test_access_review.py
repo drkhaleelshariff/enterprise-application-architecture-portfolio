@@ -34,7 +34,7 @@ def main():
 
         disabled = rows["USR-004"]
         require(
-            disabled["assigned_actions"] == ["lease:read"]
+            disabled["assigned_actions"] == ["document:read", "lease:read"]            
             and disabled["effective_action_scope"] == []
             and disabled["readable_lease_ids"] == [],
             "Disabled identity has effective access",

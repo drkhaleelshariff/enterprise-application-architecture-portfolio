@@ -12,6 +12,10 @@
     {
       "role_id": "lease_change_approver",
       "allowed_actions": ["lease:read", "lease_change:approve"]
+    },
+    {
+      "role_id": "lease_document_reader",
+      "allowed_actions": ["lease:read", "document:read"]
     }
   ]
 }
