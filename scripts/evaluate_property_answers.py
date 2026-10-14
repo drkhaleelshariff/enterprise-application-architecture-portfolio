@@ -33,6 +33,7 @@ def evaluate(
     provider_id,
     provider_configuration,
     prompt_version,
+    capture_provider_diagnostics=False,
     cases_path=CASES,
     identity_folder=IDENTITY_DATA,
     document_folder=DOCUMENT_DATA,
@@ -51,7 +52,7 @@ def evaluate(
 
         def recorded_provider(query, context):
             evidence = json.loads(context)
-            calls.append({
+            call = {
                 "sources": [
                     {
                         "document_id": source["document_id"],
@@ -60,9 +61,18 @@ def evaluate(
                     }
                     for source in evidence["sources"]
                 ],
-            })
-            return provider(query, context)
+            }
+            calls.append(call)
 
+            if capture_provider_diagnostics:
+                call["diagnostics"] = []
+                return provider(
+                    query,
+                    context,
+                    diagnostics=call["diagnostics"],
+                )
+
+            return provider(query, context)
         started = perf_counter()
         response = answer_question(
             case["identity_id"],

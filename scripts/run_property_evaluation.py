@@ -60,6 +60,7 @@ def main():
         provider_id="ollama",
         provider_configuration=configuration,
         prompt_version=PROMPT_VERSION,
+        capture_provider_diagnostics=True,
     )
 
     OUTPUT.mkdir(parents=True, exist_ok=True)

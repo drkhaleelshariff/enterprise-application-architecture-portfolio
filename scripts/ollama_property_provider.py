@@ -41,7 +41,7 @@ def unique_object(pairs):
     return result
 
 
-def provider(query, context):
+def provider(query, context, *, diagnostics=None):
     payload = {
         "model": MODEL,
         "system": SYSTEM_PROMPT,
@@ -82,7 +82,13 @@ def provider(query, context):
             or not isinstance(envelope.get("response"), str)
         ):
             raise ProviderUnavailable("Incomplete model service response")
-
+        # Opt-in capture for local evaluation, before parsing or suppression.
+        if diagnostics is not None:
+            diagnostics.append({
+                "generated_text": envelope["response"],
+                "done_reason": envelope.get("done_reason"),
+            })
+        
         if envelope.get("done_reason") == "length":
             return {}
 
