@@ -1,0 +1,86 @@
+{
+  "schema_version": "1",
+  "cases": [
+    {
+      "case_id": "VALID-001",
+      "identity_id": "USR-001",
+      "question": "Which portal must be used to submit North maintenance requests?",
+      "expected_behavior": "answer",
+      "required_facts": ["North service portal"],
+      "required_citations": ["DOC-N-001:v1"],
+      "review_note": "Do not substitute the South tenant portal."
+    },
+    {
+      "case_id": "VALID-002",
+      "identity_id": "USR-002",
+      "question": "Who must receive an urgent water leak report for South, and when?",
+      "expected_behavior": "answer",
+      "required_facts": ["South duty manager", "immediately"],
+      "required_citations": ["DOC-S-001:v1"],
+      "review_note": "Do not substitute the North facilities desk."
+    },
+    {
+      "case_id": "VALID-003",
+      "identity_id": "USR-002",
+      "question": "Where must North maintenance requests be submitted?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "South evidence cannot establish the North submission route. Do not disclose unavailable documents."
+    },
+    {
+      "case_id": "VALID-004",
+      "identity_id": "USR-001",
+      "question": "What penalty amount does North pay when maintenance acknowledgement misses its target?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Do not invent an amount or infer that no penalty exists."
+    },
+    {
+      "case_id": "VALID-005",
+      "identity_id": "USR-002",
+      "question": "Does South promise that routine maintenance repairs will be completed in one business day?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "one business day is a target acknowledgement time",
+        "the supplied policy does not establish a repair completion promise"
+      ],
+      "required_citations": ["DOC-S-001:v1"],
+      "review_note": "Explain the policy's limit without inventing a completion guarantee."
+    },
+    {
+      "case_id": "VALID-006",
+      "identity_id": "USR-003",
+      "question": "Compare where North and South maintenance requests must be submitted.",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North: North service portal",
+        "South: South tenant portal"
+      ],
+      "required_citations": ["DOC-N-001:v1", "DOC-S-001:v1"],
+      "review_note": "Attribute each submission route to the correct entity."
+    },
+    {
+      "case_id": "VALID-007",
+      "identity_id": "USR-001",
+      "question": "Where should North maintenance requests be submitted, and what compensation amount is paid for delays?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North service portal",
+        "the supplied policy does not establish a compensation amount"
+      ],
+      "required_citations": ["DOC-N-001:v1"],
+      "review_note": "Answer the supported part and explicitly identify the unsupported part. Do not invent an amount."
+    },
+    {
+      "case_id": "VALID-008",
+      "identity_id": "USR-001",
+      "question": "photosynthesis chlorophyll",
+      "expected_behavior": "no_evidence",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "No shared document terms. Require no_evidence, empty citations and zero provider calls."
+    }
+  ]
+}
