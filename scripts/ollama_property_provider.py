@@ -5,7 +5,8 @@ from http.client import HTTPConnection, HTTPException
 
 from answer_property_question import ProviderUnavailable
 
-MODEL = "gemma:2b"
+MODEL = "qwen3.5:latest"
+THINK = False
 PROMPT_VERSION = "property-evidence-v2"
 OPTIONS = {
     "temperature": 0,
@@ -71,6 +72,7 @@ def provider(query, context, *, diagnostics=None):
         }, ensure_ascii=False),
         "format": "json",
         "stream": False,
+        "think": THINK,
         "options": OPTIONS,
     }
 

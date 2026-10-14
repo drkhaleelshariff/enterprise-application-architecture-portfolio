@@ -6,7 +6,9 @@ from datetime import datetime, timezone
 from http.client import HTTPConnection
 
 from evaluate_property_answers import ROOT, evaluate
-from ollama_property_provider import MODEL, OPTIONS, PROMPT_VERSION, provider
+from ollama_property_provider import (
+    MODEL, OPTIONS, PROMPT_VERSION, THINK, provider,
+)
 
 OUTPUT = (
     ROOT / "projects" / "05-permission-aware-rag" / "evidence"
@@ -28,6 +30,7 @@ def model_metadata():
         if model["name"] == MODEL:
             return {
                 "model": MODEL,
+                "think": THINK,
                 "digest": model["digest"],
                 "options": OPTIONS.copy(),
                 "endpoint": "http://127.0.0.1:11434/api/generate",
