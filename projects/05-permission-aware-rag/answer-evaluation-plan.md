@@ -23,23 +23,42 @@ Cases are defined in data/answer_evaluation_cases.json.
 
 These are readiness statements, not model pass results.
 
-## Required provider-interface extension
+## Provider response interface
 
-The current provider interface expects a nonempty answer and citations.
+The application supports two provider response shapes.
 
-Before model evaluation, extend the provider response schema to represent:
+An answer requires a nonempty answer string and eligible citations:
 
-- answer: an answer with eligible citations.
-- abstain: an explicit inability to answer from supplied evidence.
+```json
+{
+  "answer": "Example answer supported by the supplied evidence.",
+  "citations": ["DOC-N-001:v1"]
+}
+```
 
-Provider abstention must remain distinct from:
+Explicit abstention requires exactly:
 
-- authorization denial;
-- retrieval returning no matching evidence;
-- provider unavailability;
-- an invalid provider response.
+```json
+{
+  "status": "abstain",
+  "answer": "",
+  "citations": []
+}
+```
 
-Do not disguise abstention as a fabricated cited answer.
+The application converts valid provider abstention into status abstained,
+a fixed explanation and no citations. Malformed abstention responses
+are suppressed as invalid_provider_response.
+
+Five mock-provider checks verify this interface. They do not establish
+whether a language model correctly recognizes insufficient evidence.
+
+Provider abstention remains distinct from authorization denial,
+retrieval returning no matching evidence, provider unavailability
+and an invalid provider response.
+
+Citation eligibility does not establish that an answer is supported
+by the cited text. Semantic review remains necessary.
 
 ## Review method
 

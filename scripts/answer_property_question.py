@@ -52,10 +52,24 @@ def answer_question(
             "citations": [],
         }
 
+    # Accept only the exact abstention shape.
+    if (
+        isinstance(result, dict)
+        and set(result) == {"status", "answer", "citations"}
+        and result["status"] == "abstain"
+        and result["answer"] == ""
+        and result["citations"] == []
+    ):
+        return {
+            "status": "abstained",
+            "answer": "The supplied authorized evidence does not establish an answer.",
+            "citations": [],
+        }
+
     allowed_citations = {
         source["citation"] for source in evidence["sources"]
     }
-
+    
     if (
         not isinstance(result, dict)
         or set(result) != {"answer", "citations"}

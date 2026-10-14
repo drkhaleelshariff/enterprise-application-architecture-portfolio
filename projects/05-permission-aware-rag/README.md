@@ -13,6 +13,10 @@ The answer-component boundary passes thirteen checks using a mock provider.
 Denied and no-evidence requests skip generation. Simulated provider failures
 and invalid responses return no generated answer.
 
+Explicit provider abstention is supported. Five mock-provider checks verify
+the application abstention message and rejection of malformed responses.
+These checks do not establish whether a model abstains appropriately.
+
 A real model adapter and answer-quality evaluation remain pending.
 
 All identities, documents and business details are synthetic.
@@ -104,6 +108,7 @@ python scripts\test_retrieve_documents.py
 python scripts\test_document_context.py
 python scripts\test_answer_boundary.py
 python scripts\test_document_lifecycle.py
+python scripts\test_provider_abstention.py
 ```
 
 Expected: only the North document is returned for USR-001.
@@ -121,16 +126,20 @@ These tests use a mock provider, not a language model.
 
 The lifecycle test script should report 6 passed and 0 failed.
 
+The provider-abstention test script should report 5 passed and 0 failed.
+
 ## Evidence
 
 - [Retrieval verification results](evidence/retrieval-results.txt)
 - [Document context results](evidence/document-context-results.txt)
 - [Answer-boundary results](evidence/answer-boundary-results.txt)
 - [Document lifecycle results](evidence/document-lifecycle-results.txt)
+- [Provider abstention results](evidence/provider-abstention-results.txt)
 
 ## Next step
 
-Define answer-quality evaluation cases before connecting a real model.
+Build an evaluation harness for the eight defined cases, then connect
+a real model adapter and review its answers and abstentions.
 
 Lifecycle checks cover fresh file reads between requests. They do not
 demonstrate deletion from vector indexes, caches or previous conversations.

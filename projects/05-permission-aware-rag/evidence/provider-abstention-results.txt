@@ -1,0 +1,7 @@
+PASS: explicit abstention returns the application message
+PASS: malformed abstention 1 is suppressed
+PASS: malformed abstention 2 is suppressed
+PASS: malformed abstention 3 is suppressed
+PASS: malformed abstention 4 is suppressed
+
+Results: 5 passed; 0 failed
