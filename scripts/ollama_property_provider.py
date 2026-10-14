@@ -5,7 +5,7 @@ from http.client import HTTPConnection, HTTPException
 
 from answer_property_question import ProviderUnavailable
 
-MODEL = "phi3:mini"
+MODEL = "gemma:2b"
 PROMPT_VERSION = "property-evidence-v2"
 OPTIONS = {
     "temperature": 0,
