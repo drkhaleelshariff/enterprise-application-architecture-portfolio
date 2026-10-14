@@ -7,7 +7,7 @@ from answer_property_question import ProviderUnavailable
 
 MODEL = "qwen3.5:latest"
 THINK = False
-PROMPT_VERSION = "property-evidence-v3"
+PROMPT_VERSION = "property-evidence-v4"
 OPTIONS = {
     "temperature": 0,
     "num_ctx": 4096,
@@ -38,6 +38,17 @@ If the question requests an amount or rule for which the applicable
 evidence supplies no answer or supported clarification, use ABSTENTION.
 Do not interpret missing information as zero, none, or a prohibition.
 Do not substitute an unrelated policy fact for the requested answer.
+
+For a yes-or-no question about whether a stated time target guarantees
+completion, do not require the user to explicitly ask for clarification.
+If applicable evidence states an acknowledgement target, provide a
+SUPPORTED ANSWER containing that target and explain that the supplied
+policy does not establish a completion guarantee. Do not claim that
+a guarantee is prohibited or cannot exist elsewhere.
+
+This instruction applies only when the supplied evidence contains
+the relevant target for the requested entity. It does not permit
+answering unrelated questions about missing amounts or other entities.
 
 Return exactly one JSON object, without Markdown or additional text.
 Choose exactly one of these two response formats.
