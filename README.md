@@ -21,7 +21,7 @@ This is a portfolio demonstration, not a client engagement or production system.
 | 1. Business capabilities and application inventory | Initial baseline implemented | Nine CSV files, validator, five test scenarios, diagram and decision record |
 | 2. Rationalization and target-state roadmap | Initial assessment baseline documented | [Requirements, calculation evidence, cost sensitivities, conditional roadmap and executive brief](projects/02-application-rationalization/README.md) |
 | 3. Lease-to-billing integration | Demonstration baseline implemented and verified in a separate clone | [HTTP handoff, repeat-safe posting, failure recovery, reconciliation and runbook](projects/03-lease-to-billing/README.md); 49 scenario checks across nine scripts |
-| 4. Multi-entity identity and access | Planned | Not yet implemented |
+| 4. Multi-entity identity and access | Demonstration baseline implemented and verified in a separate clone | [Entity authorization, scoped service identity, independent approval and access review](projects/04-identity-access/README.md); 45 checks across six scripts; authentication simulated |
 | 5. Permission-aware property operations RAG | Planned | Not yet implemented |
 | 6. Architecture governance and investment proposal | Planned | One modeling decision recorded; review process and proposal pending |
 
@@ -64,5 +64,5 @@ question; they do not by themselves justify consolidation.
 
 ## Next milestone
 
-Build multi-entity identity and access controls, with tests proving
-authorized access and prohibited cross-entity access.
+Build permission-aware property document retrieval, then add cited answers,
+abstention, document lifecycle controls and provider-failure handling.
