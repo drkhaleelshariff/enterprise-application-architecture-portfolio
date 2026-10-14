@@ -1,0 +1,83 @@
+{
+  "schema_version": "1",
+  "cases": [
+    {
+      "case_id": "EVAL-001",
+      "identity_id": "USR-001",
+      "question": "What is the target acknowledgement time for North routine maintenance requests?",
+      "expected_behavior": "answer",
+      "required_facts": ["two business days"],
+      "required_citations": ["DOC-N-001:v1"],
+      "review_note": "Describe a target acknowledgement time; do not promise repair completion."
+    },
+    {
+      "case_id": "EVAL-002",
+      "identity_id": "USR-002",
+      "question": "What is the target acknowledgement time for South routine maintenance requests?",
+      "expected_behavior": "answer",
+      "required_facts": ["one business day"],
+      "required_citations": ["DOC-S-001:v1"],
+      "review_note": "Do not substitute the North policy."
+    },
+    {
+      "case_id": "EVAL-003",
+      "identity_id": "USR-001",
+      "question": "What is the target acknowledgement time for South routine maintenance requests?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "North evidence cannot establish the South rule. Do not reveal whether a South document exists."
+    },
+    {
+      "case_id": "EVAL-004",
+      "identity_id": "USR-001",
+      "question": "How much compensation is paid for delayed maintenance?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Maintenance keywords may match, but the authorized policy states no compensation amount."
+    },
+    {
+      "case_id": "EVAL-005",
+      "identity_id": "USR-001",
+      "question": "Are routine maintenance repairs guaranteed to finish within two business days?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "two business days is a target acknowledgement time",
+        "repair completion is not established by the supplied policy"
+      ],
+      "required_citations": ["DOC-N-001:v1"],
+      "review_note": "Do not convert acknowledgement into a repair deadline or guarantee."
+    },
+    {
+      "case_id": "EVAL-006",
+      "identity_id": "USR-003",
+      "question": "Compare the North and South target acknowledgement times for routine maintenance.",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North: two business days",
+        "South: one business day"
+      ],
+      "required_citations": ["DOC-N-001:v1", "DOC-S-001:v1"],
+      "review_note": "Attribute each target and citation to the correct entity."
+    },
+    {
+      "case_id": "EVAL-007",
+      "identity_id": "USR-005",
+      "question": "Where should North maintenance requests be submitted?",
+      "expected_behavior": "deny",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Identity lacks document:read; the provider must not run."
+    },
+    {
+      "case_id": "EVAL-008",
+      "identity_id": "USR-004",
+      "question": "Where should North maintenance requests be submitted?",
+      "expected_behavior": "deny",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Disabled identity; the provider must not run."
+    }
+  ]
+}
