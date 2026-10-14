@@ -137,3 +137,9 @@ demonstrate deletion from vector indexes, caches or previous conversations.
 
 Citation validation checks source eligibility, not whether the answer
 is supported by the cited text.
+
+## Answer-quality evaluation
+
+See the [evaluation plan and current verification gaps](answer-evaluation-plan.md)
+and [eight proposed cases](data/answer_evaluation_cases.json).
+No real-model answer-quality results are available yet.
