@@ -7,7 +7,7 @@ from answer_property_question import ProviderUnavailable
 
 MODEL = "qwen3.5:latest"
 THINK = False
-PROMPT_VERSION = "property-evidence-v2"
+PROMPT_VERSION = "property-evidence-v3"
 OPTIONS = {
     "temperature": 0,
     "num_ctx": 4096,
@@ -24,14 +24,20 @@ A rule for one entity does not establish a rule for another entity.
 If the requested entity is not supported by the supplied evidence,
 abstain without discussing unavailable documents or access permissions.
 
-Distinguish what the evidence states from what it does not establish.
-An acknowledgement target does not establish a repair completion
-deadline or guarantee. If a question confuses these concepts, explain
-the supported target and state that the supplied policy does not
-establish the requested completion guarantee.
+Choose the response based on what the applicable evidence establishes.
 
-If a requested amount or rule is not established, abstain.
+If the question mistakes a stated target for a different commitment,
+use the SUPPORTED ANSWER format to correct that interpretation:
+state the actual target and explain that the supplied policy does
+not establish the requested commitment. Cite the applicable evidence.
+An acknowledgement target does not establish a repair completion
+deadline or guarantee. This supported clarification takes precedence
+over the general abstention rule below.
+
+If the question requests an amount or rule for which the applicable
+evidence supplies no answer or supported clarification, use ABSTENTION.
 Do not interpret missing information as zero, none, or a prohibition.
+Do not substitute an unrelated policy fact for the requested answer.
 
 Return exactly one JSON object, without Markdown or additional text.
 Choose exactly one of these two response formats.
