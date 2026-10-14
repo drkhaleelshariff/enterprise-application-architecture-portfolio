@@ -6,3 +6,4 @@ __pycache__/
 !.env.example
 *.log
 projects/03-lease-to-billing/runtime/
+projects/04-identity-access/runtime/

@@ -1,0 +1,10 @@
+PASS: authorized requester creates a pending request
+PASS: reader cannot create a request
+PASS: requester cannot target another entity
+PASS: self-approval denied despite both permissions
+PASS: reader cannot approve
+PASS: separate authorized approver approves
+PASS: already approved request cannot be approved again
+PASS: unknown request cannot be approved
+
+Results: 8 passed; 0 failed

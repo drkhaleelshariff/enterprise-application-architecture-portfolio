@@ -8,8 +8,11 @@ Thirteen checks cover allowed reads, denied access and identity disabling.
 A North-scoped service identity is implemented with four access and
 disabling checks.
 
-Authentication remains simulated. Separation of duties and access
-review remain pending.
+A persistent request-and-approval workflow passes eight checks,
+including self-approval denial despite combined permissions.
+
+Authentication remains simulated. Additional approval-boundary tests
+and access review remain pending.
 
 All identities, roles, records and access decisions are synthetic.
 
@@ -89,8 +92,8 @@ the initial threat model.
 
 ## Next step
 
-Demonstrate separation of duties through a request-and-approval workflow.
-Authentication remains simulated.
+Verify disabled identities, service identities and cross-entity approvers
+cannot approve requests. Then document access review.
 
 ## Run the demonstration
 
@@ -101,12 +104,14 @@ python scripts\authorize_lease.py USR-001 LEASE-001
 python scripts\test_authorize_lease.py
 python scripts\test_authorization_config.py
 python scripts\test_service_authorization.py
+python scripts\test_lease_change_workflow.py
 ```
 
 The first command returns the authorized North lease.
 test_authorize_lease.py should report 13 passed and 0 failed.
 test_authorization_config.py should report 9 passed and 0 failed.
 test_service_authorization.py should report 4 passed and 0 failed.
+test_lease_change_workflow.py should report 8 passed and 0 failed.
 
 The configuration tests verify rejection of missing or malformed registers,
 duplicate keys and identities, unknown references and invalid permissions.
@@ -125,4 +130,5 @@ unchanged.
 - [Authorization results](evidence/authorization-results.txt)
 - [Configuration validation results](evidence/configuration-validation-results.txt)
 - [Service authorization results](evidence/service-authorization-results.txt)
-
+- [Approval workflow results](evidence/approval-workflow-results.txt)
+- [Approval policy](approval-policy.md)
