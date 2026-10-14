@@ -1,0 +1,8 @@
+PASS: baseline context uses version 1
+PASS: next context reflects updated text and version
+PASS: provider receives updated evidence only
+PASS: citation to superseded version is rejected
+PASS: deletion excludes evidence and skips provider
+PASS: membership removal excludes context and skips provider
+
+Results: 6 passed; 0 failed

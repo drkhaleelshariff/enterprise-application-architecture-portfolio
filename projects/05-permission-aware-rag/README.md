@@ -17,6 +17,9 @@ A real model adapter and answer-quality evaluation remain pending.
 
 All identities, documents and business details are synthetic.
 
+Six lifecycle checks verify document updates, stale-citation rejection,
+deletion and membership removal using temporary copies.
+
 ## Objective
 
 Answer questions using only documents the requesting identity is
@@ -100,6 +103,7 @@ python scripts\retrieve_documents.py USR-001 "maintenance acknowledgement"
 python scripts\test_retrieve_documents.py
 python scripts\test_document_context.py
 python scripts\test_answer_boundary.py
+python scripts\test_document_lifecycle.py
 ```
 
 Expected: only the North document is returned for USR-001.
@@ -115,16 +119,21 @@ Denied and no-evidence results contain no context or citations.
 The answer-boundary test script should report 13 passed and 0 failed.
 These tests use a mock provider, not a language model.
 
+The lifecycle test script should report 6 passed and 0 failed.
+
 ## Evidence
 
 - [Retrieval verification results](evidence/retrieval-results.txt)
 - [Document context results](evidence/document-context-results.txt)
 - [Answer-boundary results](evidence/answer-boundary-results.txt)
+- [Document lifecycle results](evidence/document-lifecycle-results.txt)
 
 ## Next step
 
-Verify that document updates, deletion and membership changes affect
-subsequent context and answer requests.
+Define answer-quality evaluation cases before connecting a real model.
 
-Citation validation checks source eligibility, not whether an answer
+Lifecycle checks cover fresh file reads between requests. They do not
+demonstrate deletion from vector indexes, caches or previous conversations.
+
+Citation validation checks source eligibility, not whether the answer
 is supported by the cited text.
