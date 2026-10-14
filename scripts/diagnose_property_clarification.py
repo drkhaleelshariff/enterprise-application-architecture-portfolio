@@ -1,4 +1,4 @@
-"""Record two clarification probes without assigning quality scores."""
+"""Record three clarification probes without assigning quality scores."""
 
 import json
 import subprocess
@@ -14,6 +14,11 @@ PROBES = [
     (
         "original",
         "Are routine maintenance repairs guaranteed to finish "
+        "within two business days?",
+    ),
+    (
+        "entity_named",
+        "Are North routine maintenance repairs guaranteed to finish "
         "within two business days?",
     ),
     (
@@ -38,7 +43,7 @@ def main():
 
     report = {
         "schema_version": "1",
-        "experiment": "clarification-question-wording",
+        "experiment": "clarification-entity-and-wording",
         "repository_commit": repository_commit(),
         "provider_configuration": model_metadata(),
         "prompt_version": PROMPT_VERSION,
