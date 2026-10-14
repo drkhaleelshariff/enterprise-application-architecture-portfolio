@@ -9,7 +9,11 @@ ranking, no-match behavior and deleted-document exclusion.
 Authorized context assembly with document-version citations is implemented
 and passes seven checks.
 
-Answer generation and provider integration remain pending.
+The answer-component boundary passes thirteen checks using a mock provider.
+Denied and no-evidence requests skip generation. Simulated provider failures
+and invalid responses return no generated answer.
+
+A real model adapter and answer-quality evaluation remain pending.
 
 All identities, documents and business details are synthetic.
 
@@ -95,6 +99,7 @@ From the repository root:
 python scripts\retrieve_documents.py USR-001 "maintenance acknowledgement"
 python scripts\test_retrieve_documents.py
 python scripts\test_document_context.py
+python scripts\test_answer_boundary.py
 ```
 
 Expected: only the North document is returned for USR-001.
@@ -107,13 +112,19 @@ question is answerable.
 The context test script should report 7 passed and 0 failed.
 Denied and no-evidence results contain no context or citations.
 
+The answer-boundary test script should report 13 passed and 0 failed.
+These tests use a mock provider, not a language model.
+
 ## Evidence
 
 - [Retrieval verification results](evidence/retrieval-results.txt)
 - [Document context results](evidence/document-context-results.txt)
+- [Answer-boundary results](evidence/answer-boundary-results.txt)
 
 ## Next step
 
-Add an answer-component interface. Verify that denied and no-evidence
-results do not invoke generation, and that provider failures return an
-explicit unavailable response.
+Verify that document updates, deletion and membership changes affect
+subsequent context and answer requests.
+
+Citation validation checks source eligibility, not whether an answer
+is supported by the cited text.

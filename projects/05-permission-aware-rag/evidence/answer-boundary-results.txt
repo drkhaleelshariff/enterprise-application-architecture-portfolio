@@ -1,0 +1,15 @@
+PASS: provider receives only authorized North context
+PASS: USR-004 denied without provider invocation
+PASS: USR-005 denied without provider invocation
+PASS: USR-999 denied without provider invocation
+PASS: no evidence skips provider invocation
+PASS: ProviderUnavailable returns unavailable
+PASS: TimeoutError returns unavailable
+PASS: ConnectionError returns unavailable
+PASS: invalid provider response 1 is suppressed
+PASS: invalid provider response 2 is suppressed
+PASS: invalid provider response 3 is suppressed
+PASS: invalid provider response 4 is suppressed
+PASS: invalid provider response 5 is suppressed
+
+Results: 13 passed; 0 failed
