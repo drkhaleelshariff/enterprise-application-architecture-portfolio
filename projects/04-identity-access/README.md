@@ -14,7 +14,11 @@ including self-approval denial despite combined permissions.
 Five additional checks verify approval boundaries and unchanged request
 state after denied attempts.
 
-Authentication remains simulated. Access review remains pending.
+A read-only access-review report distinguishes assigned permissions
+from effective action scope and passes six checks.
+
+Authentication remains simulated. Business-owner certification has
+not been performed; the report remains marked not_reviewed.
 
 All identities, roles, records and access decisions are synthetic.
 
@@ -94,8 +98,8 @@ the initial threat model.
 
 ## Next step
 
-Document and demonstrate access review using the identity register,
-entity memberships and effective role permissions.
+Document the access-review procedure and authorization design decisions.
+Then verify the demonstration in the separate review clone.
 
 ## Run the demonstration
 
@@ -108,6 +112,8 @@ python scripts\test_authorization_config.py
 python scripts\test_service_authorization.py
 python scripts\test_lease_change_workflow.py
 python scripts\test_approval_boundaries.py
+python scripts\access_review.py
+python scripts\test_access_review.py
 ```
 
 The first command returns the authorized North lease.
@@ -116,6 +122,7 @@ test_authorization_config.py should report 9 passed and 0 failed.
 test_service_authorization.py should report 4 passed and 0 failed.
 test_lease_change_workflow.py should report 8 passed and 0 failed.
 test_approval_boundaries.py should report 5 passed and 0 failed.
+test_access_review.py should report 6 passed and 0 failed.
 
 The configuration tests verify rejection of missing or malformed registers,
 duplicate keys and identities, unknown references and invalid permissions.
@@ -137,3 +144,5 @@ unchanged.
 - [Approval workflow results](evidence/approval-workflow-results.txt)
 - [Approval policy](approval-policy.md)
 - [Approval boundary results](evidence/approval-boundary-results.txt)
+- [Access-review report](evidence/access-review.json)
+- [Access-review checks](evidence/access-review-results.txt)

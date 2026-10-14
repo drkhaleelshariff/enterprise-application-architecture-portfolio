@@ -1,0 +1,184 @@
+{
+  "identity_count": 7,
+  "review_status": "not_reviewed",
+  "identities": [
+    {
+      "identity_id": "SVC-001",
+      "display_name": "North Lease Reporting Service",
+      "identity_type": "service",
+      "status": "active",
+      "role": "lease_reader",
+      "assigned_entities": [
+        "ENT-001"
+      ],
+      "assigned_actions": [
+        "lease:read"
+      ],
+      "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "lease:read"
+        }
+      ],
+      "readable_lease_ids": [
+        "LEASE-001"
+      ],
+      "review_flags": []
+    },
+    {
+      "identity_id": "USR-001",
+      "display_name": "North Reader",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_reader",
+      "assigned_entities": [
+        "ENT-001"
+      ],
+      "assigned_actions": [
+        "lease:read"
+      ],
+      "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "lease:read"
+        }
+      ],
+      "readable_lease_ids": [
+        "LEASE-001"
+      ],
+      "review_flags": []
+    },
+    {
+      "identity_id": "USR-002",
+      "display_name": "South Reader",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_reader",
+      "assigned_entities": [
+        "ENT-002"
+      ],
+      "assigned_actions": [
+        "lease:read"
+      ],
+      "effective_action_scope": [
+        {
+          "entity_id": "ENT-002",
+          "action": "lease:read"
+        }
+      ],
+      "readable_lease_ids": [
+        "LEASE-002"
+      ],
+      "review_flags": []
+    },
+    {
+      "identity_id": "USR-003",
+      "display_name": "Group Reader",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_reader",
+      "assigned_entities": [
+        "ENT-001",
+        "ENT-002"
+      ],
+      "assigned_actions": [
+        "lease:read"
+      ],
+      "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "lease:read"
+        },
+        {
+          "entity_id": "ENT-002",
+          "action": "lease:read"
+        }
+      ],
+      "readable_lease_ids": [
+        "LEASE-001",
+        "LEASE-002"
+      ],
+      "review_flags": [
+        "multi_entity_membership"
+      ]
+    },
+    {
+      "identity_id": "USR-004",
+      "display_name": "Disabled Reader",
+      "identity_type": "human",
+      "status": "disabled",
+      "role": "lease_reader",
+      "assigned_entities": [
+        "ENT-001"
+      ],
+      "assigned_actions": [
+        "lease:read"
+      ],
+      "effective_action_scope": [],
+      "readable_lease_ids": [],
+      "review_flags": []
+    },
+    {
+      "identity_id": "USR-005",
+      "display_name": "North Change Requester",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_change_requester",
+      "assigned_entities": [
+        "ENT-001"
+      ],
+      "assigned_actions": [
+        "lease:read",
+        "lease_change:request"
+      ],
+      "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "lease:read"
+        },
+        {
+          "entity_id": "ENT-001",
+          "action": "lease_change:request"
+        }
+      ],
+      "readable_lease_ids": [
+        "LEASE-001"
+      ],
+      "review_flags": []
+    },
+    {
+      "identity_id": "USR-006",
+      "display_name": "North Change Approver",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_change_approver",
+      "assigned_entities": [
+        "ENT-001"
+      ],
+      "assigned_actions": [
+        "lease:read",
+        "lease_change:approve"
+      ],
+      "effective_action_scope": [
+        {
+          "entity_id": "ENT-001",
+          "action": "lease:read"
+        },
+        {
+          "entity_id": "ENT-001",
+          "action": "lease_change:approve"
+        }
+      ],
+      "readable_lease_ids": [
+        "LEASE-001"
+      ],
+      "review_flags": []
+    }
+  ],
+  "limitations": [
+    "Synthetic authorization configuration; authentication is simulated.",
+    "Approval scope does not override request state or self-approval checks.",
+    "Flags identify review questions, not automatic policy violations.",
+    "No business owner has certified these assignments."
+  ]
+}

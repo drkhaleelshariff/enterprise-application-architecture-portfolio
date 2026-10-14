@@ -1,0 +1,8 @@
+PASS: seven identities remain explicitly unreviewed
+PASS: disabled assignments grant no effective access
+PASS: multi-entity access is flagged for review
+PASS: reported readable leases match authorization
+PASS: combined request and approval permissions are flagged
+PASS: service human-only assignment is flagged and excluded
+
+Results: 6 passed; 0 failed
