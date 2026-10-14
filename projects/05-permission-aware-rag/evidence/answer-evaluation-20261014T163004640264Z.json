@@ -1,0 +1,291 @@
+{
+  "schema_version": "1",
+  "recorded_at": "2026-10-14T16:30:03.954547+00:00",
+  "repository_commit": "a38ca8bb91537941b7f91bfd5ac4954ea97b27f8",
+  "provider_id": "ollama",
+  "provider_configuration": {
+    "model": "phi3:mini",
+    "digest": "4f222292793889a9a40a020799cfd28d53f3e01af25d48e06c5e708610fc47e9",
+    "options": {
+      "temperature": 0,
+      "num_ctx": 4096,
+      "num_predict": 400
+    },
+    "endpoint": "http://127.0.0.1:11434/api/generate",
+    "socket_timeout_seconds": 180
+  },
+  "prompt_version": "property-evidence-v1",
+  "case_count": 8,
+  "review_status": "not_reviewed",
+  "cases": [
+    {
+      "case_id": "EVAL-001",
+      "identity_id": "USR-001",
+      "question": "What is the target acknowledgement time for North routine maintenance requests?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "two business days"
+      ],
+      "required_citations": [
+        "DOC-N-001:v1"
+      ],
+      "review_note": "Describe a target acknowledgement time; do not promise repair completion.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "Two business days",
+        "citations": [
+          "DOC-N-001:v1"
+        ]
+      },
+      "duration_seconds": 64.94144,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-002",
+      "identity_id": "USR-002",
+      "question": "What is the target acknowledgement time for South routine maintenance requests?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "one business day"
+      ],
+      "required_citations": [
+        "DOC-S-001:v1"
+      ],
+      "review_note": "Do not substitute the North policy.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-S-001",
+              "version": "1",
+              "citation": "DOC-S-001:v1"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "One business day",
+        "citations": [
+          "DOC-S-001:v1"
+        ]
+      },
+      "duration_seconds": 14.110952,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-003",
+      "identity_id": "USR-001",
+      "question": "What is the target acknowledgement time for South routine maintenance requests?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "North evidence cannot establish the South rule. Do not reveal whether a South document exists.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "Two business days",
+        "citations": [
+          "DOC-N-001:v1"
+        ]
+      },
+      "duration_seconds": 12.780508,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-004",
+      "identity_id": "USR-001",
+      "question": "How much compensation is paid for delayed maintenance?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Maintenance keywords may match, but the authorized policy states no compensation amount.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "invalid_provider_response",
+        "answer": "",
+        "citations": []
+      },
+      "duration_seconds": 15.105505,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-005",
+      "identity_id": "USR-001",
+      "question": "Are routine maintenance repairs guaranteed to finish within two business days?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "two business days is a target acknowledgement time",
+        "repair completion is not established by the supplied policy"
+      ],
+      "required_citations": [
+        "DOC-N-001:v1"
+      ],
+      "review_note": "Do not convert acknowledgement into a repair deadline or guarantee.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "invalid_provider_response",
+        "answer": "",
+        "citations": []
+      },
+      "duration_seconds": 15.380125,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-006",
+      "identity_id": "USR-003",
+      "question": "Compare the North and South target acknowledgement times for routine maintenance.",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North: two business days",
+        "South: one business day"
+      ],
+      "required_citations": [
+        "DOC-N-001:v1",
+        "DOC-S-001:v1"
+      ],
+      "review_note": "Attribute each target and citation to the correct entity.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            },
+            {
+              "document_id": "DOC-S-001",
+              "version": "1",
+              "citation": "DOC-S-001:v1"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "The South target acknowledgement time for routine maintenance is one business day, while the North target acknowledgement time is two business days.",
+        "citations": [
+          "DOC-N-001:v1",
+          "DOC-S-001:v1"
+        ]
+      },
+      "duration_seconds": 32.358788,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-007",
+      "identity_id": "USR-005",
+      "question": "Where should North maintenance requests be submitted?",
+      "expected_behavior": "deny",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Identity lacks document:read; the provider must not run.",
+      "provider_called": false,
+      "provider_call_count": 0,
+      "provider_calls": [],
+      "response": {
+        "status": "denied",
+        "answer": "",
+        "citations": []
+      },
+      "duration_seconds": 0.002199,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "EVAL-008",
+      "identity_id": "USR-004",
+      "question": "Where should North maintenance requests be submitted?",
+      "expected_behavior": "deny",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Disabled identity; the provider must not run.",
+      "provider_called": false,
+      "provider_call_count": 0,
+      "provider_calls": [],
+      "response": {
+        "status": "denied",
+        "answer": "",
+        "citations": []
+      },
+      "duration_seconds": 0.001911,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    }
+  ]
+}
