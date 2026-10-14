@@ -80,7 +80,15 @@ def load_data(folder):
         actions = role["allowed_actions"]
         if (
             not isinstance(actions, list)
-            or any(action != "lease:read" for action in actions)
+            or any(
+                not isinstance(action, str)
+                or action not in {
+                    "lease:read",
+                    "lease_change:request",
+                    "lease_change:approve",
+                }
+                for action in actions
+            )
             or len(actions) != len(set(actions))
         ):
             raise ValueError("Invalid role actions")

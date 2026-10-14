@@ -4,6 +4,14 @@
     {
       "role_id": "lease_reader",
       "allowed_actions": ["lease:read"]
+    },
+    {
+      "role_id": "lease_change_requester",
+      "allowed_actions": ["lease:read", "lease_change:request"]
+    },
+    {
+      "role_id": "lease_change_approver",
+      "allowed_actions": ["lease:read", "lease_change:approve"]
     }
   ]
 }

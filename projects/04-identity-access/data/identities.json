@@ -40,6 +40,22 @@
       "status": "active",
       "role": "lease_reader",
       "entity_ids": ["ENT-001"]
+    },
+    {
+      "identity_id": "USR-005",
+      "display_name": "North Change Requester",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_change_requester",
+      "entity_ids": ["ENT-001"]
+    },
+    {
+      "identity_id": "USR-006",
+      "display_name": "North Change Approver",
+      "identity_type": "human",
+      "status": "active",
+      "role": "lease_change_approver",
+      "entity_ids": ["ENT-001"]
     }
   ]
 }
