@@ -1,0 +1,90 @@
+{
+  "schema_version": "1",
+  "experiment": "clarification-question-wording",
+  "repository_commit": "59e6b60daaeb9802d81fd1db379c2b977ce1abed",
+  "provider_configuration": {
+    "model": "qwen3.5:latest",
+    "think": false,
+    "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+    "options": {
+      "temperature": 0,
+      "num_ctx": 4096,
+      "num_predict": 400
+    },
+    "endpoint": "http://127.0.0.1:11434/api/generate",
+    "socket_timeout_seconds": 180
+  },
+  "prompt_version": "property-evidence-v3",
+  "review_status": "not_reviewed",
+  "probes": [
+    {
+      "probe_id": "original",
+      "identity_id": "USR-001",
+      "question": "Are routine maintenance repairs guaranteed to finish within two business days?",
+      "provider_calls": [
+        {
+          "question": "Are routine maintenance repairs guaranteed to finish within two business days?",
+          "authorized_evidence": {
+            "sources": [
+              {
+                "citation": "DOC-N-001:v1",
+                "document_id": "DOC-N-001",
+                "version": "1",
+                "title": "North Office Maintenance Policy",
+                "text": "Meridian North office maintenance requests must be submitted through the North service portal. Urgent water leaks must be reported to the North facilities desk immediately. Routine maintenance requests have a target acknowledgement time of two business days."
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "generated_text": "{\"status\": \"abstain\", \"answer\": \"\", \"citations\": []}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "abstained",
+        "answer": "The supplied authorized evidence does not establish an answer.",
+        "citations": []
+      },
+      "duration_seconds": 82.092913
+    },
+    {
+      "probe_id": "explicit_clarification",
+      "identity_id": "USR-001",
+      "question": "For North routine maintenance, state the policy's target acknowledgement time, then explain whether that statement establishes a guaranteed repair completion time.",
+      "provider_calls": [
+        {
+          "question": "For North routine maintenance, state the policy's target acknowledgement time, then explain whether that statement establishes a guaranteed repair completion time.",
+          "authorized_evidence": {
+            "sources": [
+              {
+                "citation": "DOC-N-001:v1",
+                "document_id": "DOC-N-001",
+                "version": "1",
+                "title": "North Office Maintenance Policy",
+                "text": "Meridian North office maintenance requests must be submitted through the North service portal. Urgent water leaks must be reported to the North facilities desk immediately. Routine maintenance requests have a target acknowledgement time of two business days."
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"The policy's target acknowledgement time for North routine maintenance is two business days. This statement does not establish a guaranteed repair completion time; it only sets a target for acknowledging the request.\", \"citations\": [\"DOC-N-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "The policy's target acknowledgement time for North routine maintenance is two business days. This statement does not establish a guaranteed repair completion time; it only sets a target for acknowledging the request.",
+        "citations": [
+          "DOC-N-001:v1"
+        ]
+      },
+      "duration_seconds": 60.733717
+    }
+  ],
+  "recorded_at": "2026-10-14T22:41:18.213230+00:00"
+}
