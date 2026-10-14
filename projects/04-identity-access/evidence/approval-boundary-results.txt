@@ -1,0 +1,7 @@
+PASS: disabled approver denied; request unchanged
+PASS: service identity denied despite approval permission; request unchanged
+PASS: cross-entity approver denied; request unchanged
+PASS: unknown approver denied; request unchanged
+PASS: valid approver succeeds after denied attempts
+
+Results: 5 passed; 0 failed
