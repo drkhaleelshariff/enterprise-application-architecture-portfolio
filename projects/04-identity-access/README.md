@@ -146,3 +146,7 @@ unchanged.
 - [Approval boundary results](evidence/approval-boundary-results.txt)
 - [Access-review report](evidence/access-review.json)
 - [Access-review checks](evidence/access-review-results.txt)
+
+## Access review procedure
+
+See the [review responsibilities, decisions and remediation procedure](access-review-procedure.md).
