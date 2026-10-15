@@ -1,0 +1,440 @@
+{
+  "schema_version": "1",
+  "experiment": "entity-applicability-four-conditions",
+  "repository_commit": "378116691535b54e02d121b4789109424f74db43",
+  "provider_configuration": {
+    "model": "qwen3.5:latest",
+    "think": false,
+    "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+    "options": {
+      "temperature": 0,
+      "num_ctx": 4096,
+      "num_predict": 400
+    },
+    "endpoint": "http://127.0.0.1:11434/api/generate",
+    "socket_timeout_seconds": 180
+  },
+  "adapter_module": "ollama_schema_property_provider",
+  "prompt_version": "property-evidence-v4",
+  "output_contract_version": "property-citation-schema-v1",
+  "documents_file": "projects/05-permission-aware-rag/data/robustness_v1/documents.json",
+  "approvals_file": "projects/05-permission-aware-rag/data/robustness_v1/source_approvals.json",
+  "approvals_checked_at_start": [
+    {
+      "document_id": "DOC-N-ACCESS-001",
+      "version": "1"
+    },
+    {
+      "document_id": "DOC-S-ACCESS-001",
+      "version": "1"
+    }
+  ],
+  "review_status": "not_reviewed",
+  "conditions": [
+    {
+      "condition": "north_question_north_evidence",
+      "identity_id": "USR-001",
+      "requested_entity": "North",
+      "expected_source": "DOC-N-ACCESS-001:v1",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "three business days"
+      ],
+      "required_citations": [
+        "DOC-N-ACCESS-001:v1"
+      ],
+      "question": "What is the target acknowledgement time for North replacement access card requests?",
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "question": "What is the target acknowledgement time for North replacement access card requests?",
+          "authorized_evidence": {
+            "sources": [
+              {
+                "citation": "DOC-N-ACCESS-001:v1",
+                "document_id": "DOC-N-ACCESS-001",
+                "version": "1",
+                "title": "North Replacement Access Card Policy",
+                "text": "Meridian North replacement access card requests must be submitted through the North access portal. Lost cards must be reported to the North security desk immediately. Replacement requests have a target acknowledgement time of three business days. This policy does not specify a card delivery deadline or a replacement fee."
+              }
+            ]
+          },
+          "requested_format": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "answer": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "DOC-N-ACCESS-001:v1"
+                      ]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "abstain"
+                    ]
+                  },
+                  "answer": {
+                    "type": "string",
+                    "enum": [
+                      ""
+                    ]
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 0
+                  }
+                },
+                "required": [
+                  "status",
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"The target acknowledgement time for North replacement access card requests is three business days.\", \"citations\": [\"DOC-N-ACCESS-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "The target acknowledgement time for North replacement access card requests is three business days.",
+        "citations": [
+          "DOC-N-ACCESS-001:v1"
+        ]
+      },
+      "duration_seconds": 86.787655
+    },
+    {
+      "condition": "south_question_north_evidence",
+      "identity_id": "USR-001",
+      "requested_entity": "South",
+      "expected_source": "DOC-N-ACCESS-001:v1",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "question": "What is the target acknowledgement time for South replacement access card requests?",
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "question": "What is the target acknowledgement time for South replacement access card requests?",
+          "authorized_evidence": {
+            "sources": [
+              {
+                "citation": "DOC-N-ACCESS-001:v1",
+                "document_id": "DOC-N-ACCESS-001",
+                "version": "1",
+                "title": "North Replacement Access Card Policy",
+                "text": "Meridian North replacement access card requests must be submitted through the North access portal. Lost cards must be reported to the North security desk immediately. Replacement requests have a target acknowledgement time of three business days. This policy does not specify a card delivery deadline or a replacement fee."
+              }
+            ]
+          },
+          "requested_format": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "answer": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "DOC-N-ACCESS-001:v1"
+                      ]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "abstain"
+                    ]
+                  },
+                  "answer": {
+                    "type": "string",
+                    "enum": [
+                      ""
+                    ]
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 0
+                  }
+                },
+                "required": [
+                  "status",
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "generated_text": "{\"status\": \"abstain\", \"answer\": \"\", \"citations\": []}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "abstained",
+        "answer": "The supplied authorized evidence does not establish an answer.",
+        "citations": []
+      },
+      "duration_seconds": 44.750139
+    },
+    {
+      "condition": "south_question_south_evidence",
+      "identity_id": "USR-002",
+      "requested_entity": "South",
+      "expected_source": "DOC-S-ACCESS-001:v1",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "four business hours"
+      ],
+      "required_citations": [
+        "DOC-S-ACCESS-001:v1"
+      ],
+      "question": "What is the target acknowledgement time for South replacement access card requests?",
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "question": "What is the target acknowledgement time for South replacement access card requests?",
+          "authorized_evidence": {
+            "sources": [
+              {
+                "citation": "DOC-S-ACCESS-001:v1",
+                "document_id": "DOC-S-ACCESS-001",
+                "version": "1",
+                "title": "South Replacement Access Card Policy",
+                "text": "Meridian South replacement access card requests must be submitted through the South access portal. Lost cards must be reported to the South security desk immediately. Replacement requests have a target acknowledgement time of four business hours. This policy does not specify a card delivery deadline or a replacement fee."
+              }
+            ]
+          },
+          "requested_format": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "answer": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "DOC-S-ACCESS-001:v1"
+                      ]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "abstain"
+                    ]
+                  },
+                  "answer": {
+                    "type": "string",
+                    "enum": [
+                      ""
+                    ]
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 0
+                  }
+                },
+                "required": [
+                  "status",
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"The target acknowledgement time for South replacement access card requests is four business hours.\", \"citations\": [\"DOC-S-ACCESS-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "The target acknowledgement time for South replacement access card requests is four business hours.",
+        "citations": [
+          "DOC-S-ACCESS-001:v1"
+        ]
+      },
+      "duration_seconds": 51.138633
+    },
+    {
+      "condition": "north_question_south_evidence",
+      "identity_id": "USR-002",
+      "requested_entity": "North",
+      "expected_source": "DOC-S-ACCESS-001:v1",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "question": "What is the target acknowledgement time for North replacement access card requests?",
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "question": "What is the target acknowledgement time for North replacement access card requests?",
+          "authorized_evidence": {
+            "sources": [
+              {
+                "citation": "DOC-S-ACCESS-001:v1",
+                "document_id": "DOC-S-ACCESS-001",
+                "version": "1",
+                "title": "South Replacement Access Card Policy",
+                "text": "Meridian South replacement access card requests must be submitted through the South access portal. Lost cards must be reported to the South security desk immediately. Replacement requests have a target acknowledgement time of four business hours. This policy does not specify a card delivery deadline or a replacement fee."
+              }
+            ]
+          },
+          "requested_format": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "answer": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "DOC-S-ACCESS-001:v1"
+                      ]
+                    },
+                    "minItems": 1,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "abstain"
+                    ]
+                  },
+                  "answer": {
+                    "type": "string",
+                    "enum": [
+                      ""
+                    ]
+                  },
+                  "citations": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "maxItems": 0
+                  }
+                },
+                "required": [
+                  "status",
+                  "answer",
+                  "citations"
+                ],
+                "additionalProperties": false
+              }
+            ]
+          },
+          "diagnostics": [
+            {
+              "generated_text": "{\"status\": \"abstain\", \"answer\": \"\", \"citations\": []}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "abstained",
+        "answer": "The supplied authorized evidence does not establish an answer.",
+        "citations": []
+      },
+      "duration_seconds": 45.408613
+    }
+  ],
+  "recorded_at": "2026-10-15T15:50:59.689508+00:00"
+}
