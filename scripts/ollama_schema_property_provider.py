@@ -1,6 +1,7 @@
 """Local Ollama adapter for authorized property-document context."""
 
 import json
+import hashlib
 from http.client import HTTPConnection, HTTPException
 
 from answer_property_question import ProviderUnavailable
@@ -152,12 +153,20 @@ def provider(query, context, *, diagnostics=None):
     }
 
     connection = HTTPConnection("127.0.0.1", 11434, timeout=180)
+    request_body = json.dumps(payload).encode("utf-8")
 
+    if diagnostics is not None:
+        diagnostics.append({
+            "request_body_utf8": request_body.decode("utf-8"),
+            "request_body_sha256": hashlib.sha256(
+                request_body
+            ).hexdigest(),
+        })
     try:
         connection.request(
             "POST",
             "/api/generate",
-            body=json.dumps(payload).encode("utf-8"),
+            body=request_body,
             headers={"Content-Type": "application/json"},
         )
         response = connection.getresponse()
