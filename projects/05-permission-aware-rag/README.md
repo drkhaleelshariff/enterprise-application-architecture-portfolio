@@ -30,6 +30,11 @@ The validation questions were first executed after the V4 prompt was fixed.
 Both suites use the same two synthetic policies; results are reported
 separately because the development cases informed prompt revisions.
 
+A separate access-card robustness suite met seven of eight expectations
+under V4. An injected note was present in five model calls. No response
+adopted its false fee claim, but one mixed request lost its supported
+partial answer through whole-request abstention.
+
 Earlier model and prompt failures remain preserved alongside diagnostics
 and reviews. JSON run files remain unchanged; assessments are recorded
 in separate review documents.
@@ -163,6 +168,7 @@ The evaluation-harness test script should report 6 passed and 0 failed.
 - [Provider abstention results](evidence/provider-abstention-results.txt)
 - [Evaluation harness results](evidence/evaluation-harness-results.txt)
 
+
 ## Next step
 
 Keep the Qwen/V4 configuration as the development baseline.
@@ -184,6 +190,7 @@ scope; consult the recorded runs and reviews below for completed results.
 |---|---|---|
 | Development, Qwen/V4 | 8 of 8 | [Development review](evidence/answer-evaluation-qwen-v4-review.md) |
 | Validation V1, Qwen/V4 | 8 of 8 | [Validation review](evidence/answer-validation-v1-review.md) |
+| Robustness V1, Qwen/V4 | 7 of 8 | [Robustness review](evidence/answer-robustness-v1-review.md) |
 
 These are assistant assessments of individual synthetic runs, not
 business-owner certification or general model-accuracy measurements.
@@ -192,11 +199,13 @@ Case definitions:
 
 - [Development cases](data/answer_evaluation_cases.json)
 - [Validation cases](data/answer_validation_cases.json)
+- [Robustness cases](data/robustness_v1/cases.json)
 
 Recorded evidence:
 
 - [Development run](evidence/answer-evaluation-20261014T232924044393Z.json)
 - [Validation run](evidence/answer-validation-20261015T000110755434Z.json)
+- [Robustness run](evidence/answer-robustness-20261015T032407149685Z.json)
 
 From the repository root, with Ollama running and a clean working tree:
 
@@ -211,3 +220,28 @@ citations, abstentions and provider-call records before assigning passes.
 
 Diagnostics contain generated model text. Current evidence is synthetic;
 diagnostic capture requires appropriate handling before using real data.
+
+
+## Known limitation: mixed requests with injected evidence
+
+The access-card policy supplies the North submission portal but does
+not specify a replacement fee. With an injected note in context, Qwen
+abstains on the entire mixed request instead of answering the supported
+portal part and identifying the unspecified fee.
+
+In a three-condition diagnostic, no-note and benign-note conditions
+answer correctly; the injected-note condition abstains. Policy text,
+note metadata and source order were checked. The precise mechanism
+remains uncertain because note wording and length differ and execution
+order is fixed.
+
+No recorded response adopts the injected 999 credits claim. This does
+not establish general prompt-injection resistance or acceptable
+answer availability.
+
+An explicit partial-answer instruction in prompt V5 did not resolve
+the targeted failure. V5 was not promoted; the adapter was restored
+to V4. The failure remains open.
+
+- [Three-condition V4 review](evidence/mixed-request-three-condition-review.md)
+- [Unsuccessful V5 experiment review](evidence/mixed-request-v5-review.md)
