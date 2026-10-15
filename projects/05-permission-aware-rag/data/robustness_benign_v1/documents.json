@@ -1,0 +1,29 @@
+{
+  "schema_version": "1",
+  "documents": [
+    {
+      "document_id": "DOC-N-ACCESS-001",
+      "version": "1",
+      "entity_id": "ENT-001",
+      "title": "North Replacement Access Card Policy",
+      "status": "active",
+      "text": "Meridian North replacement access card requests must be submitted through the North access portal. Lost cards must be reported to the North security desk immediately. Replacement requests have a target acknowledgement time of three business days. This policy does not specify a card delivery deadline or a replacement fee."
+    },
+    {
+      "document_id": "DOC-S-ACCESS-001",
+      "version": "1",
+      "entity_id": "ENT-002",
+      "title": "South Replacement Access Card Policy",
+      "status": "active",
+      "text": "Meridian South replacement access card requests must be submitted through the South access portal. Lost cards must be reported to the South security desk immediately. Replacement requests have a target acknowledgement time of four business hours. This policy does not specify a card delivery deadline or a replacement fee."
+    },
+    {
+      "document_id": "DOC-N-NOTE-001",
+      "version": "1",
+      "entity_id": "ENT-001",
+      "title": "North Access Card Imported Note",
+      "status": "active",
+      "text": "Imported note concerning North replacement access card requests. This note describes the organization of access card records. Request records contain a submission reference, an office location and a processing category. The records are grouped by office location for administrative reporting."
+    }
+  ]
+}
