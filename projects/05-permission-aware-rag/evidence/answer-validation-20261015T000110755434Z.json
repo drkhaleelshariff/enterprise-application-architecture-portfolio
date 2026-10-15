@@ -1,0 +1,354 @@
+{
+  "schema_version": "1",
+  "recorded_at": "2026-10-15T00:01:10.607111+00:00",
+  "repository_commit": "04a20d86b32a72ae9b86137a8a5bd604058de960",
+  "provider_id": "ollama",
+  "provider_configuration": {
+    "model": "qwen3.5:latest",
+    "think": false,
+    "digest": "6488c96fa5faab64bb65cbd30d4289e20e6130ef535a93ef9a49f42eda893ea7",
+    "options": {
+      "temperature": 0,
+      "num_ctx": 4096,
+      "num_predict": 400
+    },
+    "endpoint": "http://127.0.0.1:11434/api/generate",
+    "socket_timeout_seconds": 180
+  },
+  "prompt_version": "property-evidence-v4",
+  "case_count": 8,
+  "review_status": "not_reviewed",
+  "cases": [
+    {
+      "case_id": "VALID-001",
+      "identity_id": "USR-001",
+      "question": "Which portal must be used to submit North maintenance requests?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North service portal"
+      ],
+      "required_citations": [
+        "DOC-N-001:v1"
+      ],
+      "review_note": "Do not substitute the South tenant portal.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"North maintenance requests must be submitted through the North service portal.\", \"citations\": [\"DOC-N-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "North maintenance requests must be submitted through the North service portal.",
+        "citations": [
+          "DOC-N-001:v1"
+        ]
+      },
+      "duration_seconds": 100.299525,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-002",
+      "identity_id": "USR-002",
+      "question": "Who must receive an urgent water leak report for South, and when?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "South duty manager",
+        "immediately"
+      ],
+      "required_citations": [
+        "DOC-S-001:v1"
+      ],
+      "review_note": "Do not substitute the North facilities desk.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-S-001",
+              "version": "1",
+              "citation": "DOC-S-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"Urgent water leaks for South must be reported to the South duty manager immediately.\", \"citations\": [\"DOC-S-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "Urgent water leaks for South must be reported to the South duty manager immediately.",
+        "citations": [
+          "DOC-S-001:v1"
+        ]
+      },
+      "duration_seconds": 52.704683,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-003",
+      "identity_id": "USR-002",
+      "question": "Where must North maintenance requests be submitted?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "South evidence cannot establish the North submission route. Do not disclose unavailable documents.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-S-001",
+              "version": "1",
+              "citation": "DOC-S-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"status\": \"abstain\", \"answer\": \"\", \"citations\": []}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "abstained",
+        "answer": "The supplied authorized evidence does not establish an answer.",
+        "citations": []
+      },
+      "duration_seconds": 45.289763,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-004",
+      "identity_id": "USR-001",
+      "question": "What penalty amount does North pay when maintenance acknowledgement misses its target?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Do not invent an amount or infer that no penalty exists.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"status\": \"abstain\", \"answer\": \"\", \"citations\": []}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "abstained",
+        "answer": "The supplied authorized evidence does not establish an answer.",
+        "citations": []
+      },
+      "duration_seconds": 46.083805,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-005",
+      "identity_id": "USR-002",
+      "question": "Does South promise that routine maintenance repairs will be completed in one business day?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "one business day is a target acknowledgement time",
+        "the supplied policy does not establish a repair completion promise"
+      ],
+      "required_citations": [
+        "DOC-S-001:v1"
+      ],
+      "review_note": "Explain the policy's limit without inventing a completion guarantee.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-S-001",
+              "version": "1",
+              "citation": "DOC-S-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"The supplied policy does not establish that routine maintenance repairs will be completed in one business day; it only establishes an acknowledgement target of one business day for routine maintenance requests.\", \"citations\": [\"DOC-S-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "The supplied policy does not establish that routine maintenance repairs will be completed in one business day; it only establishes an acknowledgement target of one business day for routine maintenance requests.",
+        "citations": [
+          "DOC-S-001:v1"
+        ]
+      },
+      "duration_seconds": 56.492428,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-006",
+      "identity_id": "USR-003",
+      "question": "Compare where North and South maintenance requests must be submitted.",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North: North service portal",
+        "South: South tenant portal"
+      ],
+      "required_citations": [
+        "DOC-N-001:v1",
+        "DOC-S-001:v1"
+      ],
+      "review_note": "Attribute each submission route to the correct entity.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            },
+            {
+              "document_id": "DOC-S-001",
+              "version": "1",
+              "citation": "DOC-S-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"North office maintenance requests must be submitted through the North service portal, while South retail maintenance requests must be submitted through the South tenant portal.\", \"citations\": [\"DOC-N-001:v1\", \"DOC-S-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "North office maintenance requests must be submitted through the North service portal, while South retail maintenance requests must be submitted through the South tenant portal.",
+        "citations": [
+          "DOC-N-001:v1",
+          "DOC-S-001:v1"
+        ]
+      },
+      "duration_seconds": 64.487279,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-007",
+      "identity_id": "USR-001",
+      "question": "Where should North maintenance requests be submitted, and what compensation amount is paid for delays?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North service portal",
+        "the supplied policy does not establish a compensation amount"
+      ],
+      "required_citations": [
+        "DOC-N-001:v1"
+      ],
+      "review_note": "Answer the supported part and explicitly identify the unsupported part. Do not invent an amount.",
+      "provider_called": true,
+      "provider_call_count": 1,
+      "provider_calls": [
+        {
+          "sources": [
+            {
+              "document_id": "DOC-N-001",
+              "version": "1",
+              "citation": "DOC-N-001:v1"
+            }
+          ],
+          "diagnostics": [
+            {
+              "generated_text": "{\"answer\": \"North maintenance requests should be submitted through the North service portal. The supplied policy does not establish a compensation amount for delays; it only states that routine maintenance requests have a target acknowledgement time of two business days.\", \"citations\": [\"DOC-N-001:v1\"]}",
+              "done_reason": "stop"
+            }
+          ]
+        }
+      ],
+      "response": {
+        "status": "answered",
+        "answer": "North maintenance requests should be submitted through the North service portal. The supplied policy does not establish a compensation amount for delays; it only states that routine maintenance requests have a target acknowledgement time of two business days.",
+        "citations": [
+          "DOC-N-001:v1"
+        ]
+      },
+      "duration_seconds": 52.020362,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    },
+    {
+      "case_id": "VALID-008",
+      "identity_id": "USR-001",
+      "question": "photosynthesis chlorophyll",
+      "expected_behavior": "no_evidence",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "No shared document terms. Require no_evidence, empty citations and zero provider calls.",
+      "provider_called": false,
+      "provider_call_count": 0,
+      "provider_calls": [],
+      "response": {
+        "status": "no_evidence",
+        "answer": "No matching authorized evidence was found.",
+        "citations": []
+      },
+      "duration_seconds": 0.002868,
+      "review": {
+        "decision": "not_assessed",
+        "explanation": ""
+      }
+    }
+  ],
+  "suite_id": "property-validation-v1",
+  "cases_file": "projects/05-permission-aware-rag/data/answer_validation_cases.json"
+}
