@@ -34,6 +34,7 @@ def evaluate(
     provider_configuration,
     prompt_version,
     capture_provider_diagnostics=False,
+    answer_function=answer_question,
     cases_path=CASES,
     identity_folder=IDENTITY_DATA,
     document_folder=DOCUMENT_DATA,
@@ -74,7 +75,7 @@ def evaluate(
 
             return provider(query, context)
         started = perf_counter()
-        response = answer_question(
+        response = answer_function(
             case["identity_id"],
             case["question"],
             recorded_provider,
