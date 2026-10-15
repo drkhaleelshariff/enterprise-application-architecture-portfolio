@@ -1,0 +1,13 @@
+{
+  "schema_version": "1",
+  "approved_sources": [
+    {
+      "document_id": "DOC-N-ACCESS-001",
+      "version": "1"
+    },
+    {
+      "document_id": "DOC-S-ACCESS-001",
+      "version": "1"
+    }
+  ]
+}
