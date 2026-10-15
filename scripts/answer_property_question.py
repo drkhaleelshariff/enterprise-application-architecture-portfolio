@@ -14,9 +14,11 @@ def answer_question(
     provider,
     identity_folder=IDENTITY_DATA,
     document_folder=DOCUMENT_DATA,
+    *,
+    context_builder=build_context,
 ):
     try:
-        evidence = build_context(
+        evidence = context_builder(
             identity_id,
             query,
             identity_folder=identity_folder,
