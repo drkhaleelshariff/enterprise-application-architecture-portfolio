@@ -173,6 +173,14 @@ def provider(query, context, *, diagnostics=None):
         raw = response.read(1_048_577)
 
         if response.status != 200:
+            if diagnostics is not None:
+                diagnostics.append({
+                    "failure_stage": "http_response",
+                    "http_status": response.status,
+                    "response_body_excerpt": raw[:4096].decode(
+                        "utf-8", errors="replace"
+                    ),
+                })
             raise ProviderUnavailable("Local model request failed")
         if len(raw) > 1_048_576:
             raise ProviderUnavailable("Local model response exceeded limit")
@@ -208,6 +216,12 @@ def provider(query, context, *, diagnostics=None):
             return {}
 
     except (OSError, HTTPException) as exc:
+        if diagnostics is not None:
+            diagnostics.append({
+                "failure_stage": "transport",
+                "exception_type": type(exc).__name__,
+                "exception_message": str(exc),
+            })
         raise ProviderUnavailable("Local model service unavailable") from exc
     finally:
         connection.close()
