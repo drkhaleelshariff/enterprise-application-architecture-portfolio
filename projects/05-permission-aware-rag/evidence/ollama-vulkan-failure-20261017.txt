@@ -1,0 +1,250 @@
+﻿print_info: ssm_d_conv            = 4
+print_info: ssm_d_inner           = 4096
+print_info: ssm_d_state           = 128
+print_info: ssm_dt_rank           = 32
+print_info: ssm_n_group           = 16
+print_info: ssm_dt_b_c_rms        = 0
+print_info: model type            = 9B
+print_info: model params          = 9.20 B
+print_info: general.name          = n/a
+print_info: vocab type            = BPE
+print_info: n_vocab               = 248320
+print_info: n_merges              = 247587
+print_info: BOS token             = 11 ','
+print_info: EOS token             = 248046 '<|im_end|>'
+print_info: EOT token             = 248046 '<|im_end|>'
+print_info: PAD token             = 248044 '<|endoftext|>'
+print_info: LF token              = 198 'ÄŠ'
+print_info: FIM PRE token         = 248060 '<|fim_prefix|>'
+print_info: FIM SUF token         = 248062 '<|fim_suffix|>'
+print_info: FIM MID token         = 248061 '<|fim_middle|>'
+print_info: FIM PAD token         = 248063 '<|fim_pad|>'
+print_info: FIM REP token         = 248064 '<|repo_name|>'
+print_info: FIM SEP token         = 248065 '<|file_sep|>'
+print_info: EOG token             = 248044 '<|endoftext|>'
+print_info: EOG token             = 248046 '<|im_end|>'
+print_info: EOG token             = 248063 '<|fim_pad|>'
+print_info: EOG token             = 248064 '<|repo_name|>'
+print_info: EOG token             = 248065 '<|file_sep|>'
+print_info: max token length      = 256
+load_tensors: loading model tensors, this can take a while... (load_mode = none)
+model has unused tensor blk.32.attn_norm.weight (size = 16384 bytes) -- ignoring
+model has unused tensor blk.32.post_attention_norm.weight (size = 16384 bytes) -- ignoring
+model has unused tensor blk.32.attn_q.weight (size = 18874368 bytes) -- ignoring
+model has unused tensor blk.32.attn_k.weight (size = 2359296 bytes) -- ignoring
+model has unused tensor blk.32.attn_v.weight (size = 3440640 bytes) -- ignoring
+model has unused tensor blk.32.attn_output.weight (size = 9437184 bytes) -- ignoring
+model has unused tensor blk.32.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+model has unused tensor blk.32.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+model has unused tensor blk.32.ffn_gate.weight (size = 28311552 bytes) -- ignoring
+model has unused tensor blk.32.ffn_down.weight (size = 41287680 bytes) -- ignoring
+model has unused tensor blk.32.ffn_up.weight (size = 28311552 bytes) -- ignoring
+model has unused tensor blk.32.nextn.eh_proj.weight (size = 18874368 bytes) -- ignoring
+model has unused tensor blk.32.nextn.enorm.weight (size = 16384 bytes) -- ignoring
+model has unused tensor blk.32.nextn.hnorm.weight (size = 16384 bytes) -- ignoring
+model has unused tensor blk.32.nextn.shared_head_norm.weight (size = 16384 bytes) -- ignoring
+load_tensors: offloading output layer to GPU
+load_tensors: offloading 5 repeating layers to GPU
+load_tensors: offloaded 6/34 layers to GPU
+load_tensors:      Vulkan0 model buffer size =  1310.68 MiB
+load_tensors:  Vulkan_Host model buffer size =  3952.33 MiB
+cmn  common_init_: added <|endoftext|> logit bias = -inf
+cmn  common_init_: added <|im_end|> logit bias = -inf
+cmn  common_init_: added <|fim_pad|> logit bias = -inf
+cmn  common_init_: added <|repo_name|> logit bias = -inf
+cmn  common_init_: added <|file_sep|> logit bias = -inf
+llama_context: constructing llama_context
+llama_context: n_seq_max             = 1
+llama_context: n_ctx                 = 4096
+llama_context: n_ctx_seq             = 4096
+llama_context: n_batch               = 512
+llama_context: n_ubatch              = 512
+llama_context: causal_attn           = 1
+llama_context: flash_attn            = auto
+llama_context: kv_unified            = false
+llama_context: freq_base             = 10000000.0
+llama_context: freq_scale            = 1
+llama_context: n_rs_seq              = 0
+llama_context: n_outputs_max         = 1
+llama_context: n_outputs_max_per_seq = 1
+llama_context: n_ctx_seq (4096) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+llama_context: Vulkan_Host  output buffer size =     0.95 MiB
+llama_kv_cache:        CPU KV buffer size =   112.00 MiB
+llama_kv_cache:    Vulkan0 KV buffer size =    16.00 MiB
+llama_kv_cache: size =  128.00 MiB (  4096 cells,   8 layers,  1/1 seqs), K (f16):   64.00 MiB, V (f16):   64.00 MiB
+llama_kv_cache: n_rot_k = 0, n_embd_head_k_all = 256
+llama_kv_cache: n_rot_v = 0, n_embd_head_k_all = 256
+llama_memory_recurrent:        CPU RS buffer size =    43.97 MiB
+llama_memory_recurrent:    Vulkan0 RS buffer size =     6.28 MiB
+llama_memory_recurrent: size =   50.25 MiB (     1 cells,  32 layers,  1 seqs  0 rs_seq), R (f32):    2.25 MiB, S (f32):   48.00 MiB, P (f32):    0.00 MiB
+sched_reserve: reserving ...
+resolve_fused_ops: Flash Attention enabled
+resolve_fused_ops: resolving fused DeepSeek V4 HC support:
+resolve_fused_ops: fused DeepSeek V4 HC pre enabled
+resolve_fused_ops: fused DeepSeek V4 HC comb enabled
+resolve_fused_ops: fused DeepSeek V4 HC post enabled
+sched_reserve:    Vulkan0 compute buffer size =   119.01 MiB
+sched_reserve: Vulkan_Host compute buffer size =    36.12 MiB
+sched_reserve: graph (pp bs=512, tg bs=1): nodes = 1929 / 1929, splits = 450 / 44, input objects = 4 / 4, input tensors = 10 / 10
+sched_reserve: reserve took 31.52 ms, sched copies = 1
+cmn          init: llama threadpool init, n_threads = 4
+cmn  common_init_: KV cache shifting is not supported for this context, disabling KV cache shifting
+cmn  common_init_: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+handle_qwen35_like_clip: detected Ollama-format qwen35 GGUF used as mmproj; translating
+clip_model_loader: model name:   
+clip_model_loader: description:  
+clip_model_loader: GGUF version: 3
+clip_model_loader: alignment:    32
+clip_model_loader: n_tensors:    883
+clip_model_loader: n_kv:         68
+
+clip_model_loader: has vision encoder
+clip_ctx: CLIP using Vulkan0 backend
+load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks
+load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024
+load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842
+
+load_hparams: projector:          qwen3vl_merger
+load_hparams: n_embd:             1152
+load_hparams: n_head:             16
+load_hparams: n_ff:               4304
+load_hparams: n_layer:            27
+load_hparams: ffn_op:             gelu
+load_hparams: projection_dim:     4096
+
+--- vision hparams ---
+load_hparams: image_size:         768
+load_hparams: patch_size:         16
+load_hparams: has_llava_proj:     0
+load_hparams: minicpmv_version:   0
+load_hparams: n_merge:            2
+load_hparams: n_wa_pattern: 0
+load_hparams: image_min_pixels:   8192
+load_hparams: image_max_pixels:   4194304
+
+load_hparams: model size:         6420.37 MiB
+load_hparams: metadata size:      0.31 MiB
+compat tensor transform: op=patch_embed slice 0 (permute+F16->F32) tensor=v.patch_embd.weight bytes=3538944 duration_ms=33.196 total_ops=1 total_bytes=3538944 total_ms=33.196
+compat tensor transform: op=patch_embed slice 1 (permute+F16->F32) tensor=v.patch_embd.weight.1 bytes=3538944 duration_ms=8.285 total_ops=2 total_bytes=7077888 total_ms=41.481
+compat tensor transform: op=F16->F32 promote tensor=v.position_embd.weight bytes=10616832 duration_ms=43.224 total_ops=3 total_bytes=17694720 total_ms=84.706
+compat tensor transform: op=concat sources tensor=v.blk.0.attn_qkv.weight bytes=7962624 duration_ms=9.625 total_ops=4 total_bytes=25657344 total_ms=94.330
+compat tensor transform: op=concat sources tensor=v.blk.0.attn_qkv.bias bytes=13824 duration_ms=0.434 total_ops=5 total_bytes=25671168 total_ms=94.765
+compat tensor transform: op=concat sources tensor=v.blk.1.attn_qkv.weight bytes=7962624 duration_ms=14.974 total_ops=6 total_bytes=33633792 total_ms=109.739
+compat tensor transform: op=concat sources tensor=v.blk.1.attn_qkv.bias bytes=13824 duration_ms=0.488 total_ops=7 total_bytes=33647616 total_ms=110.227
+compat tensor transform: op=concat sources tensor=v.blk.2.attn_qkv.weight bytes=7962624 duration_ms=15.537 total_ops=8 total_bytes=41610240 total_ms=125.763
+compat tensor transform: op=concat sources tensor=v.blk.2.attn_qkv.bias bytes=13824 duration_ms=0.410 total_ops=9 total_bytes=41624064 total_ms=126.173
+compat tensor transform: op=concat sources tensor=v.blk.3.attn_qkv.weight bytes=7962624 duration_ms=14.991 total_ops=10 total_bytes=49586688 total_ms=141.164
+compat tensor transform: op=concat sources tensor=v.blk.3.attn_qkv.bias bytes=13824 duration_ms=0.493 total_ops=11 total_bytes=49600512 total_ms=141.657
+compat tensor transform: op=concat sources tensor=v.blk.4.attn_qkv.weight bytes=7962624 duration_ms=15.249 total_ops=12 total_bytes=57563136 total_ms=156.906
+compat tensor transform: op=concat sources tensor=v.blk.4.attn_qkv.bias bytes=13824 duration_ms=0.407 total_ops=13 total_bytes=57576960 total_ms=157.313
+compat tensor transform: op=concat sources tensor=v.blk.5.attn_qkv.weight bytes=7962624 duration_ms=15.300 total_ops=14 total_bytes=65539584 total_ms=172.613
+compat tensor transform: op=concat sources tensor=v.blk.5.attn_qkv.bias bytes=13824 duration_ms=0.407 total_ops=15 total_bytes=65553408 total_ms=173.021
+compat tensor transform: op=concat sources tensor=v.blk.6.attn_qkv.weight bytes=7962624 duration_ms=14.235 total_ops=16 total_bytes=73516032 total_ms=187.256
+compat tensor transform: op=concat sources tensor=v.blk.6.attn_qkv.bias bytes=13824 duration_ms=0.439 total_ops=17 total_bytes=73529856 total_ms=187.695
+compat tensor transform: op=concat sources tensor=v.blk.7.attn_qkv.weight bytes=7962624 duration_ms=14.429 total_ops=18 total_bytes=81492480 total_ms=202.124
+compat tensor transform: op=concat sources tensor=v.blk.7.attn_qkv.bias bytes=13824 duration_ms=0.364 total_ops=19 total_bytes=81506304 total_ms=202.488
+compat tensor transform: op=concat sources tensor=v.blk.8.attn_qkv.weight bytes=7962624 duration_ms=14.848 total_ops=20 total_bytes=89468928 total_ms=217.335
+compat tensor transform: op=concat sources tensor=v.blk.8.attn_qkv.bias bytes=13824 duration_ms=0.637 total_ops=21 total_bytes=89482752 total_ms=217.972
+compat tensor transform: op=concat sources tensor=v.blk.9.attn_qkv.weight bytes=7962624 duration_ms=15.944 total_ops=22 total_bytes=97445376 total_ms=233.916
+compat tensor transform: op=concat sources tensor=v.blk.9.attn_qkv.bias bytes=13824 duration_ms=0.483 total_ops=23 total_bytes=97459200 total_ms=234.399
+compat tensor transform: op=concat sources tensor=v.blk.10.attn_qkv.weight bytes=7962624 duration_ms=14.665 total_ops=24 total_bytes=105421824 total_ms=249.064
+compat tensor transform: op=concat sources tensor=v.blk.10.attn_qkv.bias bytes=13824 duration_ms=0.364 total_ops=25 total_bytes=105435648 total_ms=249.428
+compat tensor transform: op=concat sources tensor=v.blk.11.attn_qkv.weight bytes=7962624 duration_ms=14.869 total_ops=26 total_bytes=113398272 total_ms=264.297
+compat tensor transform: op=concat sources tensor=v.blk.11.attn_qkv.bias bytes=13824 duration_ms=0.374 total_ops=27 total_bytes=113412096 total_ms=264.671
+compat tensor transform: op=concat sources tensor=v.blk.12.attn_qkv.weight bytes=7962624 duration_ms=14.769 total_ops=28 total_bytes=121374720 total_ms=279.440
+compat tensor transform: op=concat sources tensor=v.blk.12.attn_qkv.bias bytes=13824 duration_ms=0.404 total_ops=29 total_bytes=121388544 total_ms=279.844
+compat tensor transform: op=concat sources tensor=v.blk.13.attn_qkv.weight bytes=7962624 duration_ms=13.949 total_ops=30 total_bytes=129351168 total_ms=293.793
+compat tensor transform: op=concat sources tensor=v.blk.13.attn_qkv.bias bytes=13824 duration_ms=0.503 total_ops=31 total_bytes=129364992 total_ms=294.297
+compat tensor transform: op=concat sources tensor=v.blk.14.attn_qkv.weight bytes=7962624 duration_ms=27.159 total_ops=32 total_bytes=137327616 total_ms=321.455
+compat tensor transform: op=concat sources tensor=v.blk.14.attn_qkv.bias bytes=13824 duration_ms=0.369 total_ops=33 total_bytes=137341440 total_ms=321.824
+compat tensor transform: op=concat sources tensor=v.blk.15.attn_qkv.weight bytes=7962624 duration_ms=15.441 total_ops=34 total_bytes=145304064 total_ms=337.265
+compat tensor transform: op=concat sources tensor=v.blk.15.attn_qkv.bias bytes=13824 duration_ms=0.356 total_ops=35 total_bytes=145317888 total_ms=337.621
+compat tensor transform: op=concat sources tensor=v.blk.16.attn_qkv.weight bytes=7962624 duration_ms=14.056 total_ops=36 total_bytes=153280512 total_ms=351.677
+compat tensor transform: op=concat sources tensor=v.blk.16.attn_qkv.bias bytes=13824 duration_ms=0.377 total_ops=37 total_bytes=153294336 total_ms=352.054
+compat tensor transform: op=concat sources tensor=v.blk.17.attn_qkv.weight bytes=7962624 duration_ms=14.506 total_ops=38 total_bytes=161256960 total_ms=366.560
+compat tensor transform: op=concat sources tensor=v.blk.17.attn_qkv.bias bytes=13824 duration_ms=0.360 total_ops=39 total_bytes=161270784 total_ms=366.920
+compat tensor transform: op=concat sources tensor=v.blk.18.attn_qkv.weight bytes=7962624 duration_ms=14.213 total_ops=40 total_bytes=169233408 total_ms=381.133
+compat tensor transform: op=concat sources tensor=v.blk.18.attn_qkv.bias bytes=13824 duration_ms=0.321 total_ops=41 total_bytes=169247232 total_ms=381.454
+compat tensor transform: op=concat sources tensor=v.blk.19.attn_qkv.weight bytes=7962624 duration_ms=14.313 total_ops=42 total_bytes=177209856 total_ms=395.767
+compat tensor transform: op=concat sources tensor=v.blk.19.attn_qkv.bias bytes=13824 duration_ms=0.370 total_ops=43 total_bytes=177223680 total_ms=396.138
+compat tensor transform: op=concat sources tensor=v.blk.20.attn_qkv.weight bytes=7962624 duration_ms=14.369 total_ops=44 total_bytes=185186304 total_ms=410.507
+compat tensor transform: op=concat sources tensor=v.blk.20.attn_qkv.bias bytes=13824 duration_ms=0.540 total_ops=45 total_bytes=185200128 total_ms=411.046
+compat tensor transform: op=concat sources tensor=v.blk.21.attn_qkv.weight bytes=7962624 duration_ms=16.251 total_ops=46 total_bytes=193162752 total_ms=427.297
+compat tensor transform: op=concat sources tensor=v.blk.21.attn_qkv.bias bytes=13824 duration_ms=0.553 total_ops=47 total_bytes=193176576 total_ms=427.850
+compat tensor transform: op=concat sources tensor=v.blk.22.attn_qkv.weight bytes=7962624 duration_ms=17.894 total_ops=48 total_bytes=201139200 total_ms=445.744
+compat tensor transform: op=concat sources tensor=v.blk.22.attn_qkv.bias bytes=13824 duration_ms=0.389 total_ops=49 total_bytes=201153024 total_ms=446.133
+compat tensor transform: op=concat sources tensor=v.blk.23.attn_qkv.weight bytes=7962624 duration_ms=18.572 total_ops=50 total_bytes=209115648 total_ms=464.705
+compat tensor transform: op=concat sources tensor=v.blk.23.attn_qkv.bias bytes=13824 duration_ms=0.622 total_ops=51 total_bytes=209129472 total_ms=465.327
+compat tensor transform: op=concat sources tensor=v.blk.24.attn_qkv.weight bytes=7962624 duration_ms=16.112 total_ops=52 total_bytes=217092096 total_ms=481.439
+compat tensor transform: op=concat sources tensor=v.blk.24.attn_qkv.bias bytes=13824 duration_ms=0.471 total_ops=53 total_bytes=217105920 total_ms=481.909
+compat tensor transform: op=concat sources tensor=v.blk.25.attn_qkv.weight bytes=7962624 duration_ms=29.155 total_ops=54 total_bytes=225068544 total_ms=511.064
+compat tensor transform: op=concat sources tensor=v.blk.25.attn_qkv.bias bytes=13824 duration_ms=0.463 total_ops=55 total_bytes=225082368 total_ms=511.527
+compat tensor transform: op=concat sources tensor=v.blk.26.attn_qkv.weight bytes=7962624 duration_ms=16.321 total_ops=56 total_bytes=233044992 total_ms=527.848
+compat tensor transform: op=concat sources tensor=v.blk.26.attn_qkv.bias bytes=13824 duration_ms=0.376 total_ops=57 total_bytes=233058816 total_ms=528.224
+get_dummy_batch: warmup with image size = 1472 x 1472
+get_dummy_batch: warmup with image size = 1472 x 1472
+reserve_compute_meta:    Vulkan0 compute buffer size =   248.10 MiB
+reserve_compute_meta:        CPU compute buffer size =    24.93 MiB
+reserve_compute_meta: graph splits = 1, nodes = 823
+warmup: flash attention is enabled
+srv    load_model: loaded multimodal model, 'C:\Users\Khaleel\.ollama\models\blobs\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c'
+cmn  common_conte: the context does not support partial sequence removal
+srv    load_model: speculative decoding will use checkpoints
+srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'
+spec common_specu: no implementations specified for speculative decoding
+slot   load_model: id  0 | task -1 | new slot, n_ctx = 4096
+srv    load_model: prompt cache is enabled, size limit: 8192 MiB
+srv    load_model: use `--cache-ram 0` to disable the prompt cache
+srv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+srv    load_model: context checkpoints enabled, max = 32, min spacing = 8192
+srv          init: idle slots will be saved to prompt cache upon starting a new task
+srv          init: init: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+'
+srv          init: init: chat template, thinking = 0
+srv          init: preserve_reasoning kwarg: not supported by template
+srv  llama_server: model loaded
+srv  llama_server: listening on http://127.0.0.1:58400
+srv  update_slots: all slots are idle
+time=2026-10-17T02:19:37.446+05:30 level=INFO source=llama_server.go:1397 msg="llama-server started in 37.96 seconds"
+time=2026-10-17T02:19:37.446+05:30 level=INFO source=images.go:422 msg="template selection" model=registry.ollama.ai/library/qwen3.5:latest selected=renderer_parser renderer=qwen3.5 parser=qwen3.5 go_template=null chat_template="[tools thinking completion vision]" harmony=null renderer_parser="[completion vision tools thinking]"
+time=2026-10-17T02:19:37.446+05:30 level=INFO source=sched.go:788 msg="loaded runners" count=1
+time=2026-10-17T02:19:37.446+05:30 level=INFO source=llama_server.go:1330 msg="waiting for llama-server to start responding"
+time=2026-10-17T02:19:37.448+05:30 level=INFO source=llama_server.go:1397 msg="llama-server started in 37.97 seconds"
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - skipping, slot is empty
+slot get_availabl: id  0 | task -1 | selected slot by LRU, t_last = -1
+srv  get_availabl: updating prompt cache
+srv          load:  - looking for better prompt, base f_keep = -1.000, f_sim = 0.000
+srv        update:  - cache state: 0 prompts, 0.000 MiB (limits: 8192.000 MiB, 4096 tokens, 8589934592 est)
+srv  get_availabl: prompt cache update took 0.49 ms
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+slot   operator(): id  0 | task 0 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 635
+slot   operator(): id  0 | task 0 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 0 | prompt processing, n_tokens =    123, progress = 0.19, t =  39.70 s / 3.10 tokens per second
+slot   operator(): id  0 | task 0 | cached n_tokens = 123, memory_seq_rm [123, end)
+slot create_check: id  0 | task 0 | created context checkpoint 1 of 32 (pos_min = 122, pos_max = 122, n_tokens = 123, size = 50.251 MiB)
+ggml_vulkan: device lost on Vulkan0
+[GIN] 2026/10/17 - 02:20:42 | 500 |         1m46s |       127.0.0.1 | POST     "/api/generate"
+[GIN] 2026/10/17 - 02:20:43 | 200 |            0s |       127.0.0.1 | GET      "/api/version"
+time=2026-10-17T02:25:46.146+05:30 level=WARN source=runner.go:584 msg="llama-server GPU discovery watchdog timed out" OLLAMA_LIBRARY_PATH="[C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\vulkan]" extra_envs=map[GGML_VK_VISIBLE_DEVICES:1] error="context deadline exceeded"
+time=2026-10-17T02:25:46.146+05:30 level=INFO source=runner.go:522 msg="failure during llama-server GPU discovery" OLLAMA_LIBRARY_PATH="[C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\vulkan]" extra_envs=map[GGML_VK_VISIBLE_DEVICES:1] error="context deadline exceeded" detail=""
+time=2026-10-17T02:25:46.146+05:30 level=WARN source=runner.go:364 msg="unable to refresh free memory, using old values"
+time=2026-10-17T02:25:47.901+05:30 level=WARN source=runner.go:584 msg="llama-server GPU discovery watchdog timed out" OLLAMA_LIBRARY_PATH="[C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\vulkan]" extra_envs=map[GGML_VK_VISIBLE_DEVICES:1] error="context deadline exceeded"
+time=2026-10-17T02:25:47.903+05:30 level=INFO source=runner.go:522 msg="failure during llama-server GPU discovery" OLLAMA_LIBRARY_PATH="[C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\vulkan]" extra_envs=map[GGML_VK_VISIBLE_DEVICES:1] error="context deadline exceeded" detail=""
+time=2026-10-17T02:25:47.903+05:30 level=WARN source=runner.go:364 msg="unable to refresh free memory, using old values"
+[GIN] 2026/10/17 - 03:03:49 | 200 |            0s |       127.0.0.1 | HEAD     "/"
+[GIN] 2026/10/17 - 03:03:49 | 200 |            0s |       127.0.0.1 | GET      "/api/ps"
