@@ -407,3 +407,7 @@ slot print_timing: id  0 | task 38 |       total time =   98707.69 ms /   572 to
 slot print_timing: id  0 | task 38 |    graphs reused =         89
 slot      release: id  0 | task 38 | stop processing: n_tokens = 691, truncated = 0
 srv  update_slots: all slots are idle
+srv    operator(): operator(): cleaning up before exit...
+common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |
+common_memory_breakdown_print: |   - Host               |                 2295 =  2001 +     178 +     116                |
+common_memory_breakdown_print: |   - CPU_REPACK         |                 3261 =  3261 +       0 +       0                |
