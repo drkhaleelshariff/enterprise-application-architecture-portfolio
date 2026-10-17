@@ -198,6 +198,81 @@ class DirectProviderTests(unittest.TestCase):
                 hashlib.sha256(sent).hexdigest(),
             )
 
+    def test_success_records_separate_stage_durations(self):
+        diagnostics = []
+        with patch.object(
+            adapter, "perf_counter",
+            side_effect=[10.0, 12.5, 20.0, 27.25],
+        ):
+            self.invoke(diagnostics=diagnostics)
+
+        timings = [
+            entry for entry in diagnostics
+            if entry.get("event") == "http_stage_finished"
+        ]
+        self.assertEqual(timings, [
+            {
+                "stage": "render",
+                "event": "http_stage_finished",
+                "duration_seconds": 2.5,
+            },
+            {
+                "stage": "completion",
+                "event": "http_stage_finished",
+                "duration_seconds": 7.25,
+            },
+        ])
+
+    def test_transport_failure_records_elapsed_time(self):
+        diagnostics = []
+        conn = connection(RENDER)
+        conn.request.side_effect = TimeoutError("simulated timeout")
+
+        with patch.object(adapter, "HTTPConnection", return_value=conn):
+            with patch.object(
+                adapter, "perf_counter", side_effect=[100.0, 280.0]
+            ):
+                with self.assertRaises(ProviderUnavailable):
+                    adapter.post_json(
+                        18081, "/completion", {},
+                        "completion", diagnostics,
+                    )
+
+        self.assertEqual(diagnostics[-1], {
+            "stage": "completion",
+            "event": "http_stage_finished",
+            "duration_seconds": 180.0,
+        })
+        self.assertTrue(any(
+            entry.get("failure_stage") == "transport"
+            for entry in diagnostics
+        ))
+        conn.close.assert_called_once()
+
+    def test_http_failure_records_elapsed_time(self):
+        diagnostics = []
+        conn = connection({"error": "simulated failure"}, status=500)
+
+        with patch.object(adapter, "HTTPConnection", return_value=conn):
+            with patch.object(
+                adapter, "perf_counter", side_effect=[5.0, 8.125]
+            ):
+                with self.assertRaises(ProviderUnavailable):
+                    adapter.post_json(
+                        11434, "/api/generate", {},
+                        "render", diagnostics,
+                    )
+
+        self.assertEqual(diagnostics[-1], {
+            "stage": "render",
+            "event": "http_stage_finished",
+            "duration_seconds": 3.125,
+        })
+        self.assertTrue(any(
+            entry.get("http_status") == 500
+            for entry in diagnostics
+        ))
+        conn.close.assert_called_once()
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

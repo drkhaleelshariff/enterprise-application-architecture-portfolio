@@ -3,6 +3,7 @@
 import hashlib
 import json
 from http.client import HTTPConnection, HTTPException
+from time import perf_counter
 
 from answer_property_question import ProviderUnavailable
 from ollama_schema_property_provider import (
@@ -49,6 +50,7 @@ def post_json(port, path, payload, stage, diagnostics):
     connection = HTTPConnection(
         "127.0.0.1", port, timeout=TIMEOUT_SECONDS
     )
+    started = perf_counter()
     try:
         connection.request(
             "POST",
@@ -91,8 +93,16 @@ def post_json(port, path, payload, stage, diagnostics):
             })
         raise ProviderUnavailable(f"{stage} unavailable") from exc
     finally:
-        connection.close()
-
+        elapsed = perf_counter() - started
+        try:
+            connection.close()
+        finally:
+            if diagnostics is not None:
+                diagnostics.append({
+                    "stage": stage,
+                    "event": "http_stage_finished",
+                    "duration_seconds": round(elapsed, 6),
+                })
 
 def provider(query, context, *, diagnostics=None):
     evidence = json.loads(context)
