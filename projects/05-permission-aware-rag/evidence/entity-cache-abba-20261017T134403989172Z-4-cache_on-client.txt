@@ -1,0 +1,17 @@
+Running ROBUST-001 (cache_on)...
+{
+  "status": "answered",
+  "answer": "North replacement access card requests must be submitted through the North access portal.",
+  "citations": [
+    "DOC-N-ACCESS-001:v1"
+  ]
+}
+Running ROBUST-003 (cache_on)...
+{
+  "status": "answered",
+  "answer": "The target acknowledgement time for South replacement access card requests is not established by the supplied evidence, which only specifies a target acknowledgement time of three business days for North replacement access card requests.",
+  "citations": [
+    "DOC-N-ACCESS-001:v1"
+  ]
+}
+Saved: C:\Users\Khaleel\enterprise-application-architecture-portfolio\projects\05-permission-aware-rag\evidence\direct-entity-cache-cache_on-20261017T135306350485Z.json

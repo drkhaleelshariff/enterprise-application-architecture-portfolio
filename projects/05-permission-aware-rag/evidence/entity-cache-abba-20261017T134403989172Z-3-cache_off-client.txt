@@ -1,0 +1,15 @@
+Running ROBUST-001 (cache_off)...
+{
+  "status": "answered",
+  "answer": "North replacement access card requests must be submitted through the North access portal.",
+  "citations": [
+    "DOC-N-ACCESS-001:v1"
+  ]
+}
+Running ROBUST-003 (cache_off)...
+{
+  "status": "abstained",
+  "answer": "The supplied authorized evidence does not establish an answer.",
+  "citations": []
+}
+Saved: C:\Users\Khaleel\enterprise-application-architecture-portfolio\projects\05-permission-aware-rag\evidence\direct-entity-cache-cache_off-20261017T135022041636Z.json

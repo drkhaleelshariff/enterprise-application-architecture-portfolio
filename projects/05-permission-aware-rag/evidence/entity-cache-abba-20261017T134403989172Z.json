@@ -1,0 +1,330 @@
+{
+  "experiment": "fresh-process-direct-entity-cache-abba",
+  "repository_commit": "2a63fea33a2ec41b22360db89d8b39fd6bcd511c",
+  "planned_conditions": [
+    "cache_on",
+    "cache_off",
+    "cache_off",
+    "cache_on"
+  ],
+  "planned_generation_calls": 8,
+  "automatic_retries": 0,
+  "runner_path": "C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe",
+  "runner_sha256": "0480452923518b26efcb897f3ec3d1bb4071a3ded551a89c98458bb708a3868f",
+  "model_blob_path": "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+  "preparation_file": "projects/05-permission-aware-rag/evidence/entity-cache-control-preparation-20261017T084917606456Z.json",
+  "preparation_sha256": "5d9ebb62883bfa4bb344f9edf9a17cc64d1e9c025aa842a4db0655e7409d5a4c",
+  "review_status": "not_reviewed",
+  "execution_status": "completed",
+  "sequences": [
+    {
+      "sequence": 1,
+      "condition": "cache_on",
+      "port_closed_before_start": true,
+      "command": [
+        "C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe",
+        "--model",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--port",
+        "18081",
+        "--host",
+        "127.0.0.1",
+        "--no-webui",
+        "--offline",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "--log-verbosity",
+        "4",
+        "--no-log-prefix",
+        "--no-log-timestamps",
+        "--no-jinja",
+        "--chat-template",
+        "chatml",
+        "--mmproj",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--no-mmproj-offload",
+        "--load-mode",
+        "none",
+        "--flash-attn",
+        "auto",
+        "-b",
+        "512",
+        "-ub",
+        "512",
+        "-ngl",
+        "0",
+        "--context-shift",
+        "--keep",
+        "4"
+      ],
+      "runner_log": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-1-cache_on-runner.txt",
+      "client_output": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-1-cache_on-client.txt",
+      "pid": 19584,
+      "started_at": "2026-10-17T13:44:05.218280+00:00",
+      "health_verified": true,
+      "client_returncode": 0,
+      "created_run_files": [
+        "projects/05-permission-aware-rag/evidence/direct-entity-cache-cache_on-20261017T134444516652Z.json"
+      ],
+      "outcomes": [
+        {
+          "case_id": "ROBUST-001",
+          "response": {
+            "status": "answered",
+            "answer": "North replacement access card requests must be submitted through the North access portal.",
+            "citations": [
+              "DOC-N-ACCESS-001:v1"
+            ]
+          }
+        },
+        {
+          "case_id": "ROBUST-003",
+          "response": {
+            "status": "answered",
+            "answer": "The target acknowledgement time for South replacement access card requests is not established by the supplied evidence, which only specifies a target acknowledgement time of three business days for North replacement access card requests.",
+            "citations": [
+              "DOC-N-ACCESS-001:v1"
+            ]
+          }
+        }
+      ],
+      "process_alive_before_shutdown": true,
+      "process_returncode": 1,
+      "process_exit_verified": true,
+      "port_closed_after_shutdown": true
+    },
+    {
+      "sequence": 2,
+      "condition": "cache_off",
+      "port_closed_before_start": true,
+      "command": [
+        "C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe",
+        "--model",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--port",
+        "18081",
+        "--host",
+        "127.0.0.1",
+        "--no-webui",
+        "--offline",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "--log-verbosity",
+        "4",
+        "--no-log-prefix",
+        "--no-log-timestamps",
+        "--no-jinja",
+        "--chat-template",
+        "chatml",
+        "--mmproj",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--no-mmproj-offload",
+        "--load-mode",
+        "none",
+        "--flash-attn",
+        "auto",
+        "-b",
+        "512",
+        "-ub",
+        "512",
+        "-ngl",
+        "0",
+        "--context-shift",
+        "--keep",
+        "4"
+      ],
+      "runner_log": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-2-cache_off-runner.txt",
+      "client_output": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-2-cache_off-client.txt",
+      "pid": 18716,
+      "started_at": "2026-10-17T13:46:57.693638+00:00",
+      "health_verified": true,
+      "client_returncode": 0,
+      "created_run_files": [
+        "projects/05-permission-aware-rag/evidence/direct-entity-cache-cache_off-20261017T134731507082Z.json"
+      ],
+      "outcomes": [
+        {
+          "case_id": "ROBUST-001",
+          "response": {
+            "status": "answered",
+            "answer": "North replacement access card requests must be submitted through the North access portal.",
+            "citations": [
+              "DOC-N-ACCESS-001:v1"
+            ]
+          }
+        },
+        {
+          "case_id": "ROBUST-003",
+          "response": {
+            "status": "abstained",
+            "answer": "The supplied authorized evidence does not establish an answer.",
+            "citations": []
+          }
+        }
+      ],
+      "process_alive_before_shutdown": true,
+      "process_returncode": 1,
+      "process_exit_verified": true,
+      "port_closed_after_shutdown": true
+    },
+    {
+      "sequence": 3,
+      "condition": "cache_off",
+      "port_closed_before_start": true,
+      "command": [
+        "C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe",
+        "--model",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--port",
+        "18081",
+        "--host",
+        "127.0.0.1",
+        "--no-webui",
+        "--offline",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "--log-verbosity",
+        "4",
+        "--no-log-prefix",
+        "--no-log-timestamps",
+        "--no-jinja",
+        "--chat-template",
+        "chatml",
+        "--mmproj",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--no-mmproj-offload",
+        "--load-mode",
+        "none",
+        "--flash-attn",
+        "auto",
+        "-b",
+        "512",
+        "-ub",
+        "512",
+        "-ngl",
+        "0",
+        "--context-shift",
+        "--keep",
+        "4"
+      ],
+      "runner_log": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-3-cache_off-runner.txt",
+      "client_output": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-3-cache_off-client.txt",
+      "pid": 14496,
+      "started_at": "2026-10-17T13:49:45.979947+00:00",
+      "health_verified": true,
+      "client_returncode": 0,
+      "created_run_files": [
+        "projects/05-permission-aware-rag/evidence/direct-entity-cache-cache_off-20261017T135022041636Z.json"
+      ],
+      "outcomes": [
+        {
+          "case_id": "ROBUST-001",
+          "response": {
+            "status": "answered",
+            "answer": "North replacement access card requests must be submitted through the North access portal.",
+            "citations": [
+              "DOC-N-ACCESS-001:v1"
+            ]
+          }
+        },
+        {
+          "case_id": "ROBUST-003",
+          "response": {
+            "status": "abstained",
+            "answer": "The supplied authorized evidence does not establish an answer.",
+            "citations": []
+          }
+        }
+      ],
+      "process_alive_before_shutdown": true,
+      "process_returncode": 1,
+      "process_exit_verified": true,
+      "port_closed_after_shutdown": true
+    },
+    {
+      "sequence": 4,
+      "condition": "cache_on",
+      "port_closed_before_start": true,
+      "command": [
+        "C:\\Users\\Khaleel\\AppData\\Local\\Programs\\Ollama\\lib\\ollama\\llama-server.exe",
+        "--model",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--port",
+        "18081",
+        "--host",
+        "127.0.0.1",
+        "--no-webui",
+        "--offline",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "--log-verbosity",
+        "4",
+        "--no-log-prefix",
+        "--no-log-timestamps",
+        "--no-jinja",
+        "--chat-template",
+        "chatml",
+        "--mmproj",
+        "C:\\Users\\Khaleel\\.ollama\\models\\blobs\\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c",
+        "--no-mmproj-offload",
+        "--load-mode",
+        "none",
+        "--flash-attn",
+        "auto",
+        "-b",
+        "512",
+        "-ub",
+        "512",
+        "-ngl",
+        "0",
+        "--context-shift",
+        "--keep",
+        "4"
+      ],
+      "runner_log": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-4-cache_on-runner.txt",
+      "client_output": "projects/05-permission-aware-rag/evidence/entity-cache-abba-20261017T134403989172Z-4-cache_on-client.txt",
+      "pid": 8076,
+      "started_at": "2026-10-17T13:52:34.705881+00:00",
+      "health_verified": true,
+      "client_returncode": 0,
+      "created_run_files": [
+        "projects/05-permission-aware-rag/evidence/direct-entity-cache-cache_on-20261017T135306350485Z.json"
+      ],
+      "outcomes": [
+        {
+          "case_id": "ROBUST-001",
+          "response": {
+            "status": "answered",
+            "answer": "North replacement access card requests must be submitted through the North access portal.",
+            "citations": [
+              "DOC-N-ACCESS-001:v1"
+            ]
+          }
+        },
+        {
+          "case_id": "ROBUST-003",
+          "response": {
+            "status": "answered",
+            "answer": "The target acknowledgement time for South replacement access card requests is not established by the supplied evidence, which only specifies a target acknowledgement time of three business days for North replacement access card requests.",
+            "citations": [
+              "DOC-N-ACCESS-001:v1"
+            ]
+          }
+        }
+      ],
+      "process_alive_before_shutdown": true,
+      "process_returncode": 1,
+      "process_exit_verified": true,
+      "port_closed_after_shutdown": true
+    }
+  ],
+  "recorded_at": "2026-10-17T13:55:22.047570+00:00"
+}
