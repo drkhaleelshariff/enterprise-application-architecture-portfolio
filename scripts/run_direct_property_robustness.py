@@ -5,6 +5,8 @@ import subprocess
 from datetime import datetime, timezone
 from functools import partial
 from urllib.request import urlopen
+from evaluation_journal import EvaluationJournal
+from evaluate_property_answers import repository_commit
 
 import direct_schema_property_provider as adapter
 from answer_approved_property_question import answer_approved_question
@@ -75,29 +77,92 @@ def main():
         flush=True,
     )
 
-    report = evaluate(
-        captured_provider,
-        provider_id="direct-llama-server-with-ollama-rendering",
-        provider_configuration=configuration,
-        prompt_version=adapter.PROMPT_VERSION,
-        capture_provider_diagnostics=True,
-        answer_function=partial(
-            answer_approved_question,
-            approval_path=APPROVALS,
-        ),
-        cases_path=FIXTURES / "cases.json",
-        document_folder=FIXTURES,
+    OUTPUT.mkdir(parents=True, exist_ok=True)
+    journal_stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+    journal_path = OUTPUT / (
+        f"answer-robustness-direct-no-reuse-{journal_stamp}.jsonl"
     )
+    captured_offset = 0
 
-    recorded_calls = [
-        call
-        for case in report["cases"]
-        for call in case["provider_calls"]
-    ]
-    if len(recorded_calls) != len(captured_calls):
-        raise RuntimeError("Provider recording count mismatch")
-    for recorded, captured in zip(recorded_calls, captured_calls):
-        recorded.update(captured)
+    with EvaluationJournal(journal_path) as journal:
+        journal.append(
+            "run_started",
+            repository_commit=repository_commit(),
+            provider_configuration=configuration,
+            prompt_version=adapter.PROMPT_VERSION,
+            adapter_version=adapter.ADAPTER_VERSION,
+            output_contract_version=adapter.OUTPUT_CONTRACT_VERSION,
+            ollama_version=ollama_version,
+            runner_health=runner_health,
+            cases_file=(FIXTURES / "cases.json").relative_to(ROOT).as_posix(),
+            documents_file=(
+                FIXTURES / "documents.json"
+            ).relative_to(ROOT).as_posix(),
+            approvals_file=APPROVALS.relative_to(ROOT).as_posix(),
+            approved_sources=[
+                {"document_id": doc, "version": version}
+                for doc, version in sorted(approved)
+            ],
+            automatic_retries=0,
+        )
+        print(f"Journal: {journal_path}", flush=True)
+
+        def case_started(case_id):
+            journal.append("case_started", case_id=case_id)
+            print(f"Starting {case_id}...", flush=True)
+
+        def case_completed(record):
+            nonlocal captured_offset
+            calls = record["provider_calls"]
+            captured = captured_calls[
+                captured_offset:captured_offset + len(calls)
+            ]
+            if len(captured) != len(calls):
+                raise RuntimeError("Per-case provider recording mismatch")
+            for recorded, extra in zip(calls, captured):
+                recorded.update(extra)
+            captured_offset += len(calls)
+
+            journal.append("case_completed", record=record)
+            print(
+                f"Saved {record['case_id']}: "
+                f"actual={record['response']['status']}; "
+                f"seconds={record['duration_seconds']}",
+                flush=True,
+            )
+
+        try:
+            report = evaluate(
+                captured_provider,
+                provider_id="direct-llama-server-with-ollama-rendering",
+                provider_configuration=configuration,
+                prompt_version=adapter.PROMPT_VERSION,
+                capture_provider_diagnostics=True,
+                answer_function=partial(
+                    answer_approved_question,
+                    approval_path=APPROVALS,
+                ),
+                on_case_start=case_started,
+                on_case_completed=case_completed,
+                cases_path=FIXTURES / "cases.json",
+                document_folder=FIXTURES,
+            )
+            if captured_offset != len(captured_calls):
+                raise RuntimeError("Unmatched provider calls remain")
+        except BaseException as exc:
+            journal.append(
+                "run_interrupted",
+                error_type=type(exc).__name__,
+                message=str(exc),
+            )
+            raise
+        else:
+            journal.append(
+                "evaluation_finished",
+                case_count=report["case_count"],
+            )
+
+    report["journal_file"] = journal_path.relative_to(ROOT).as_posix()
 
     report.update({
         "suite_id": "property-robustness-v1-approved-sources",
