@@ -1,0 +1,41 @@
+﻿Source: https://raw.githubusercontent.com/ollama/ollama/v0.40.4/llm/llama_server.go
+Retrieved at: 2026-10-17T08:24:13.5543627Z
+
+
+  
+  // llamaServerCompletionRequest is the request format for llama-server's 
+POST /completion endpoint.
+  type llamaServerCompletionRequest struct {
+  	Prompt          any             `json:"prompt"`
+  	Stream          bool            `json:"stream"`
+> 	CachePrompt     bool            `json:"cache_prompt"`
+  	NPredict        int             `json:"n_predict,omitempty"`
+  	NKeep           int             `json:"n_keep,omitempty"`
+  	Temperature     float32         `json:"temperature"`
+  	TopK            int             `json:"top_k"`
+  	TopP            float32         `json:"top_p"`
+  
+  	// Build the llama-server request
+  	lsReq := llamaServerCompletionRequest{
+  		Prompt:          prompt,
+  		Stream:          true,
+> 		CachePrompt:     true,
+  		NPredict:        req.Options.NumPredict,
+  		NKeep:           req.Options.NumKeep,
+  		Temperature:     req.Options.Temperature,
+  		TopK:            req.Options.TopK,
+  		TopP:            req.Options.TopP,
+  	}
+  
+  	body := map[string]any{
+  		"messages":          messages,
+  		"stream":            stream,
+> 		"cache_prompt":      true,
+  		"n_predict":         req.Options.NumPredict,
+  		"n_keep":            req.Options.NumKeep,
+  		"temperature":       req.Options.Temperature,
+  		"top_k":             req.Options.TopK,
+  		"top_p":             req.Options.TopP,
+
+
+
