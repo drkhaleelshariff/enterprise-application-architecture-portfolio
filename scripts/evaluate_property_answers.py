@@ -35,6 +35,8 @@ def evaluate(
     prompt_version,
     capture_provider_diagnostics=False,
     answer_function=answer_question,
+    on_case_start=None,
+    on_case_completed=None,
     cases_path=CASES,
     identity_folder=IDENTITY_DATA,
     document_folder=DOCUMENT_DATA,
@@ -49,6 +51,8 @@ def evaluate(
     records = []
 
     for case in document["cases"]:
+        if on_case_start is not None:
+            on_case_start(case["case_id"])
         calls = []
 
         def recorded_provider(query, context):
@@ -102,6 +106,8 @@ def evaluate(
                 "explanation": "",
             },
         })
+        if on_case_completed is not None:
+            on_case_completed(records[-1])
 
     return {
         "schema_version": "1",
