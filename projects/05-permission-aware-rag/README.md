@@ -203,9 +203,14 @@ Keep the original Qwen/V4 adapter as the development baseline.
 Source approval, citation-schema generation and staged direct execution
 remain experimental.
 
-Before broader use, define new questions and policy variations,
-operational acceptance criteria and a recorded runtime configuration.
-Keep earlier failures and incomplete attempts alongside completed runs.
+Keep STVAL-006 open. Before changing the prompt, inspect how the existing
+abstention and clarification instructions apply to missing-deadline
+questions versus guarantee questions. Evaluate any proposed revision
+separately, retaining regression coverage for supported clarifications
+and mixed questions.
+
+Investigate runner-log capture integrity before further model experiments.
+Preserve earlier failures and incomplete attempts alongside completed runs.
 
 The original Ollama-backed ROBUST-003 issue remains open.
 A passing staged run does not close that separate issue.
@@ -371,6 +376,29 @@ prepared requests against freshly rebuilt authorized, approved context.
 |---|---|---|
 | Direct no-reuse with live rendering, Ollama 0.40.5 | 6 of 8; two completion timeouts | [Direct-suite review](evidence/answer-robustness-direct-no-reuse-v0405-review.md) |
 | Staged no-reuse, Ollama 0.40.6 | 8 of 8; no completion timeouts | [Staged review](evidence/answer-robustness-staged-v0406-review.md) |
+| Staged visitor-permit validation V1, Ollama 0.40.6 | 11 of 12; one abstention failure, no execution failures | [Visitor-permit validation review](evidence/answer-validation-staged-v0406-review.md) |
+
+The separate visitor-permit validation suite introduces new policy facts
+and twelve predefined questions. Eleven expectations are met.
+
+STVAL-006 asks for an unspecified permit issuance deadline. The model
+returns a cited clarification containing the acknowledgement target
+instead of the required abstention. It does not invent an issuance
+deadline, but it fails the predefined response-selection requirement.
+STVAL-006 remains open; its expectation is unchanged.
+
+All eleven generations complete without recorded execution failures.
+The denied case makes zero provider calls. Request hashes verify,
+completion diagnostics report zero reused tokens, and all twelve
+completed journal records match the final report.
+
+The captured runner log contains a NUL-byte region and lacks readable
+coverage for early requests. It cannot independently corroborate every
+completion. The raw log is preserved unchanged.
+
+This suite was designed with knowledge of earlier failures. It is a
+development validation suite, not an independently held-out benchmark.
+Its 11-of-12 result remains separate from the earlier 8-of-8 staged run.
 
 These are assistant assessments of individual synthetic runs.
 Runtime and execution-path differences prevent attributing the timeout
