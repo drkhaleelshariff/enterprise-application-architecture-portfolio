@@ -1,0 +1,13 @@
+{
+  "schema_version": "1",
+  "approved_sources": [
+    {
+      "document_id": "DOC-N-VISITOR-001",
+      "version": "1"
+    },
+    {
+      "document_id": "DOC-S-VISITOR-001",
+      "version": "1"
+    }
+  ]
+}

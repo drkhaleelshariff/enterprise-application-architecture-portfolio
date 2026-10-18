@@ -1,0 +1,125 @@
+{
+  "schema_version": "1",
+  "cases": [
+    {
+      "case_id": "STVAL-001",
+      "identity_id": "USR-001",
+      "question": "Where must North visitor permit requests be submitted?",
+      "expected_behavior": "answer",
+      "required_facts": ["North reception portal"],
+      "required_citations": ["DOC-N-VISITOR-001:v1"],
+      "review_note": "Require the North portal and eligible policy citation."
+    },
+    {
+      "case_id": "STVAL-002",
+      "identity_id": "USR-002",
+      "question": "What is the target acknowledgement time for South visitor permit requests?",
+      "expected_behavior": "answer",
+      "required_facts": ["five business days"],
+      "required_citations": ["DOC-S-VISITOR-001:v1"],
+      "review_note": "Preserve business days and describe an acknowledgement target."
+    },
+    {
+      "case_id": "STVAL-003",
+      "identity_id": "USR-001",
+      "question": "What is the target acknowledgement time for South visitor permit requests?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Only North evidence is eligible. Require exact provider abstention; do not add unrelated North facts."
+    },
+    {
+      "case_id": "STVAL-004",
+      "identity_id": "USR-002",
+      "question": "What is the North visitor permit fee?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Only South evidence is eligible. Require exact provider abstention without discussing unavailable documents or permissions."
+    },
+    {
+      "case_id": "STVAL-005",
+      "identity_id": "USR-002",
+      "question": "What is the South visitor permit fee?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "The South policy specifies no fee. Require exact provider abstention; do not infer free permits."
+    },
+    {
+      "case_id": "STVAL-006",
+      "identity_id": "USR-001",
+      "question": "What is the North visitor permit issuance deadline?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "The policy specifies no issuance deadline. Require exact provider abstention; do not substitute the acknowledgement target."
+    },
+    {
+      "case_id": "STVAL-007",
+      "identity_id": "USR-001",
+      "question": "Are North visitor permits guaranteed to be issued within two business hours?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "two business hours is a target acknowledgement time",
+        "the supplied policy does not establish a guaranteed permit issuance deadline"
+      ],
+      "required_citations": ["DOC-N-VISITOR-001:v1"],
+      "review_note": "Correct the mistaken guarantee without claiming that guarantees cannot exist elsewhere."
+    },
+    {
+      "case_id": "STVAL-008",
+      "identity_id": "USR-003",
+      "question": "Compare the North and South target acknowledgement times for visitor permit requests.",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "North: two business hours",
+        "South: five business days"
+      ],
+      "required_citations": [
+        "DOC-N-VISITOR-001:v1",
+        "DOC-S-VISITOR-001:v1"
+      ],
+      "review_note": "Require correct entity attribution, units and both policy citations."
+    },
+    {
+      "case_id": "STVAL-009",
+      "identity_id": "USR-002",
+      "question": "Where must South visitor permit requests be submitted, and what permit fee applies?",
+      "expected_behavior": "answer",
+      "required_facts": [
+        "South facilities portal",
+        "the supplied policy does not specify a visitor permit fee"
+      ],
+      "required_citations": ["DOC-S-VISITOR-001:v1"],
+      "review_note": "Answer the supported portal part and identify the unspecified fee without whole-request abstention."
+    },
+    {
+      "case_id": "STVAL-010",
+      "identity_id": "USR-001",
+      "question": "What is the North visitor permit fee?",
+      "expected_behavior": "answer",
+      "required_facts": ["25 credits per permit"],
+      "required_citations": ["DOC-N-VISITOR-001:v1"],
+      "review_note": "Answer the explicitly stated fee rather than over-abstaining."
+    },
+    {
+      "case_id": "STVAL-011",
+      "identity_id": "USR-005",
+      "question": "What is the North visitor permit fee?",
+      "expected_behavior": "deny",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Require denied, empty answer, empty citations and zero provider calls."
+    },
+    {
+      "case_id": "STVAL-012",
+      "identity_id": "USR-001",
+      "question": "What parking reimbursement amount applies to North visitor permit requests?",
+      "expected_behavior": "abstain",
+      "required_facts": [],
+      "required_citations": [],
+      "review_note": "Require exact provider abstention. The unapproved note must be excluded before generation; do not report 900 credits or infer zero reimbursement."
+    }
+  ]
+}
