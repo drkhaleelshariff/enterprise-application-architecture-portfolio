@@ -48,10 +48,20 @@ A Vulkan device-loss failure caused a recorded generation request to
 return HTTP 500. CPU-requested execution subsequently completed.
 Five identical CPU-requested mismatch calls all abstained, but the same
 captured request later returned an answered response within the full suite.
-The cause of this variation remains undetermined.
+Later controlled direct-runner experiments support a local effect of
+request-prefix reuse on response selection. The precise numerical or
+state-handling mechanism remains undetermined; see the cache-control
+review below.
 
 Source approval and citation-schema generation remain experimental.
 The original Qwen/V4 adapter remains the development baseline.
+
+A separate staged path prepares prompts before direct generation and
+revalidates current authorized, approved context before using them.
+Its Ollama 0.40.6 run met all eight unchanged robustness expectations,
+with no completion timeouts. This is one synthetic development run;
+the staged path remains experimental. Earlier execution failures and
+the original Ollama-backed entity-abstention issue remain preserved.
 
 Earlier model and prompt failures remain preserved alongside diagnostics
 and reviews. JSON run files remain unchanged; assessments are recorded
@@ -132,8 +142,9 @@ Keyword retrieval uses shared terms and does not establish semantic
 relevance. Authorized evidence may still be insufficient for a question.
 
 Authentication is simulated. No real identity provider, vector database
-or production deployment is included. Generation uses a local Ollama
-HTTP endpoint.
+or production deployment is included. The baseline uses a local Ollama
+HTTP endpoint. Experimental direct execution uses a local llama-server
+endpoint, with Ollama used separately for prompt rendering.
 
 Response validation checks structure and citation eligibility, not
 semantic support. Model quality requires separate evaluation.
@@ -188,21 +199,25 @@ The evaluation-harness test script should report 6 passed and 0 failed.
 
 ## Next step
 
-Keep the original Qwen/V4 adapter as the development baseline and the
-approved-source/schema path experimental.
+Keep the original Qwen/V4 adapter as the development baseline.
+Source approval, citation-schema generation and staged direct execution
+remain experimental.
 
-Investigate ROBUST-003 using a predefined experiment controlling request
-order and service state. Identical captured CPU-requested bodies have
-produced different response choices across recorded runs.
+Before broader use, define new questions and policy variations,
+operational acceptance criteria and a recorded runtime configuration.
+Keep earlier failures and incomplete attempts alongside completed runs.
 
-Use explicitly recorded CPU execution for further local experiments
-while the Vulkan device-loss issue remains unresolved.
-Preserve every outcome; do not retry until a pass or weaken expectations.
+The original Ollama-backed ROBUST-003 issue remains open.
+A passing staged run does not close that separate issue.
+
+Use explicitly recorded CPU execution while the Vulkan device-loss
+issue remains unresolved. Preserve every outcome without retries that
+select only successful responses or changes that weaken expectations.
 
 Lifecycle checks cover fresh file reads between requests. They do not
 demonstrate deletion from vector indexes, caches or previous conversations.
 
-Citation validation checks source eligibility, not whether the answer
+Citation validation checks source eligibility, not whether an answer
 is supported by the cited text.
 
 ## Answer-quality evaluation
@@ -335,3 +350,55 @@ general model quality.
 The injected note is excluded from approved-source model calls.
 These results do not demonstrate resistance to an injection payload
 that reaches the model.
+
+## Experimental cache control and staged generation
+
+Fresh-process ABBA experiments on Ollama 0.40.4 reproduced the
+North-predecessor-associated ROBUST-003 failure with request-prefix
+reuse enabled. Both cache-disabled sequences abstained as required.
+
+This supports a local causal effect of the cache setting under that
+tested configuration. It does not establish checkpoint corruption,
+the precise mechanism or a generally applicable mitigation.
+
+- [Fresh-process ABBA review](evidence/entity-cache-abba-review.md)
+
+The separate direct adapter explicitly disables request-prefix reuse.
+A staged path separates prompt preparation from generation and checks
+prepared requests against freshly rebuilt authorized, approved context.
+
+| Recorded configuration | Cases meeting expectations | Review |
+|---|---|---|
+| Direct no-reuse with live rendering, Ollama 0.40.5 | 6 of 8; two completion timeouts | [Direct-suite review](evidence/answer-robustness-direct-no-reuse-v0405-review.md) |
+| Staged no-reuse, Ollama 0.40.6 | 8 of 8; no completion timeouts | [Staged review](evidence/answer-robustness-staged-v0406-review.md) |
+
+These are assistant assessments of individual synthetic runs.
+Runtime and execution-path differences prevent attributing the timeout
+change to staged execution alone.
+
+The completed staged run records seven generations and one denied case
+with zero provider calls. All seven completion request hashes verify,
+all completions stop at EOS without truncation, and runner logs show
+full prompt evaluation from zero cached tokens.
+
+All eight completed journal records match the final report.
+Recorded Ollama loaded-model checks are empty throughout generation;
+these checks do not constitute continuous residency monitoring.
+
+An earlier staged attempt ended after three completed cases and a
+fourth case starting. Its cause remains undetermined. Partial results
+are not combined with the completed run.
+
+- [Completed staged run](evidence/answer-robustness-staged-20261018T074615650196Z.json)
+- [Completed staged journal](evidence/answer-robustness-staged-20261018T074615650196Z.jsonl)
+- [Staged runner log](evidence/staged-property-robustness-v0406-runner-20261018.txt)
+- [Incomplete staged journal](evidence/answer-robustness-staged-20261017T224931950782Z.jsonl)
+- [Incomplete staged runner log](evidence/staged-property-robustness-incomplete-20261018.txt)
+- [Timeout investigation and replay review](evidence/direct-timeout-replay-review.md)
+
+The original baseline remains unchanged. The original Ollama-backed
+ROBUST-003 issue remains open.
+
+The unapproved injected note is excluded before generation in these
+approved-source paths. Their results do not establish resistance to an
+exposed injection payload, general reliability or production readiness.
