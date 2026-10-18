@@ -1,0 +1,531 @@
+srv  llama_server: initializing ...
+cmn  common_param: common_params_print_info: build 1 (620d2225c) with Clang 18.1.8 for Windows AMD64
+cmn  common_param: common_params_print_info: verbosity = 4 (adjust with the `-lv N` CLI arg)
+cmn  common_param: device_info:
+cmn  common_param:   - CPU     : Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz (32601 MiB, 9018 MiB free)
+cmn  common_param: system_info: n_threads = 4 (n_threads_batch = 4) / 8 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+srv  init_listene: The UI is disabled
+srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+srv          init: using 7 threads for HTTP server
+srv  llama_server: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)[0m
+srv    load_model: loading model 'C:\Users\Khaleel\.ollama\models\blobs\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c'
+srv    load_model: local path 'C:\Users\Khaleel\.ollama\models\blobs\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c'
+handle_qwen35_like_clip: detected Ollama-format qwen35 GGUF used as mmproj; translating
+srv    load_model: [mtmd] estimated worst-case memory usage of mmproj is 1261.48 MiB (took 338.98 ms)
+cmn  common_init_: fitting params to device memory ...
+cmn  common_init_: (for bugs during this step try to reproduce them with -fit off, or provide --verbose logs if the bug only occurs with -fit on)
+common_params_fit_impl: getting device memory data for initial parameters:
+common_memory_breakdown_print: | memory breakdown [MiB] | total   free    self   model   context   compute    unaccounted |
+common_memory_breakdown_print: |   - Host               |                 2295 =  2001 +     178 +     116                |
+common_memory_breakdown_print: |   - CPU_REPACK         |                 3261 =  3261 +       0 +       0                |
+common_params_fit_impl: projected to use 2295 MiB of host memory vs. 32601 MiB of total host memory
+common_params_fit_impl: will leave 30305 >= 2285 MiB of system memory, no changes needed
+common_fit_params: successfully fit params to free device memory
+common_fit_params: fitting params to free memory took 1.90 seconds
+handle_qwen35: detected Ollama-format qwen35 GGUF; applying compatibility fixes
+compat patch disabled mmap for transformed text tensors
+llama_model_loader: loaded meta data with 53 key-value pairs and 442 tensors from C:\Users\Khaleel\.ollama\models\blobs\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c (version GGUF V3 (latest))
+llama_model_loader: Dumping metadata keys/values. Note: KV overrides do not apply in this output.
+llama_model_loader: - kv   0:                       general.architecture str              = qwen35
+llama_model_loader: - kv   1:                          general.file_type u32              = 15
+llama_model_loader: - kv   2:                    general.parameter_count u64              = 9653104368
+llama_model_loader: - kv   3:               general.quantization_version u32              = 2
+llama_model_loader: - kv   4:                qwen35.attention.head_count u32              = 16
+llama_model_loader: - kv   5:                qwen35.attention.key_length u32              = 256
+llama_model_loader: - kv   6:    qwen35.attention.layer_norm_rms_epsilon f32              = 0.000001
+llama_model_loader: - kv   7:              qwen35.attention.value_length u32              = 256
+llama_model_loader: - kv   8:                      qwen35.context_length u32              = 262144
+llama_model_loader: - kv   9:                    qwen35.embedding_length u32              = 4096
+llama_model_loader: - kv  10:                 qwen35.feed_forward_length u32              = 12288
+llama_model_loader: - kv  11:             qwen35.full_attention_interval u32              = 4
+llama_model_loader: - kv  12:                      qwen35.image_token_id u32              = 248056
+llama_model_loader: - kv  13:                      qwen35.mrope_sections arr[i32,3]       = [11, 11, 10]
+llama_model_loader: - kv  14:                qwen35.rope.dimension_count u32              = 64
+llama_model_loader: - kv  15:                      qwen35.rope.freq_base f32              = 10000000.000000
+llama_model_loader: - kv  16:              qwen35.rope.mrope_interleaved bool             = true
+llama_model_loader: - kv  17:                  qwen35.rope.mrope_section arr[i32,3]       = [11, 11, 10]
+llama_model_loader: - kv  18:                     qwen35.ssm.conv_kernel u32              = 4
+llama_model_loader: - kv  19:                     qwen35.ssm.group_count u32              = 16
+llama_model_loader: - kv  20:                      qwen35.ssm.inner_size u32              = 4096
+llama_model_loader: - kv  21:                      qwen35.ssm.state_size u32              = 128
+llama_model_loader: - kv  22:                  qwen35.ssm.time_step_rank u32              = 32
+llama_model_loader: - kv  23:                qwen35.ssm.v_head_reordered bool             = true
+llama_model_loader: - kv  24:         qwen35.vision.attention.head_count u32              = 16
+llama_model_loader: - kv  25:                  qwen35.vision.block_count u32              = 27
+llama_model_loader: - kv  26:     qwen35.vision.deepstack_visual_indexes arr[i32,0]       = []
+llama_model_loader: - kv  27:             qwen35.vision.embedding_length u32              = 1152
+llama_model_loader: - kv  28:                   qwen35.vision.image_mean arr[f32,3]       = [0.500000, 0.500000, 0.500000]
+llama_model_loader: - kv  29:                    qwen35.vision.image_std arr[f32,3]       = [0.500000, 0.500000, 0.500000]
+llama_model_loader: - kv  30:                 qwen35.vision.longest_edge u32              = 16777216
+llama_model_loader: - kv  31:                 qwen35.vision.num_channels u32              = 3
+llama_model_loader: - kv  32:                   qwen35.vision.patch_size u32              = 16
+llama_model_loader: - kv  33:                qwen35.vision.shortest_edge u32              = 65536
+llama_model_loader: - kv  34:           qwen35.vision.spatial_merge_size u32              = 2
+llama_model_loader: - kv  35:          qwen35.vision.temporal_patch_size u32              = 2
+llama_model_loader: - kv  36:                 qwen35.vision_end_token_id u32              = 248054
+llama_model_loader: - kv  37:               qwen35.vision_start_token_id u32              = 248053
+llama_model_loader: - kv  38:                    tokenizer.chat_template str              = {%- set image_count = namespace(value...
+llama_model_loader: - kv  39:               tokenizer.ggml.add_eos_token bool             = false
+llama_model_loader: - kv  40:           tokenizer.ggml.add_padding_token bool             = false
+llama_model_loader: - kv  41:                tokenizer.ggml.eos_token_id u32              = 248046
+llama_model_loader: - kv  42:                      tokenizer.ggml.merges arr[str,247587]  = ["Ġ Ġ", "ĠĠ ĠĠ", "i n", "Ġ t",...
+llama_model_loader: - kv  43:                       tokenizer.ggml.model str              = gpt2
+llama_model_loader: - kv  44:            tokenizer.ggml.padding_token_id u32              = 248044
+llama_model_loader: - kv  45:                         tokenizer.ggml.pre str              = qwen35
+llama_model_loader: - kv  46:                      tokenizer.ggml.scores arr[f32,248320]  = [0.000000, 1.000000, 2.000000, 3.0000...
+llama_model_loader: - kv  47:                  tokenizer.ggml.token_type arr[i32,248320]  = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ...
+llama_model_loader: - kv  48:                      tokenizer.ggml.tokens arr[str,248320]  = ["!", "\"", "#", "$", "%", "&", "'", ...
+llama_model_loader: - kv  49:             qwen35.attention.head_count_kv u32              = 4
+llama_model_loader: - kv  50:             qwen35.rope.dimension_sections arr[i32,4]       = [11, 11, 10, 0]
+llama_model_loader: - kv  51:                qwen35.nextn_predict_layers u32              = 1
+llama_model_loader: - kv  52:                         qwen35.block_count u32              = 33
+llama_model_loader: - type  f32:  184 tensors
+llama_model_loader: - type q4_K:  231 tensors
+llama_model_loader: - type q6_K:   27 tensors
+print_info: file format = GGUF V3 (latest)
+print_info: file type   = Q4_K - Medium
+print_info: file size   = 5.28 GiB (4.93 BPW) 
+load: control-looking token: 248064 '<|repo_name|>' was not control-type; this is probably a bug in the model. its type will be overridden[0m
+load: control-looking token: 248063 '<|fim_pad|>' was not control-type; this is probably a bug in the model. its type will be overridden[0m
+load: control-looking token: 248062 '<|fim_suffix|>' was not control-type; this is probably a bug in the model. its type will be overridden[0m
+load: control-looking token: 248061 '<|fim_middle|>' was not control-type; this is probably a bug in the model. its type will be overridden[0m
+load: control-looking token: 248060 '<|fim_prefix|>' was not control-type; this is probably a bug in the model. its type will be overridden[0m
+load: control-looking token: 248065 '<|file_sep|>' was not control-type; this is probably a bug in the model. its type will be overridden[0m
+load: 0 unused tokens
+load: printing all EOG tokens:
+load:   - 248044 ('<|endoftext|>')
+load:   - 248046 ('<|im_end|>')
+load:   - 248063 ('<|fim_pad|>')
+load:   - 248064 ('<|repo_name|>')
+load:   - 248065 ('<|file_sep|>')
+load: special tokens cache size = 276
+load: token to piece cache size = 1.7598 MB
+print_info: arch                  = qwen35
+print_info: vocab_only            = 0
+print_info: no_alloc              = 0
+print_info: n_ctx_train           = 262144
+print_info: n_embd_inp            = 4096
+print_info: n_embd                = 4096
+print_info: n_embd_out            = 4096
+print_info: n_layer               = 32
+print_info: n_layer_all           = 33
+print_info: n_head                = 16
+print_info: n_head_kv             = 4
+print_info: n_rot                 = 64
+print_info: n_swa                 = 0
+print_info: is_swa_any            = 0
+print_info: non_causal_type       = 0
+print_info: n_embd_head_k         = 256
+print_info: n_embd_head_v         = 256
+print_info: n_gqa                 = 4
+print_info: n_embd_k_gqa          = 1024
+print_info: n_embd_v_gqa          = 1024
+print_info: f_norm_eps            = 0.0e+00
+print_info: f_norm_rms_eps        = 1.0e-06
+print_info: f_clamp_kqv           = 0.0e+00
+print_info: f_max_alibi_bias      = 0.0e+00
+print_info: f_logit_scale         = 0.0e+00
+print_info: f_attn_scale          = 0.0e+00
+print_info: f_attn_value_scale    = 0.0000
+print_info: n_ff                  = 12288
+print_info: n_expert              = 0
+print_info: n_expert_used         = 0
+print_info: n_expert_groups       = 0
+print_info: n_group_used          = 0
+print_info: causal attn           = 1
+print_info: pooling type          = -1
+print_info: rope type             = 40
+print_info: rope scaling          = linear
+print_info: freq_base_train       = 10000000.0
+print_info: freq_scale_train      = 1
+print_info: n_ctx_orig_yarn       = 262144
+print_info: rope_yarn_log_mul     = 0.0000
+print_info: rope_finetuned        = unknown
+print_info: mrope sections        = [11, 11, 10, 0]
+print_info: ssm_d_conv            = 4
+print_info: ssm_d_inner           = 4096
+print_info: ssm_d_state           = 128
+print_info: ssm_dt_rank           = 32
+print_info: ssm_n_group           = 16
+print_info: ssm_dt_b_c_rms        = 0
+print_info: model type            = 9B
+print_info: model params          = 9.20 B
+print_info: general.name          = n/a
+print_info: vocab type            = BPE
+print_info: n_vocab               = 248320
+print_info: n_merges              = 247587
+print_info: BOS token             = 11 ','
+print_info: EOS token             = 248046 '<|im_end|>'
+print_info: EOT token             = 248046 '<|im_end|>'
+print_info: PAD token             = 248044 '<|endoftext|>'
+print_info: LF token              = 198 'Ċ'
+print_info: FIM PRE token         = 248060 '<|fim_prefix|>'
+print_info: FIM SUF token         = 248062 '<|fim_suffix|>'
+print_info: FIM MID token         = 248061 '<|fim_middle|>'
+print_info: FIM PAD token         = 248063 '<|fim_pad|>'
+print_info: FIM REP token         = 248064 '<|repo_name|>'
+print_info: FIM SEP token         = 248065 '<|file_sep|>'
+print_info: EOG token             = 248044 '<|endoftext|>'
+print_info: EOG token             = 248046 '<|im_end|>'
+print_info: EOG token             = 248063 '<|fim_pad|>'
+print_info: EOG token             = 248064 '<|repo_name|>'
+print_info: EOG token             = 248065 '<|file_sep|>'
+print_info: max token length      = 256
+load_tensors: loading model tensors, this can take a while... (load_mode = none)
+model has unused tensor blk.32.attn_norm.weight (size = 16384 bytes) -- ignoring[0m
+model has unused tensor blk.32.post_attention_norm.weight (size = 16384 bytes) -- ignoring[0m
+model has unused tensor blk.32.attn_q.weight (size = 18874368 bytes) -- ignoring[0m
+model has unused tensor blk.32.attn_k.weight (size = 2359296 bytes) -- ignoring[0m
+model has unused tensor blk.32.attn_v.weight (size = 3440640 bytes) -- ignoring[0m
+model has unused tensor blk.32.attn_output.weight (size = 9437184 bytes) -- ignoring[0m
+model has unused tensor blk.32.attn_q_norm.weight (size = 1024 bytes) -- ignoring[0m
+model has unused tensor blk.32.attn_k_norm.weight (size = 1024 bytes) -- ignoring[0m
+model has unused tensor blk.32.ffn_gate.weight (size = 28311552 bytes) -- ignoring[0m
+model has unused tensor blk.32.ffn_down.weight (size = 41287680 bytes) -- ignoring[0m
+model has unused tensor blk.32.ffn_up.weight (size = 28311552 bytes) -- ignoring[0m
+model has unused tensor blk.32.nextn.eh_proj.weight (size = 18874368 bytes) -- ignoring[0m
+model has unused tensor blk.32.nextn.enorm.weight (size = 16384 bytes) -- ignoring[0m
+model has unused tensor blk.32.nextn.hnorm.weight (size = 16384 bytes) -- ignoring[0m
+model has unused tensor blk.32.nextn.shared_head_norm.weight (size = 16384 bytes) -- ignoring[0m
+load_tensors:          CPU model buffer size =  2001.63 MiB
+load_tensors:   CPU_REPACK model buffer size =  3261.38 MiB
+cmn  common_init_: added <|endoftext|> logit bias = -inf
+cmn  common_init_: added <|im_end|> logit bias = -inf
+cmn  common_init_: added <|fim_pad|> logit bias = -inf
+cmn  common_init_: added <|repo_name|> logit bias = -inf
+cmn  common_init_: added <|file_sep|> logit bias = -inf
+llama_context: constructing llama_context
+llama_context: n_seq_max             = 1
+llama_context: n_ctx                 = 4096
+llama_context: n_ctx_seq             = 4096
+llama_context: n_batch               = 512
+llama_context: n_ubatch              = 512
+llama_context: causal_attn           = 1
+llama_context: flash_attn            = auto
+llama_context: kv_unified            = false
+llama_context: freq_base             = 10000000.0
+llama_context: freq_scale            = 1
+llama_context: n_rs_seq              = 0
+llama_context: n_outputs_max         = 1
+llama_context: n_outputs_max_per_seq = 1
+llama_context: n_ctx_seq (4096) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+llama_context:        CPU  output buffer size =     0.95 MiB
+llama_kv_cache:        CPU KV buffer size =   128.00 MiB
+llama_kv_cache: size =  128.00 MiB (  4096 cells,   8 layers,  1/1 seqs), K (f16):   64.00 MiB, V (f16):   64.00 MiB
+llama_kv_cache: n_rot_k = 0, n_embd_head_k_all = 256
+llama_kv_cache: n_rot_v = 0, n_embd_head_k_all = 256
+llama_memory_recurrent:        CPU RS buffer size =    50.25 MiB
+llama_memory_recurrent: size =   50.25 MiB (     1 cells,  32 layers,  1 seqs  0 rs_seq), R (f32):    2.25 MiB, S (f32):   48.00 MiB, P (f32):    0.00 MiB
+sched_reserve: reserving ...
+resolve_fused_ops: Flash Attention enabled
+resolve_fused_ops: resolving fused DeepSeek V4 HC support:
+resolve_fused_ops: fused DeepSeek V4 HC pre enabled
+resolve_fused_ops: fused DeepSeek V4 HC comb enabled
+resolve_fused_ops: fused DeepSeek V4 HC post enabled
+sched_reserve:        CPU compute buffer size =   116.02 MiB
+sched_reserve: graph: nodes = 1929, splits = 1, input objects = 4, input tensors = 10
+sched_reserve: reserve took 28.11 ms, sched copies = 1
+cmn          init: llama threadpool init, n_threads = 4
+cmn  common_init_: KV cache shifting is not supported for this context, disabling KV cache shifting[0m
+cmn  common_init_: warming up the model with an empty run - please wait ... (--no-warmup to disable)
+handle_qwen35_like_clip: detected Ollama-format qwen35 GGUF used as mmproj; translating
+clip_model_loader: model name:   
+clip_model_loader: description:  
+clip_model_loader: GGUF version: 3
+clip_model_loader: alignment:    32
+clip_model_loader: n_tensors:    883
+clip_model_loader: n_kv:         68
+
+clip_model_loader: has vision encoder
+clip_ctx: CLIP using CPU backend
+load_hparams: Qwen-VL models require at minimum 1024 image tokens to function correctly on grounding tasks[0m
+load_hparams: if you encounter problems with accuracy, try adding --image-min-tokens 1024[0m
+load_hparams: more info: https://github.com/ggml-org/llama.cpp/issues/16842[0m
+
+load_hparams: projector:          qwen3vl_merger
+load_hparams: n_embd:             1152
+load_hparams: n_head:             16
+load_hparams: n_ff:               4304
+load_hparams: n_layer:            27
+load_hparams: ffn_op:             gelu
+load_hparams: projection_dim:     4096
+
+--- vision hparams ---
+load_hparams: image_size:         768
+load_hparams: patch_size:         16
+load_hparams: has_llava_proj:     0
+load_hparams: minicpmv_version:   0
+load_hparams: n_merge:            2
+load_hparams: n_wa_pattern: 0
+load_hparams: image_min_pixels:   8192
+load_hparams: image_max_pixels:   4194304
+
+load_hparams: model size:         6420.37 MiB
+load_hparams: metadata size:      0.31 MiB
+compat tensor transform: op=patch_embed slice 0 (permute+F16->F32) tensor=v.patch_embd.weight bytes=3538944 duration_ms=23.992 total_ops=1 total_bytes=3538944 total_ms=23.992
+compat tensor transform: op=patch_embed slice 1 (permute+F16->F32) tensor=v.patch_embd.weight.1 bytes=3538944 duration_ms=18.467 total_ops=2 total_bytes=7077888 total_ms=42.459
+compat tensor transform: op=F16->F32 promote tensor=v.position_embd.weight bytes=10616832 duration_ms=56.702 total_ops=3 total_bytes=17694720 total_ms=99.161
+compat tensor transform: op=concat sources tensor=v.blk.0.attn_qkv.weight bytes=7962624 duration_ms=13.164 total_ops=4 total_bytes=25657344 total_ms=112.325
+compat tensor transform: op=concat sources tensor=v.blk.0.attn_qkv.bias bytes=13824 duration_ms=0.257 total_ops=5 total_bytes=25671168 total_ms=112.582
+compat tensor transform: op=concat sources tensor=v.blk.1.attn_qkv.weight bytes=7962624 duration_ms=17.425 total_ops=6 total_bytes=33633792 total_ms=130.007
+compat tensor transform: op=concat sources tensor=v.blk.1.attn_qkv.bias bytes=13824 duration_ms=0.484 total_ops=7 total_bytes=33647616 total_ms=130.492
+compat tensor transform: op=concat sources tensor=v.blk.2.attn_qkv.weight bytes=7962624 duration_ms=23.163 total_ops=8 total_bytes=41610240 total_ms=153.655
+compat tensor transform: op=concat sources tensor=v.blk.2.attn_qkv.bias bytes=13824 duration_ms=0.672 total_ops=9 total_bytes=41624064 total_ms=154.327
+compat tensor transform: op=concat sources tensor=v.blk.3.attn_qkv.weight bytes=7962624 duration_ms=22.530 total_ops=10 total_bytes=49586688 total_ms=176.857
+compat tensor transform: op=concat sources tensor=v.blk.3.attn_qkv.bias bytes=13824 duration_ms=0.393 total_ops=11 total_bytes=49600512 total_ms=177.250
+compat tensor transform: op=concat sources tensor=v.blk.4.attn_qkv.weight bytes=7962624 duration_ms=19.055 total_ops=12 total_bytes=57563136 total_ms=196.305
+compat tensor transform: op=concat sources tensor=v.blk.4.attn_qkv.bias bytes=13824 duration_ms=0.385 total_ops=13 total_bytes=57576960 total_ms=196.690
+compat tensor transform: op=concat sources tensor=v.blk.5.attn_qkv.weight bytes=7962624 duration_ms=17.217 total_ops=14 total_bytes=65539584 total_ms=213.907
+compat tensor transform: op=concat sources tensor=v.blk.5.attn_qkv.bias bytes=13824 duration_ms=0.416 total_ops=15 total_bytes=65553408 total_ms=214.323
+compat tensor transform: op=concat sources tensor=v.blk.6.attn_qkv.weight bytes=7962624 duration_ms=18.017 total_ops=16 total_bytes=73516032 total_ms=232.340
+compat tensor transform: op=concat sources tensor=v.blk.6.attn_qkv.bias bytes=13824 duration_ms=0.372 total_ops=17 total_bytes=73529856 total_ms=232.712
+compat tensor transform: op=concat sources tensor=v.blk.7.attn_qkv.weight bytes=7962624 duration_ms=15.940 total_ops=18 total_bytes=81492480 total_ms=248.652
+compat tensor transform: op=concat sources tensor=v.blk.7.attn_qkv.bias bytes=13824 duration_ms=0.497 total_ops=19 total_bytes=81506304 total_ms=249.150
+compat tensor transform: op=concat sources tensor=v.blk.8.attn_qkv.weight bytes=7962624 duration_ms=16.297 total_ops=20 total_bytes=89468928 total_ms=265.446
+compat tensor transform: op=concat sources tensor=v.blk.8.attn_qkv.bias bytes=13824 duration_ms=0.637 total_ops=21 total_bytes=89482752 total_ms=266.084
+compat tensor transform: op=concat sources tensor=v.blk.9.attn_qkv.weight bytes=7962624 duration_ms=17.744 total_ops=22 total_bytes=97445376 total_ms=283.827
+compat tensor transform: op=concat sources tensor=v.blk.9.attn_qkv.bias bytes=13824 duration_ms=0.265 total_ops=23 total_bytes=97459200 total_ms=284.093
+compat tensor transform: op=concat sources tensor=v.blk.10.attn_qkv.weight bytes=7962624 duration_ms=15.278 total_ops=24 total_bytes=105421824 total_ms=299.371
+compat tensor transform: op=concat sources tensor=v.blk.10.attn_qkv.bias bytes=13824 duration_ms=0.453 total_ops=25 total_bytes=105435648 total_ms=299.824
+compat tensor transform: op=concat sources tensor=v.blk.11.attn_qkv.weight bytes=7962624 duration_ms=16.684 total_ops=26 total_bytes=113398272 total_ms=316.508
+compat tensor transform: op=concat sources tensor=v.blk.11.attn_qkv.bias bytes=13824 duration_ms=0.279 total_ops=27 total_bytes=113412096 total_ms=316.787
+compat tensor transform: op=concat sources tensor=v.blk.12.attn_qkv.weight bytes=7962624 duration_ms=17.049 total_ops=28 total_bytes=121374720 total_ms=333.836
+compat tensor transform: op=concat sources tensor=v.blk.12.attn_qkv.bias bytes=13824 duration_ms=0.438 total_ops=29 total_bytes=121388544 total_ms=334.273
+compat tensor transform: op=concat sources tensor=v.blk.13.attn_qkv.weight bytes=7962624 duration_ms=15.992 total_ops=30 total_bytes=129351168 total_ms=350.265
+compat tensor transform: op=concat sources tensor=v.blk.13.attn_qkv.bias bytes=13824 duration_ms=0.262 total_ops=31 total_bytes=129364992 total_ms=350.527
+compat tensor transform: op=concat sources tensor=v.blk.14.attn_qkv.weight bytes=7962624 duration_ms=16.547 total_ops=32 total_bytes=137327616 total_ms=367.074
+compat tensor transform: op=concat sources tensor=v.blk.14.attn_qkv.bias bytes=13824 duration_ms=0.362 total_ops=33 total_bytes=137341440 total_ms=367.436
+compat tensor transform: op=concat sources tensor=v.blk.15.attn_qkv.weight bytes=7962624 duration_ms=17.335 total_ops=34 total_bytes=145304064 total_ms=384.772
+compat tensor transform: op=concat sources tensor=v.blk.15.attn_qkv.bias bytes=13824 duration_ms=0.412 total_ops=35 total_bytes=145317888 total_ms=385.184
+compat tensor transform: op=concat sources tensor=v.blk.16.attn_qkv.weight bytes=7962624 duration_ms=17.463 total_ops=36 total_bytes=153280512 total_ms=402.646
+compat tensor transform: op=concat sources tensor=v.blk.16.attn_qkv.bias bytes=13824 duration_ms=0.433 total_ops=37 total_bytes=153294336 total_ms=403.079
+compat tensor transform: op=concat sources tensor=v.blk.17.attn_qkv.weight bytes=7962624 duration_ms=17.223 total_ops=38 total_bytes=161256960 total_ms=420.302
+compat tensor transform: op=concat sources tensor=v.blk.17.attn_qkv.bias bytes=13824 duration_ms=0.340 total_ops=39 total_bytes=161270784 total_ms=420.642
+compat tensor transform: op=concat sources tensor=v.blk.18.attn_qkv.weight bytes=7962624 duration_ms=16.837 total_ops=40 total_bytes=169233408 total_ms=437.479
+compat tensor transform: op=concat sources tensor=v.blk.18.attn_qkv.bias bytes=13824 duration_ms=0.287 total_ops=41 total_bytes=169247232 total_ms=437.767
+compat tensor transform: op=concat sources tensor=v.blk.19.attn_qkv.weight bytes=7962624 duration_ms=15.659 total_ops=42 total_bytes=177209856 total_ms=453.425
+compat tensor transform: op=concat sources tensor=v.blk.19.attn_qkv.bias bytes=13824 duration_ms=0.336 total_ops=43 total_bytes=177223680 total_ms=453.762
+compat tensor transform: op=concat sources tensor=v.blk.20.attn_qkv.weight bytes=7962624 duration_ms=16.122 total_ops=44 total_bytes=185186304 total_ms=469.883
+compat tensor transform: op=concat sources tensor=v.blk.20.attn_qkv.bias bytes=13824 duration_ms=0.306 total_ops=45 total_bytes=185200128 total_ms=470.190
+compat tensor transform: op=concat sources tensor=v.blk.21.attn_qkv.weight bytes=7962624 duration_ms=20.373 total_ops=46 total_bytes=193162752 total_ms=490.563
+compat tensor transform: op=concat sources tensor=v.blk.21.attn_qkv.bias bytes=13824 duration_ms=0.345 total_ops=47 total_bytes=193176576 total_ms=490.908
+compat tensor transform: op=concat sources tensor=v.blk.22.attn_qkv.weight bytes=7962624 duration_ms=19.111 total_ops=48 total_bytes=201139200 total_ms=510.019
+compat tensor transform: op=concat sources tensor=v.blk.22.attn_qkv.bias bytes=13824 duration_ms=0.365 total_ops=49 total_bytes=201153024 total_ms=510.385
+compat tensor transform: op=concat sources tensor=v.blk.23.attn_qkv.weight bytes=7962624 duration_ms=19.053 total_ops=50 total_bytes=209115648 total_ms=529.438
+compat tensor transform: op=concat sources tensor=v.blk.23.attn_qkv.bias bytes=13824 duration_ms=0.498 total_ops=51 total_bytes=209129472 total_ms=529.936
+compat tensor transform: op=concat sources tensor=v.blk.24.attn_qkv.weight bytes=7962624 duration_ms=16.209 total_ops=52 total_bytes=217092096 total_ms=546.145
+compat tensor transform: op=concat sources tensor=v.blk.24.attn_qkv.bias bytes=13824 duration_ms=0.419 total_ops=53 total_bytes=217105920 total_ms=546.564
+compat tensor transform: op=concat sources tensor=v.blk.25.attn_qkv.weight bytes=7962624 duration_ms=16.518 total_ops=54 total_bytes=225068544 total_ms=563.082
+compat tensor transform: op=concat sources tensor=v.blk.25.attn_qkv.bias bytes=13824 duration_ms=0.502 total_ops=55 total_bytes=225082368 total_ms=563.584
+compat tensor transform: op=concat sources tensor=v.blk.26.attn_qkv.weight bytes=7962624 duration_ms=17.755 total_ops=56 total_bytes=233044992 total_ms=581.339
+compat tensor transform: op=concat sources tensor=v.blk.26.attn_qkv.bias bytes=13824 duration_ms=0.368 total_ops=57 total_bytes=233058816 total_ms=581.707
+get_dummy_batch: warmup with image size = 1472 x 1472
+get_dummy_batch: warmup with image size = 1472 x 1472
+reserve_compute_meta:        CPU compute buffer size =   248.10 MiB
+reserve_compute_meta: graph splits = 1, nodes = 823
+warmup: flash attention is enabled
+srv    load_model: loaded multimodal model, 'C:\Users\Khaleel\.ollama\models\blobs\sha256-dec52a44569a2a25341c4e4d3fee25846eed4f6f0b936278e3a3c900bb99d37c'
+cmn  common_conte: the context does not support partial sequence removal
+srv    load_model: speculative decoding will use checkpoints
+srv    load_model: initializing, n_slots = 1, n_ctx_slot = 4096, kv_unified = 'false'
+spec common_specu: no implementations specified for speculative decoding
+slot   load_model: id  0 | task -1 | new slot, n_ctx = 4096
+srv    load_model: prompt cache is enabled, size limit: 8192 MiB
+srv    load_model: use `--cache-ram 0` to disable the prompt cache
+srv    load_model: for more info see https://github.com/ggml-org/llama.cpp/pull/16391
+srv    load_model: context checkpoints enabled, max = 32, min spacing = 8192
+srv          init: idle slots will be saved to prompt cache upon starting a new task
+srv          init: init: chat template, example_format: '<|im_start|>system
+You are a helpful assistant<|im_end|>
+<|im_start|>user
+Hello<|im_end|>
+<|im_start|>assistant
+Hi there<|im_end|>
+<|im_start|>user
+How are you?<|im_end|>
+<|im_start|>assistant
+'
+srv          init: init: chat template, thinking = 0
+srv          init: preserve_reasoning kwarg: not supported by template
+srv  llama_server: model loaded
+srv  llama_server: listening on http://127.0.0.1:18081
+srv  update_slots: all slots are idle
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       slot print_timing: id  0 | task 121 | prompt processing, n_tokens =    619, progress = 0.99, t =  66.28 s / 9.34 tokens per second
+slot   operator(): id  0 | task 121 | cached n_tokens = 619, memory_seq_rm [619, end)
+slot init_sampler: id  0 | task 121 | init sampler, took 0.46 ms, tokens: text = 623, total = 623
+slot create_check: id  0 | task 121 | created context checkpoint 2 of 32 (pos_min = 618, pos_max = 618, n_tokens = 619, size = 50.251 MiB)
+slot print_timing: id  0 | task 121 | prompt eval time =   67028.91 ms /   623 tokens (  107.59 ms per token,     9.29 tokens per second)
+slot print_timing: id  0 | task 121 |        eval time =    7581.88 ms /    19 tokens (  421.22 ms per token,     2.37 tokens per second)
+slot print_timing: id  0 | task 121 |       total time =   74610.79 ms /   642 tokens
+slot print_timing: id  0 | task 121 |    graphs reused =        119
+slot print_timing: id  0 | task 121 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 121 | stop processing: n_tokens = 641, truncated = 0
+srv  update_slots: all slots are idle
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.797 (503/631) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.797 (> 0.100 thold), f_keep = 0.785
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 143 | processing task, is_child = 0
+slot   operator(): id  0 | task 143 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 631
+slot   operator(): id  0 | task 143 | erased invalidated context checkpoint (pos_min = 110, pos_max = 110, n_tokens = 111, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 143 | erased invalidated context checkpoint (pos_min = 618, pos_max = 618, n_tokens = 619, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 143 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 143 | prompt processing, n_tokens =    119, progress = 0.19, t =  14.09 s / 8.44 tokens per second
+slot   operator(): id  0 | task 143 | cached n_tokens = 119, memory_seq_rm [119, end)
+slot create_check: id  0 | task 143 | created context checkpoint 1 of 32 (pos_min = 118, pos_max = 118, n_tokens = 119, size = 50.251 MiB)
+slot print_timing: id  0 | task 143 | prompt processing, n_tokens =    627, progress = 0.99, t =  66.16 s / 9.48 tokens per second
+slot   operator(): id  0 | task 143 | cached n_tokens = 627, memory_seq_rm [627, end)
+slot init_sampler: id  0 | task 143 | init sampler, took 0.52 ms, tokens: text = 631, total = 631
+slot create_check: id  0 | task 143 | created context checkpoint 2 of 32 (pos_min = 626, pos_max = 626, n_tokens = 627, size = 50.251 MiB)
+slot print_timing: id  0 | task 143 | prompt eval time =   66927.77 ms /   631 tokens (  106.07 ms per token,     9.43 tokens per second)
+slot print_timing: id  0 | task 143 |        eval time =   18076.39 ms /    53 tokens (  347.62 ms per token,     2.88 tokens per second)
+slot print_timing: id  0 | task 143 |       total time =   85004.17 ms /   684 tokens
+slot print_timing: id  0 | task 143 |    graphs reused =        170
+slot print_timing: id  0 | task 143 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 143 | stop processing: n_tokens = 683, truncated = 0
+srv  update_slots: all slots are idle
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.787 (500/635) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.787 (> 0.100 thold), f_keep = 0.732
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 199 | processing task, is_child = 0
+slot   operator(): id  0 | task 199 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 635
+slot   operator(): id  0 | task 199 | erased invalidated context checkpoint (pos_min = 118, pos_max = 118, n_tokens = 119, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 199 | erased invalidated context checkpoint (pos_min = 626, pos_max = 626, n_tokens = 627, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 199 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 199 | prompt processing, n_tokens =    123, progress = 0.19, t =  12.82 s / 9.59 tokens per second
+slot   operator(): id  0 | task 199 | cached n_tokens = 123, memory_seq_rm [123, end)
+slot create_check: id  0 | task 199 | created context checkpoint 1 of 32 (pos_min = 122, pos_max = 122, n_tokens = 123, size = 50.251 MiB)
+slot print_timing: id  0 | task 199 | prompt processing, n_tokens =    631, progress = 0.99, t =  64.95 s / 9.72 tokens per second
+slot   operator(): id  0 | task 199 | cached n_tokens = 631, memory_seq_rm [631, end)
+slot init_sampler: id  0 | task 199 | init sampler, took 0.41 ms, tokens: text = 635, total = 635
+slot create_check: id  0 | task 199 | created context checkpoint 2 of 32 (pos_min = 630, pos_max = 630, n_tokens = 631, size = 50.251 MiB)
+slot print_timing: id  0 | task 199 | prompt eval time =   65750.22 ms /   635 tokens (  103.54 ms per token,     9.66 tokens per second)
+slot print_timing: id  0 | task 199 |        eval time =   19370.26 ms /    53 tokens (  372.50 ms per token,     2.68 tokens per second)
+slot print_timing: id  0 | task 199 |       total time =   85120.47 ms /   688 tokens
+slot print_timing: id  0 | task 199 |    graphs reused =        221
+slot print_timing: id  0 | task 199 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 199 | stop processing: n_tokens = 687, truncated = 0
+srv  update_slots: all slots are idle
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.683 (500/732) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.683 (> 0.100 thold), f_keep = 0.728
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 255 | processing task, is_child = 0
+slot   operator(): id  0 | task 255 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 732
+slot   operator(): id  0 | task 255 | erased invalidated context checkpoint (pos_min = 122, pos_max = 122, n_tokens = 123, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 255 | erased invalidated context checkpoint (pos_min = 630, pos_max = 630, n_tokens = 631, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 255 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 255 | prompt processing, n_tokens =    220, progress = 0.30, t =  22.74 s / 9.68 tokens per second
+slot   operator(): id  0 | task 255 | cached n_tokens = 220, memory_seq_rm [220, end)
+slot create_check: id  0 | task 255 | created context checkpoint 1 of 32 (pos_min = 219, pos_max = 219, n_tokens = 220, size = 50.251 MiB)
+slot print_timing: id  0 | task 255 | prompt processing, n_tokens =    728, progress = 0.99, t =  70.46 s / 10.33 tokens per second
+slot   operator(): id  0 | task 255 | cached n_tokens = 728, memory_seq_rm [728, end)
+slot init_sampler: id  0 | task 255 | init sampler, took 0.35 ms, tokens: text = 732, total = 732
+slot create_check: id  0 | task 255 | created context checkpoint 2 of 32 (pos_min = 727, pos_max = 727, n_tokens = 728, size = 50.251 MiB)
+slot print_timing: id  0 | task 255 | prompt eval time =   71115.81 ms /   732 tokens (   97.15 ms per token,    10.29 tokens per second)
+slot print_timing: id  0 | task 255 |        eval time =   32158.10 ms /    99 tokens (  328.14 ms per token,     3.05 tokens per second)
+slot print_timing: id  0 | task 255 |       total time =  103273.91 ms /   831 tokens
+slot print_timing: id  0 | task 255 |    graphs reused =        317
+slot print_timing: id  0 | task 255 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 255 | stop processing: n_tokens = 830, truncated = 0
+srv  update_slots: all slots are idle
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.794 (500/630) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.794 (> 0.100 thold), f_keep = 0.602
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 357 | processing task, is_child = 0
+slot   operator(): id  0 | task 357 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 630
+slot   operator(): id  0 | task 357 | erased invalidated context checkpoint (pos_min = 219, pos_max = 219, n_tokens = 220, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 357 | erased invalidated context checkpoint (pos_min = 727, pos_max = 727, n_tokens = 728, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 357 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 357 | prompt processing, n_tokens =    118, progress = 0.19, t =  10.66 s / 11.07 tokens per second
+slot   operator(): id  0 | task 357 | cached n_tokens = 118, memory_seq_rm [118, end)
+slot create_check: id  0 | task 357 | created context checkpoint 1 of 32 (pos_min = 117, pos_max = 117, n_tokens = 118, size = 50.251 MiB)
+slot print_timing: id  0 | task 357 | prompt processing, n_tokens =    626, progress = 0.99, t =  59.79 s / 10.47 tokens per second
+slot   operator(): id  0 | task 357 | cached n_tokens = 626, memory_seq_rm [626, end)
+slot init_sampler: id  0 | task 357 | init sampler, took 0.47 ms, tokens: text = 630, total = 630
+slot create_check: id  0 | task 357 | created context checkpoint 2 of 32 (pos_min = 625, pos_max = 625, n_tokens = 626, size = 50.251 MiB)
+slot print_timing: id  0 | task 357 | prompt eval time =   60400.79 ms /   630 tokens (   95.87 ms per token,    10.43 tokens per second)
+slot print_timing: id  0 | task 357 |        eval time =   14111.11 ms /    45 tokens (  320.71 ms per token,     3.12 tokens per second)
+slot print_timing: id  0 | task 357 |       total time =   74511.90 ms /   675 tokens
+slot print_timing: id  0 | task 357 |    graphs reused =        360
+slot print_timing: id  0 | task 357 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 357 | stop processing: n_tokens = 674, truncated = 0
+srv  update_slots: all slots are idle
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.794 (500/630) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.794 (> 0.100 thold), f_keep = 0.742
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 405 | processing task, is_child = 0
+slot   operator(): id  0 | task 405 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 630
+slot   operator(): id  0 | task 405 | erased invalidated context checkpoint (pos_min = 117, pos_max = 117, n_tokens = 118, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 405 | erased invalidated context checkpoint (pos_min = 625, pos_max = 625, n_tokens = 626, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 405 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 405 | prompt processing, n_tokens =    118, progress = 0.19, t =  11.87 s / 9.94 tokens per second
+slot   operator(): id  0 | task 405 | cached n_tokens = 118, memory_seq_rm [118, end)
+slot create_check: id  0 | task 405 | created context checkpoint 1 of 32 (pos_min = 117, pos_max = 117, n_tokens = 118, size = 50.251 MiB)
+slot print_timing: id  0 | task 405 | prompt processing, n_tokens =    626, progress = 0.99, t =  64.74 s / 9.67 tokens per second
+slot   operator(): id  0 | task 405 | cached n_tokens = 626, memory_seq_rm [626, end)
+slot init_sampler: id  0 | task 405 | init sampler, took 0.49 ms, tokens: text = 630, total = 630
+slot create_check: id  0 | task 405 | created context checkpoint 2 of 32 (pos_min = 625, pos_max = 625, n_tokens = 626, size = 50.251 MiB)
+slot print_timing: id  0 | task 405 | prompt eval time =   65460.53 ms /   630 tokens (  103.91 ms per token,     9.62 tokens per second)
+slot print_timing: id  0 | task 405 |        eval time =   11185.30 ms /    35 tokens (  328.98 ms per token,     3.04 tokens per second)
+slot print_timing: id  0 | task 405 |       total time =   76645.82 ms /   665 tokens
+slot print_timing: id  0 | task 405 |    graphs reused =        393
+slot print_timing: id  0 | task 405 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 405 | stop processing: n_tokens = 664, truncated = 0
+srv  update_slots: all slots are idle
+srv  server_strea: conv_id= (empty=1)
+slot get_availabl: id  0 | task -1 |  - checking sim = 0.791 (501/633) > 0.100
+slot get_availabl: id  0 | task -1 | selected slot by LCP similarity, f_sim_best = 0.791 (> 0.100 thold), f_keep = 0.755
+slot launch_slot_: id  0 | task -1 | sampler chain: logits -> penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> top-p -> ?min-p -> ?xtc -> temp-ext -> greedy 
+slot launch_slot_: id  0 | task -1 | sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 1.500
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = 64
+	top_k = 20, top_p = 0.950, min_p = 0.000, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+slot launch_slot_: id  0 | task 443 | processing task, is_child = 0
+slot   operator(): id  0 | task 443 | new prompt, n_ctx_slot = 4096, n_keep = 4, task.n_tokens = 633
+slot   operator(): id  0 | task 443 | erased invalidated context checkpoint (pos_min = 117, pos_max = 117, n_tokens = 118, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 443 | erased invalidated context checkpoint (pos_min = 625, pos_max = 625, n_tokens = 626, n_swa = 0, pos_next = 0, size = 50.251 MiB)
+slot   operator(): id  0 | task 443 | cached n_tokens = 0, memory_seq_rm [0, end)
+slot print_timing: id  0 | task 443 | prompt processing, n_tokens =    121, progress = 0.19, t =  11.49 s / 10.53 tokens per second
+slot   operator(): id  0 | task 443 | cached n_tokens = 121, memory_seq_rm [121, end)
+slot create_check: id  0 | task 443 | created context checkpoint 1 of 32 (pos_min = 120, pos_max = 120, n_tokens = 121, size = 50.251 MiB)
+slot print_timing: id  0 | task 443 | prompt processing, n_tokens =    629, progress = 0.99, t =  62.21 s / 10.11 tokens per second
+slot   operator(): id  0 | task 443 | cached n_tokens = 629, memory_seq_rm [629, end)
+slot init_sampler: id  0 | task 443 | init sampler, took 0.51 ms, tokens: text = 633, total = 633
+slot create_check: id  0 | task 443 | created context checkpoint 2 of 32 (pos_min = 628, pos_max = 628, n_tokens = 629, size = 50.251 MiB)
+slot print_timing: id  0 | task 443 | prompt eval time =   62894.57 ms /   633 tokens (   99.36 ms per token,    10.06 tokens per second)
+slot print_timing: id  0 | task 443 |        eval time =    5778.89 ms /    19 tokens (  321.05 ms per token,     3.11 tokens per second)
+slot print_timing: id  0 | task 443 |       total time =   68673.46 ms /   652 tokens
+slot print_timing: id  0 | task 443 |    graphs reused =        410
+slot print_timing: id  0 | task 443 |   graph reallocs =          0    /     0        (same size) / (changed size)
+slot      release: id  0 | task 443 | stop processing: n_tokens = 651, truncated = 0
+srv  update_slots: all slots are idle
