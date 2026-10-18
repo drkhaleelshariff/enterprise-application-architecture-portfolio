@@ -126,6 +126,19 @@ corroborate every completion.
 The cause of the NUL-byte region and missing readable coverage has not
 been established. Do not infer model-state corruption from this log defect.
 
+A later [process snapshot](visitor-validation-runner-processes-20261018.json),
+preserved in commit 289e2f3, records two llama-server processes with
+the same configured port and log-file path.
+
+Their recorded launch times are 15:53:43 and 16:00:05 IST on
+18 October 2026. The snapshot was collected after the evaluation;
+it does not establish which process served each request, whether both
+were listening, or whether both wrote to the log simultaneously.
+
+Shared-log interference is a plausible explanation for the damaged
+capture, not a demonstrated cause. Both identified processes were
+subsequently terminated, and the port check returned no listener.
+
 Preserve the raw log unchanged. Do not remove the NUL bytes or present
 a cleaned derivative as the original capture.
 
